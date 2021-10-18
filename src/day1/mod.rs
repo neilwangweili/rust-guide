@@ -6,3 +6,7 @@ pub mod demo4guess_number;
 pub mod demo5variable_readable;
 pub mod demo6data_type;
 pub mod const_shadowing;
+pub mod given_value_block;
+pub mod learn_if;
+pub mod break_with_tags;
+pub mod break_with_numbers;

@@ -8,7 +8,7 @@ pub fn guess_number() -> bool {
         guess_number += 1;
         match guess_number.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too small!"),
+            Ordering::Greater => println!("Too large!"),
             Ordering::Equal => {
                 println!("Right!");
                 break;

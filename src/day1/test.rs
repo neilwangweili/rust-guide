@@ -1,5 +1,7 @@
 #[cfg(test)]
 mod tests {
+    use crate::day1::break_with_numbers::break_with_numbers;
+    use crate::day1::break_with_tags::break_with_tags;
     use crate::day1::const_shadowing::const_shadowing;
     use crate::day1::demo1hello_world::hello_world;
     use crate::day1::demo2compare_number::compare_number;
@@ -7,6 +9,8 @@ mod tests {
     use crate::day1::demo4guess_number::guess_number;
     use crate::day1::demo5variable_readable::variable_readable;
     use crate::day1::demo6data_type::data_type;
+    use crate::day1::given_value_block::given_value_block;
+    use crate::day1::learn_if::learn_if;
 
     #[test]
     fn hello_world_should_return_hello_world() {
@@ -59,4 +63,34 @@ mod tests {
         data_type();
     }
 
+    #[test]
+    fn should_given_value_block_return_correctly() {
+        assert_eq!(given_value_block(), 6);
+    }
+
+    #[test]
+    fn should_return_true_if_x_more_than_zero() {
+        assert_eq!(learn_if(5), true);
+    }
+
+    #[test]
+    fn should_return_true_if_x_equal_zero() {
+        assert_eq!(learn_if(0), true);
+    }
+
+    #[test]
+    fn should_return_false_if_x_less_than_zero() {
+        assert_eq!(learn_if(-5), false);
+    }
+
+    #[test]
+    fn should_return_3_in_double_loop() {
+        assert_eq!(break_with_tags(), 3);
+    }
+
+    #[test]
+    fn should_return_20_in_loop_return() {
+        assert_eq!(break_with_numbers(3), 20);
+    }
 }
+
