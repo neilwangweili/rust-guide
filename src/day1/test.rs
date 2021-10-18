@@ -41,7 +41,7 @@ mod tests {
 
     #[test]
     fn should_guess_number_match_secret_number() {
-        assert_eq!(guess_number(), true);
+        assert_eq!(guess_number(), false);
     }
 
     #[test]
