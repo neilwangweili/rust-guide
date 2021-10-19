@@ -1,6 +1,7 @@
 #[cfg(test)]
 mod test {
     use crate::day1practise::degree_convert::degree_convert;
+    use crate::day1practise::fibonacci_number::fibonacci_number;
 
     #[test]
     fn should_0_fahrenheit_equal_neg_17_88_celsius() {
@@ -17,4 +18,8 @@ mod test {
         assert_eq!(degree_convert(1.0, "CELSIUS", "FAHRENHEIT"), "33.80");
     }
 
+    #[test]
+    fn should_fibonacci_number_5_return_5() {
+        assert_eq!(fibonacci_number(5), 5);
+    }
 }
