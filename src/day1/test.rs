@@ -9,8 +9,10 @@ mod tests {
     use crate::day1::demo4guess_number::guess_number;
     use crate::day1::demo5variable_readable::variable_readable;
     use crate::day1::demo6data_type::data_type;
+    use crate::day1::for_loop::for_loop;
     use crate::day1::given_value_block::given_value_block;
     use crate::day1::learn_if::learn_if;
+    use crate::day1::while_loop::while_loop;
 
     #[test]
     fn hello_world_should_return_hello_world() {
@@ -91,6 +93,16 @@ mod tests {
     #[test]
     fn should_return_20_in_loop_return() {
         assert_eq!(break_with_numbers(3), 20);
+    }
+
+    #[test]
+    fn should_while_loop_run_correctly() {
+        assert_eq!(while_loop(), 0);
+    }
+
+    #[test]
+    fn should_for_run_correctly() {
+        assert_eq!(for_loop(), 50);
     }
 }
 

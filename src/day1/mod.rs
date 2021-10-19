@@ -10,3 +10,5 @@ pub mod given_value_block;
 pub mod learn_if;
 pub mod break_with_tags;
 pub mod break_with_numbers;
+pub mod while_loop;
+pub mod for_loop;
