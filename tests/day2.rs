@@ -1,32 +1,30 @@
-#[cfg(test)]
-mod test {
-    use crate::day1practise::christmas_song::christmas_song;
-    use crate::day1practise::degree_convert::degree_convert;
-    use crate::day1practise::fibonacci_number::fibonacci_number;
+use learn_rust::day1practise::christmas_song::christmas_song;
+use learn_rust::day1practise::degree_convert::degree_convert;
+use learn_rust::day1practise::fibonacci_number::fibonacci_number;
 
-    #[test]
-    fn should_0_fahrenheit_equal_neg_17_88_celsius() {
-        assert_eq!(degree_convert(0.0, "FAHRENHEIT", "CELSIUS"), "-17.78");
-    }
+#[test]
+fn should_0_fahrenheit_equal_neg_17_88_celsius() {
+    assert_eq!(degree_convert(0.0, "FAHRENHEIT", "CELSIUS"), "-17.78");
+}
 
-    #[test]
-    fn should_1_fahrenheit_equal_neg_17_22_celsius() {
-        assert_eq!(degree_convert(1.0, "FAHRENHEIT", "CELSIUS"), "-17.22");
-    }
+#[test]
+fn should_1_fahrenheit_equal_neg_17_22_celsius() {
+    assert_eq!(degree_convert(1.0, "FAHRENHEIT", "CELSIUS"), "-17.22");
+}
 
-    #[test]
-    fn should_1_celsius_equal_33_80_fahrenheit() {
-        assert_eq!(degree_convert(1.0, "CELSIUS", "FAHRENHEIT"), "33.80");
-    }
+#[test]
+fn should_1_celsius_equal_33_80_fahrenheit() {
+    assert_eq!(degree_convert(1.0, "CELSIUS", "FAHRENHEIT"), "33.80");
+}
 
-    #[test]
-    fn should_fibonacci_number_5_return_5() {
-        assert_eq!(fibonacci_number(5), 5);
-    }
+#[test]
+fn should_fibonacci_number_5_return_5() {
+    assert_eq!(fibonacci_number(5), 5);
+}
 
-    #[test]
-    fn print_christmas_song() {
-        let text: &str = "On the First day of Christmas
+#[test]
+fn print_christmas_song() {
+    let text: &str = "On the First day of Christmas
 My good friends brought to me
 A song and a Christmas tree.
 On the Second day of Christmas
@@ -128,6 +126,5 @@ Four colored lights
 Three boughs of holly
 Two candy canes
 And a song for the Christmas tree.";
-        assert_eq!(christmas_song(), text);
-    }
+    assert_eq!(christmas_song(), text);
 }
