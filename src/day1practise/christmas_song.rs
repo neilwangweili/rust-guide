@@ -17,17 +17,21 @@ pub fn christmas_song() -> String {
     for i in 1..=12 {
         result += &(String::from("On the ") + &christmas_array[i - 1][0] + &String::from(" day of Christmas\n\
         My good friends brought to me\n"));
-        let mut j = i;
-        let mut gift = String::new();
-        let gifts = loop {
-            gift += &christmas_array[j - 1][1];
-            j -= 1;
-            if j == 0 {
-                break gift;
-            }
-        };
-        result += &gifts;
+        result += &calculate_gift(&christmas_array, i);
         result += &christmas_array[i - 1][2];
     }
     return result;
+}
+
+fn calculate_gift(christmas_array: &[[String; 3]; 12], i: usize) -> String {
+    let mut j = i;
+    let mut gift = String::new();
+    let gifts = loop {
+        gift += &christmas_array[j - 1][1];
+        j -= 1;
+        if j == 0 {
+            break gift;
+        }
+    };
+    gifts
 }
