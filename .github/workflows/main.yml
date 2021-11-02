@@ -15,4 +15,4 @@ jobs:
           toolchain: stable
       - uses: actions-rs/cargo@v1
       - name: check
-        run: cargo build check
+        run: cargo check
