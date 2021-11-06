@@ -43,8 +43,8 @@ fn should_copy_struct_correctly() {
 
 #[test]
 pub fn should_init_tuple_struct_correctly() {
-    let color = learn_init_tuple_struct(0, 0, 0);
-    assert_eq!(color.0, 0);
-    assert_eq!(color.1, 0);
-    assert_eq!(color.2, 0);
+    let black = learn_init_tuple_struct(0, 0, 0);
+    assert_eq!(black.0, 0);
+    assert_eq!(black.1, 0);
+    assert_eq!(black.2, 0);
 }
