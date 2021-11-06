@@ -2,6 +2,7 @@ use learn_rust::day3::learn_init_struct::learn_init_struct;
 use learn_rust::day3::learn_init_struct_2::learn_init_struct_2;
 use learn_rust::day3::learn_init_struct_3::learn_init_struct_3;
 use learn_rust::day3::learn_init_tuple_struct::learn_init_tuple_struct;
+use learn_rust::day3::print_user::print_user;
 
 #[test]
 fn should_init_struct_successfully() {
@@ -47,4 +48,9 @@ pub fn should_init_tuple_struct_correctly() {
     assert_eq!(black.0, 0);
     assert_eq!(black.1, 0);
     assert_eq!(black.2, 0);
+}
+
+#[test]
+fn should_derive_debug_print_struct() {
+    print_user();
 }
