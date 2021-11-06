@@ -1,9 +1,4 @@
-pub struct User {
-    pub id: i32,
-    pub username: String,
-    pub email: String,
-    pub active: bool,
-}
+use crate::day3::user::User;
 
 pub fn learn_init_struct() -> User {
     return User {
