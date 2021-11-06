@@ -6,3 +6,5 @@ pub mod clone;
 pub mod ownership_4;
 pub mod ownership_5;
 pub mod deconstruction;
+pub mod references;
+
