@@ -8,6 +8,7 @@ use learn_rust::day2::ownership_5::ownership_5;
 use learn_rust::day2::references::references;
 use learn_rust::day2::references_2::references_2;
 use learn_rust::day2::references_3::references_3;
+use learn_rust::day2::references_4::references_4;
 use learn_rust::day2::string_class::string_class;
 
 #[test]
@@ -67,4 +68,9 @@ fn borrow_cant_edit_value() {
 #[test]
 fn should_mut_borrow_edit_value() {
     assert_eq!(references_3(), "Hello world!");
+}
+
+#[test]
+fn should_scope_end_to_create_mut_borrow() {
+    assert_eq!(references_4(), "hello");
 }
