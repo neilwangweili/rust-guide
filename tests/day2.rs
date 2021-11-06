@@ -7,6 +7,7 @@ use learn_rust::day2::ownership_4::ownership_4;
 use learn_rust::day2::ownership_5::ownership_5;
 use learn_rust::day2::references::references;
 use learn_rust::day2::references_2::references_2;
+use learn_rust::day2::references_3::references_3;
 use learn_rust::day2::string_class::string_class;
 
 #[test]
@@ -61,4 +62,9 @@ fn borrow_doesnt_move_ownership() {
 #[test]
 fn borrow_cant_edit_value() {
     references_2();
+}
+
+#[test]
+fn should_mut_borrow_edit_value() {
+    assert_eq!(references_3(), "Hello world!");
 }
