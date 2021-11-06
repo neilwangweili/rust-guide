@@ -10,3 +10,5 @@ pub mod references;
 pub mod references_2;
 pub mod references_3;
 pub mod references_4;
+pub mod slice_1;
+pub mod slice_2;

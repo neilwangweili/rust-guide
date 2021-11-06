@@ -9,6 +9,7 @@ use learn_rust::day2::references::references;
 use learn_rust::day2::references_2::references_2;
 use learn_rust::day2::references_3::references_3;
 use learn_rust::day2::references_4::references_4;
+use learn_rust::day2::slice_1::slice_1;
 use learn_rust::day2::string_class::string_class;
 
 #[test]
@@ -73,4 +74,9 @@ fn should_mut_borrow_edit_value() {
 #[test]
 fn should_scope_end_to_create_mut_borrow() {
     assert_eq!(references_4(), "hello");
+}
+
+#[test]
+fn should_return_word_end_index() {
+    assert_eq!(slice_1(&String::from("Hello world")), 5);
 }
