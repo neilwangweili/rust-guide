@@ -10,6 +10,7 @@ use learn_rust::day2::references_2::references_2;
 use learn_rust::day2::references_3::references_3;
 use learn_rust::day2::references_4::references_4;
 use learn_rust::day2::slice_1::slice_1;
+use learn_rust::day2::slice_2::slice_2;
 use learn_rust::day2::string_class::string_class;
 
 #[test]
@@ -79,4 +80,14 @@ fn should_scope_end_to_create_mut_borrow() {
 #[test]
 fn should_return_word_end_index() {
     assert_eq!(slice_1(&String::from("Hello world")), 5);
+}
+
+#[test]
+fn slice_role() {
+    let mut s = String::from("Hello world!");
+    let (s1, s2, s3, s4) = slice_2(&s);
+    assert_eq!(s1, "ello");
+    assert_eq!(s2, "Hello");
+    assert_eq!(s3, "o world!");
+    assert_eq!(s4, "Hello world!");
 }
