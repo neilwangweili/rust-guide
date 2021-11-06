@@ -1,1 +1,1 @@
-pub mod learn_struct;
+pub mod learn_init_struct;
