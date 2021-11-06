@@ -27,3 +27,15 @@ fn should_init_struct_by_param_correctly() {
 fn should_edit_mut_user_correctly() {
     assert_eq!(learn_init_struct_3(String::from("")).username, "");
 }
+
+#[test]
+fn should_copy_struct_correctly() {
+    let user = learn_init_struct_2(1,
+                                   String::from("Neil"),
+                                   String::from("webmaster@neilwang.wiki"),
+                                   true);
+    assert_eq!(user.id, 1);
+    assert_eq!(user.username, String::from("Neil"));
+    assert_eq!(user.email, String::from("webmaster@neilwang.wiki"));
+    assert_eq!(user.active, true);
+}
