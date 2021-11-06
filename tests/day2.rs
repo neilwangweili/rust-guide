@@ -1,3 +1,4 @@
+use learn_rust::day2::clone::clone;
 use learn_rust::day2::ownership_1::ownership_1;
 use learn_rust::day2::ownership_2::ownership_2;
 use learn_rust::day2::ownership_3::ownership_3;
@@ -21,4 +22,9 @@ fn should_stack_variable_have_no_ownership() {
 #[test]
 fn should_import_type_variable_move_to_newest_variable() {
     assert_eq!(ownership_3(), "Hello world!");
+}
+
+#[test]
+fn should_clone_doesnt_move_ownership() {
+    assert_eq!(clone(), "Hello world!");
 }
