@@ -6,3 +6,5 @@ pub mod copy_struct;
 pub mod color;
 pub mod learn_init_tuple_struct;
 pub mod print_user;
+pub mod struct_method;
+

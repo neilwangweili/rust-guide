@@ -3,6 +3,7 @@ use learn_rust::day3::learn_init_struct_2::learn_init_struct_2;
 use learn_rust::day3::learn_init_struct_3::learn_init_struct_3;
 use learn_rust::day3::learn_init_tuple_struct::learn_init_tuple_struct;
 use learn_rust::day3::print_user::print_user;
+use learn_rust::day3::struct_method::struct_method;
 
 #[test]
 fn should_init_struct_successfully() {
@@ -53,4 +54,13 @@ pub fn should_init_tuple_struct_correctly() {
 #[test]
 fn should_derive_debug_print_struct() {
     print_user();
+}
+
+#[test]
+fn test_getter() {
+    let string = struct_method(1,
+                               String::from("Neil"),
+                               String::from("webmaster@neilwang.wiki"),
+                               true);
+    assert_eq!(string, 1);
 }

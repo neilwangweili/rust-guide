@@ -5,3 +5,10 @@ pub struct User {
     pub email: String,
     pub active: bool,
 }
+
+impl User {
+    pub fn get_id(&self) -> i32 {
+        (&self).id
+    }
+}
+
