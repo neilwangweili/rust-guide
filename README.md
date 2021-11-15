@@ -17,6 +17,9 @@ Run the following script to verify that the development environment is working, 
 sh ./scripts/check-all.sh
 ~~~
 
+## Attention
+Test coverage must be 100%.
+
 ## The role of this repository
 
 Learn Rust grammar and practice.
