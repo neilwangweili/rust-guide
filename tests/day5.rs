@@ -1,4 +1,5 @@
 use learn_rust::day5::coin::Coin;
+use learn_rust::day5::if_let::is_quarter;
 use learn_rust::day5::us_state::UsState;
 use learn_rust::day5::learn_match::match_coins;
 use learn_rust::day5::match_options::plus_one;
@@ -37,4 +38,14 @@ fn should_plus_one_in_option() {
 #[test]
 fn should_none_plus_one_return_none() {
     assert_eq!(plus_one(None), None);
+}
+
+#[test]
+fn is_a_quarter() {
+    assert_eq!(is_quarter(Coin::Quarter), true);
+}
+
+#[test]
+fn is_not_a_quarter() {
+    assert_eq!(is_quarter(Coin::Dime), false);
 }
