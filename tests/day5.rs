@@ -1,6 +1,7 @@
 use learn_rust::day5::coin::Coin;
 use learn_rust::day5::us_state::UsState;
 use learn_rust::day5::learn_match::match_coins;
+use learn_rust::day5::match_options::plus_one;
 
 #[test]
 fn should_match_denomination_of_penny() {
@@ -26,4 +27,14 @@ fn should_match_denomination_of_quarter() {
 #[test]
 fn should_match_denomination_of_any_state() {
     assert_eq!(match_coins(Coin::AnotherEnumEg(UsState::Alabama)), 0);
+}
+
+#[test]
+fn should_plus_one_in_option() {
+    assert_eq!(plus_one(Some(5)), Some(6));
+}
+
+#[test]
+fn should_none_plus_one_return_none() {
+    assert_eq!(plus_one(None), None);
 }
