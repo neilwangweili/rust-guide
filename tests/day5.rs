@@ -3,6 +3,7 @@ use learn_rust::day5::if_let::is_quarter;
 use learn_rust::day5::us_state::UsState;
 use learn_rust::day5::learn_match::match_coins;
 use learn_rust::day5::match_options::plus_one;
+use learn_rust::day5::restaurant::eat_at_restaurant;
 
 #[test]
 fn should_match_denomination_of_penny() {
@@ -48,4 +49,15 @@ fn is_a_quarter() {
 #[test]
 fn is_not_a_quarter() {
     assert_eq!(is_quarter(Coin::Dime), false);
+}
+
+#[test]
+fn should_add_to_wait_list_twice() {
+    eat_at_restaurant();
+}
+
+
+#[test]
+fn should_get_toast_correctly() {
+    assert_eq!(learn_rust::day5::restaurant::front_of_house::serving::eat_at_restaurant("Wheat"), "Wheat");
 }
