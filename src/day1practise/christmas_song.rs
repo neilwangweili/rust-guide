@@ -26,12 +26,11 @@ pub fn christmas_song() -> String {
 fn calculate_gift(christmas_array: &[[String; 3]; 12], i: usize) -> String {
     let mut j = i;
     let mut gift = String::new();
-    let gifts = loop {
+    loop {
         gift += &christmas_array[j - 1][1];
         j -= 1;
         if j == 0 {
             break gift;
         }
-    };
-    gifts
+    }
 }
