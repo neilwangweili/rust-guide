@@ -5,3 +5,4 @@ pub mod match_options;
 pub mod if_let;
 pub mod restaurant;
 pub mod learn_vector;
+pub mod read_element_in_vector;
