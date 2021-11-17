@@ -1,9 +1,6 @@
-use learn_rust::day5::coin::Coin;
-use learn_rust::day5::if_let::is_quarter;
-use learn_rust::day5::us_state::UsState;
-use learn_rust::day5::learn_match::match_coins;
-use learn_rust::day5::match_options::plus_one;
-use learn_rust::day5::restaurant::eat_at_restaurant;
+use learn_rust::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
+                       learn_match::match_coins, match_options::plus_one,
+                       restaurant::eat_at_restaurant};
 
 #[test]
 fn should_match_denomination_of_penny() {
