@@ -1,6 +1,8 @@
+use std::collections::HashMap;
 use learn_rust::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
                        learn_match::match_coins, match_options::plus_one,
                        restaurant::eat_at_restaurant};
+use learn_rust::day5::build_map_from_two_vector::build_map_from_two_vector;
 use learn_rust::day5::for_all_element::for_all_element;
 use learn_rust::day5::learn_map::init_map;
 use learn_rust::day5::learn_vector::init_vector;
@@ -91,6 +93,22 @@ fn should_get_a_map_with_blue_10_yellow_50() {
     }
     if let Some(i) = map.get("Yellow") {
         assert_eq!(*i, 50);
+    } else {
+        panic!();
+    }
+}
+
+#[test]
+fn should_get_a_map_from_two_vector() {
+    let (key, value) = build_map_from_two_vector();
+    let map: HashMap<_, _> = key.iter().zip(value.iter()).collect();
+    if let Some(i) = map.get(&String::from("Blue")) {
+        assert_eq!(**i, 10);
+    } else {
+        panic!();
+    }
+    if let Some(i) = map.get(&String::from("Yellow")) {
+        assert_eq!(**i, 50);
     } else {
         panic!();
     }
