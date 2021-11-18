@@ -3,6 +3,7 @@ use learn_rust::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
                        learn_match::match_coins, match_options::plus_one,
                        restaurant::eat_at_restaurant};
 use learn_rust::day5::build_map_from_two_vector::build_map_from_two_vector;
+use learn_rust::day5::calculate_number_of_letter_occurrences::calculate_number_of_letter_occurrences;
 use learn_rust::day5::for_all_element::for_all_element;
 use learn_rust::day5::learn_entry::learn_entry;
 use learn_rust::day5::learn_map::init_map;
@@ -120,4 +121,21 @@ fn should_set_value_if_not_exist() {
     let map = learn_entry();
     assert_eq!(map.get("Blue"), Some(&10));
     assert_eq!(map.get("Yellow"), Some(&50));
+}
+
+#[test]
+fn should_calculate_letter_numbers() {
+    let result = calculate_number_of_letter_occurrences("Hello rust! Rust is powerful.");
+    assert_eq!(result.get(&'e'), Some(&2));
+    assert_eq!(result.get(&'r'), Some(&3));
+    assert_eq!(result.get(&'s'), Some(&3));
+    assert_eq!(result.get(&'i'), Some(&1));
+    assert_eq!(result.get(&'f'), Some(&1));
+    assert_eq!(result.get(&'w'), Some(&1));
+    assert_eq!(result.get(&'h'), Some(&1));
+    assert_eq!(result.get(&'u'), Some(&3));
+    assert_eq!(result.get(&'t'), Some(&2));
+    assert_eq!(result.get(&'e'), Some(&2));
+    assert_eq!(result.get(&'o'), Some(&2));
+    assert_eq!(result.get(&'p'), Some(&1));
 }

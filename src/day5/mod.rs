@@ -10,3 +10,4 @@ pub mod for_all_element;
 pub mod learn_map;
 pub mod build_map_from_two_vector;
 pub mod learn_entry;
+pub mod calculate_number_of_letter_occurrences;
