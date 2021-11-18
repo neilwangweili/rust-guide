@@ -2,6 +2,7 @@ use learn_rust::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
                        learn_match::match_coins, match_options::plus_one,
                        restaurant::eat_at_restaurant};
 use learn_rust::day5::for_all_element::for_all_element;
+use learn_rust::day5::learn_map::init_map;
 use learn_rust::day5::learn_vector::init_vector;
 use learn_rust::day5::read_element_in_vector::read_element_in_vector;
 
@@ -78,4 +79,19 @@ fn should_get_element_in_vector() {
 #[test]
 fn should_for_all_element_in_vector() {
     assert_eq!(for_all_element(vec![1, 2, 3]), vec![1, 2, 3]);
+}
+
+#[test]
+fn should_get_a_map_with_blue_10_yellow_50() {
+    let map = init_map();
+    if let Some(i) = map.get("Blue") {
+        assert_eq!(*i, 10);
+    } else {
+        panic!();
+    }
+    if let Some(i) = map.get("Yellow") {
+        assert_eq!(*i, 50);
+    } else {
+        panic!();
+    }
 }

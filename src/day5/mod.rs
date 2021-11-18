@@ -7,3 +7,4 @@ pub mod restaurant;
 pub mod learn_vector;
 pub mod read_element_in_vector;
 pub mod for_all_element;
+pub mod learn_map;
