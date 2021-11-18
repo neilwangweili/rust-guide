@@ -4,6 +4,7 @@ use learn_rust::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
                        restaurant::eat_at_restaurant};
 use learn_rust::day5::build_map_from_two_vector::build_map_from_two_vector;
 use learn_rust::day5::for_all_element::for_all_element;
+use learn_rust::day5::learn_entry::learn_entry;
 use learn_rust::day5::learn_map::init_map;
 use learn_rust::day5::learn_vector::init_vector;
 use learn_rust::day5::read_element_in_vector::read_element_in_vector;
@@ -112,4 +113,11 @@ fn should_get_a_map_from_two_vector() {
     } else {
         panic!();
     }
+}
+
+#[test]
+fn should_set_value_if_not_exist() {
+    let map = learn_entry();
+    assert_eq!(map.get("Blue"), Some(&10));
+    assert_eq!(map.get("Yellow"), Some(&50));
 }
