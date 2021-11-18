@@ -1,6 +1,6 @@
 use std::io::Error;
 use learn_rust::day6::direct_panic::direct_panic;
-use learn_rust::day6::generic::largest;
+use learn_rust::day6::largest::largest;
 use learn_rust::day6::read_username_from_file::read_username_from_file;
 use learn_rust::day6::recoverable_panic::recoverable_panic;
 use learn_rust::day6::unimplemented::unimplemented;
