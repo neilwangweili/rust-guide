@@ -5,7 +5,15 @@ pub struct FizzBuzzLine {
 impl FizzBuzzLine {
     pub fn new(i: i32) -> Self {
         Self {
-            value: i.to_string()
+            value: Self::calculate_value(i)
+        }
+    }
+
+    fn calculate_value(i: i32) -> String {
+        if i % 3 == 0 {
+            String::from("Fizz")
+        } else {
+            i.to_string()
         }
     }
 
