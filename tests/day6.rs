@@ -3,6 +3,7 @@ use learn_rust::day6::bird::Bird;
 use learn_rust::day6::bird_can_fly::bird_can_fly;
 use learn_rust::day6::direct_panic::direct_panic;
 use learn_rust::day6::fly_things::fly_things;
+use learn_rust::day6::fly_things_2::fly_things_2;
 use learn_rust::day6::largest::largest;
 use learn_rust::day6::read_username_from_file::read_username_from_file;
 use learn_rust::day6::recoverable_panic::recoverable_panic;
@@ -65,4 +66,9 @@ pub fn bird_with_big_wing_can_fly() {
 #[test]
 pub fn should_something_can_fly() {
     assert_eq!(fly_things(&Bird::new("big")), "Bird can fly with big wings.");
+}
+
+#[test]
+pub fn should_something_can_fly_which_arg_is_trait_bound() {
+    assert_eq!(fly_things_2(&Bird::new("big")), "Bird can fly with big wings.");
 }
