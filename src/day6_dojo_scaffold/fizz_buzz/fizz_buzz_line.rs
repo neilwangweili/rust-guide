@@ -10,13 +10,23 @@ impl FizzBuzzLine {
     }
 
     fn calculate_value(i: i32) -> String {
-        if i % 3 == 0 {
+        if Self::has_three(i) && Self::has_five(i) {
+            String::from("FizzBuzz")
+        } else if Self::has_three(i) {
             String::from("Fizz")
-        } else if i % 5 == 0 {
+        } else if Self::has_five(i) {
             String::from("Buzz")
         } else {
             i.to_string()
         }
+    }
+
+    fn has_five(i: i32) -> bool {
+        i % 5 == 0
+    }
+
+    fn has_three(i: i32) -> bool {
+        i % 3 == 0
     }
 
     pub fn value(&self) -> &str {

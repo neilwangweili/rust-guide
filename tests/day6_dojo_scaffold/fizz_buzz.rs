@@ -14,3 +14,13 @@ fn should_3_return_fizz() {
 fn should_5_return_buzz() {
     assert_eq!(FizzBuzz::new().report(5), "Buzz");
 }
+
+#[test]
+fn should_15_return_fizz_buzz() {
+    assert_eq!(FizzBuzz::new().report(15), "FizzBuzz");
+}
+
+#[test]
+fn should_13_return_fizz() {
+    assert_eq!(FizzBuzz::new().report(13), "Fizz");
+}
