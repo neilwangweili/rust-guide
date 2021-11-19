@@ -6,6 +6,7 @@ use learn_rust::day6::direct_panic::direct_panic;
 use learn_rust::day6::fly_things::fly_things;
 use learn_rust::day6::fly_things_2::fly_things_2;
 use learn_rust::day6::largest::largest;
+use learn_rust::day6::longest::longest;
 use learn_rust::day6::pair::Pair;
 use learn_rust::day6::read_username_from_file::read_username_from_file;
 use learn_rust::day6::recoverable_panic::recoverable_panic;
@@ -83,4 +84,9 @@ pub fn should_create_fly_things_with_wing() {
 #[test]
 pub fn should_show_biggest_in_pair() {
     assert_eq!(Pair::new(1, 2).cmp_display(), &2);
+}
+
+#[test]
+pub fn find_longest() {
+    assert_eq!(longest("12", "123"), "123");
 }
