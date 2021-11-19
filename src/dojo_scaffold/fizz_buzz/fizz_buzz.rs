@@ -5,9 +5,9 @@ pub struct FizzBuzz {
 }
 
 impl FizzBuzz {
-    pub fn new() -> Self {
+    pub fn new(capacity: i32) -> Self {
         let mut line = Vec::new();
-        for i in 1..101 {
+        for i in 1..=capacity {
             line.push(FizzBuzzLine::new(i));
         }
         Self {
