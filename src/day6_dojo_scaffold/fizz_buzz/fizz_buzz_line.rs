@@ -12,6 +12,8 @@ impl FizzBuzzLine {
     fn calculate_value(i: i32) -> String {
         if i % 3 == 0 {
             String::from("Fizz")
+        } else if i % 5 == 0 {
+            String::from("Buzz")
         } else {
             i.to_string()
         }

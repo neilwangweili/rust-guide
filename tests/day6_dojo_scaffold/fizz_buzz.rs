@@ -9,3 +9,8 @@ fn should_1_return_1() {
 fn should_3_return_fizz() {
     assert_eq!(FizzBuzz::new().report(3), "Fizz");
 }
+
+#[test]
+fn should_5_return_buzz() {
+    assert_eq!(FizzBuzz::new().report(5), "Buzz");
+}
