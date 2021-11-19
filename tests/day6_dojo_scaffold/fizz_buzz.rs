@@ -29,3 +29,8 @@ fn should_13_return_fizz() {
 fn should_52_return_buzz() {
     assert_eq!(FizzBuzz::new().report(50), "Buzz");
 }
+
+#[test]
+fn should_30_return_buzz() {
+    assert_eq!(FizzBuzz::new().report(30), "FizzBuzz");
+}
