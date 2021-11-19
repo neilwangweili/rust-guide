@@ -7,3 +7,4 @@ pub mod largest;
 pub mod flyable;
 pub mod bird;
 pub mod bird_can_fly;
+pub mod fly_things;
