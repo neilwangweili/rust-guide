@@ -10,3 +10,4 @@ pub mod bird_can_fly;
 pub mod fly_things;
 pub mod fly_things_2;
 pub mod create_bird;
+pub mod pair;
