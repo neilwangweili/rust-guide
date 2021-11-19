@@ -4,3 +4,6 @@ pub mod read_username_from_file;
 pub mod unimplemented;
 pub mod unreachable;
 pub mod largest;
+pub mod flyable;
+pub mod bird;
+pub mod bird_can_fly;

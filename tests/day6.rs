@@ -1,4 +1,5 @@
 use std::io::Error;
+use learn_rust::day6::bird_can_fly::bird_can_fly;
 use learn_rust::day6::direct_panic::direct_panic;
 use learn_rust::day6::largest::largest;
 use learn_rust::day6::read_username_from_file::read_username_from_file;
@@ -52,4 +53,9 @@ pub fn should_get_max_in_double() {
 #[test]
 pub fn should_get_max_in_char() {
     assert_eq!(largest(&vec!['a', 'b', 'c', 'f', 'g']), 'g');
+}
+
+#[test]
+pub fn bird_with_big_wing_can_fly() {
+    assert_eq!(bird_can_fly("big"), "Bird can fly with big wings.");
 }
