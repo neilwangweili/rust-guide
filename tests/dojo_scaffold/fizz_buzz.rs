@@ -1,4 +1,4 @@
-use learn_rust::day6_dojo_scaffold::fizz_buzz::fizz_buzz::FizzBuzz;
+use learn_rust::dojo_scaffold::fizz_buzz::fizz_buzz::FizzBuzz;
 
 #[test]
 fn should_1_return_1() {

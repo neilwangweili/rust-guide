@@ -5,4 +5,4 @@ pub mod day3;
 pub mod day4;
 pub mod day5;
 pub mod day6;
-pub mod day6_dojo_scaffold;
+pub mod dojo_scaffold;
