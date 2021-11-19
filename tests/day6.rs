@@ -1,6 +1,7 @@
 use std::io::Error;
 use learn_rust::day6::bird::Bird;
 use learn_rust::day6::bird_can_fly::bird_can_fly;
+use learn_rust::day6::create_bird::create_bird;
 use learn_rust::day6::direct_panic::direct_panic;
 use learn_rust::day6::fly_things::fly_things;
 use learn_rust::day6::fly_things_2::fly_things_2;
@@ -71,4 +72,9 @@ pub fn should_something_can_fly() {
 #[test]
 pub fn should_something_can_fly_which_arg_is_trait_bound() {
     assert_eq!(fly_things_2(&Bird::new("big")), "Bird can fly with big wings.");
+}
+
+#[test]
+pub fn should_create_fly_things_with_wing() {
+    assert_eq!(create_bird("big").fly(), "Bird can fly with big wings.");
 }
