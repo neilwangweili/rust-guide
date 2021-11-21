@@ -51,6 +51,22 @@ fn should_aged_brie_pass_one_day_quality_plus_two() {
 }
 
 #[test]
+fn should_aged_brie_pass_one_day_quality_plus_one_less_50() {
+    let mut item = Item::create_item(String::from("Aged Brie"), 50, 2);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 50);
+}
+
+#[test]
+fn should_aged_brie_pass_one_day_quality_plus_two_less_50() {
+    let mut item = Item::create_item(String::from("Aged Brie"), 50, 0);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 50);
+}
+
+#[test]
 fn should_sulfras_item_forever() {
     let mut item = Item::create_item(String::from("Sulfuras"), 80, 0);
     let mut gilded_rose = GildedRose::new(vec![item]);

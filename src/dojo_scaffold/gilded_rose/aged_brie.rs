@@ -23,6 +23,9 @@ impl PassOneDay for AgedBrie {
             true => { self.quality += 1 }
             false => { self.quality += 2 }
         }
+        if self.quality > 50 {
+            self.quality = 50;
+        }
     }
 
     fn quality(&self) -> i32 {
