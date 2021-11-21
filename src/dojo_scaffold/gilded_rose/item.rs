@@ -1,4 +1,5 @@
 use crate::dojo_scaffold::gilded_rose::aged_brie_item::AgedBrieItem;
+use crate::dojo_scaffold::gilded_rose::backstage_pass_item::BackstagePassItem;
 use crate::dojo_scaffold::gilded_rose::gilded_rose::GildedRose;
 use crate::dojo_scaffold::gilded_rose::pass_one_day::PassOneDay;
 use crate::dojo_scaffold::gilded_rose::sulfuras_item::SulfurasItem;
@@ -15,6 +16,8 @@ impl Item {
             SulfurasItem::new(name, quality, sell_in)
         } else if name.eq("Aged Brie") {
             AgedBrieItem::new(name, quality, sell_in)
+        } else if name.eq("Backstage pass") {
+            BackstagePassItem::new(name, quality, sell_in)
         } else {
             Self::new(name, quality, sell_in)
         }

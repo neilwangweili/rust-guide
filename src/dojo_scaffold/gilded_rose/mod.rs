@@ -3,3 +3,4 @@ pub mod gilded_rose;
 pub mod item;
 pub mod sulfuras_item;
 pub mod aged_brie_item;
+pub mod backstage_pass_item;

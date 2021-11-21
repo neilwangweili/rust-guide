@@ -73,3 +73,51 @@ fn should_sulfras_item_forever() {
     gilded_rose.pass_one_day();
     assert_eq!(gilded_rose.get(0).quality(), 80);
 }
+
+#[test]
+fn should_backstage_pass_item_down_1() {
+    let mut item = Item::create_item(String::from("Backstage pass"), 40, 12);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 39);
+}
+
+#[test]
+fn should_backstage_pass_item_down_1_more_zero() {
+    let mut item = Item::create_item(String::from("Backstage pass"), 0, 12);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 0);
+}
+
+#[test]
+fn should_backstage_pass_item_plus_2_in_ten_days() {
+    let mut item = Item::create_item(String::from("Backstage pass"), 0, 10);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 2);
+}
+
+#[test]
+fn should_backstage_pass_item_plus_2_in_ten_days_less_50() {
+    let mut item = Item::create_item(String::from("Backstage pass"), 50, 10);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 50);
+}
+
+#[test]
+fn should_backstage_pass_item_plus_3_in_five_days() {
+    let mut item = Item::create_item(String::from("Backstage pass"), 0, 5);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 3);
+}
+
+#[test]
+fn should_backstage_pass_item_become_0_out_of_date() {
+    let mut item = Item::create_item(String::from("Backstage pass"), 50, 0);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 0);
+}
