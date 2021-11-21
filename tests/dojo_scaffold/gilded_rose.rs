@@ -19,6 +19,22 @@ fn should_common_project_pass_one_day_quality_down_two() {
 }
 
 #[test]
+fn should_common_project_pass_one_day_quality_down_one_not_down_zero() {
+    let mut item = Item::create_item(String::from("Common item"), 0, 2);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 0);
+}
+
+#[test]
+fn should_common_project_pass_one_day_quality_down_two_not_down_zero() {
+    let mut item = Item::create_item(String::from("Common item"), 0, 0);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 0);
+}
+
+#[test]
 fn should_aged_brie_pass_one_day_quality_plus_one() {
     let mut item = Item::create_item(String::from("Aged Brie"), 10, 2);
     let mut gilded_rose = GildedRose::new(vec![item]);

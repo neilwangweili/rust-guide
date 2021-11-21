@@ -36,6 +36,9 @@ impl PassOneDay for Item {
             true => { self.quality -= 1 }
             false => { self.quality -= 2 }
         }
+        if self.quality < 0 {
+            self.quality = 0;
+        }
     }
 
     fn quality(&self) -> i32 {
