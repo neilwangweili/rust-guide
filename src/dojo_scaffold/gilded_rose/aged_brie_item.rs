@@ -1,12 +1,12 @@
 use crate::dojo_scaffold::gilded_rose::pass_one_day::PassOneDay;
 
-pub struct AgedBrie {
+pub struct AgedBrieItem {
     name: String,
     quality: i32,
     sell_in: i32,
 }
 
-impl AgedBrie {
+impl AgedBrieItem {
     pub fn new(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
         Box::new(Self {
             name,
@@ -16,7 +16,7 @@ impl AgedBrie {
     }
 }
 
-impl PassOneDay for AgedBrie {
+impl PassOneDay for AgedBrieItem {
     fn pass_one_day(&mut self) {
         self.sell_in -= 1;
         match self.sell_in >= 0 {
