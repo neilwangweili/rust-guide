@@ -14,3 +14,8 @@ fn should_10_mm_return_1_cm() {
 fn should_1_mm_return_1_mm() {
     assert_eq!(Unit::new("mm", 1.0).to("mm"), 1.0);
 }
+
+#[test]
+fn should_1_mm_return_10_cm() {
+    assert_eq!(Unit::new("mm", 1.0).to("cm"), 10.0);
+}
