@@ -17,3 +17,11 @@ fn should_common_project_pass_one_day_quality_down_two() {
     gilded_rose.pass_one_day();
     assert_eq!(gilded_rose.get(0).quality(), 8);
 }
+
+#[test]
+fn should_sulfras_item_forever() {
+    let mut item = Item::create_item(String::from("Sulfuras"), 80, 0);
+    let mut gilded_rose = GildedRose::new(vec![item]);
+    gilded_rose.pass_one_day();
+    assert_eq!(gilded_rose.get(0).quality(), 80);
+}

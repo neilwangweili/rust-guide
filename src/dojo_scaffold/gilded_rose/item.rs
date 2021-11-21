@@ -1,4 +1,5 @@
 use crate::dojo_scaffold::gilded_rose::pass_one_day::PassOneDay;
+use crate::dojo_scaffold::gilded_rose::sulfuras_item::SulfurasItem;
 
 pub struct Item {
     name: String,
@@ -8,13 +9,20 @@ pub struct Item {
 
 impl Item {
     pub fn create_item(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
+        if name.eq("Sulfuras") {
+            SulfurasItem::new(name, quality, sell_in)
+        } else {
+            Self::new(name, quality, sell_in)
+        }
+    }
+
+    fn new(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
         Box::new(Self {
             name,
             quality,
             sell_in,
         })
     }
-
 }
 
 impl PassOneDay for Item {
