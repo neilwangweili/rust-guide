@@ -1,3 +1,5 @@
+use crate::dojo_scaffold::gilded_rose::aged_brie::AgedBrie;
+use crate::dojo_scaffold::gilded_rose::gilded_rose::GildedRose;
 use crate::dojo_scaffold::gilded_rose::pass_one_day::PassOneDay;
 use crate::dojo_scaffold::gilded_rose::sulfuras_item::SulfurasItem;
 
@@ -11,6 +13,8 @@ impl Item {
     pub fn create_item(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
         if name.eq("Sulfuras") {
             SulfurasItem::new(name, quality, sell_in)
+        } else if name.eq("Aged Brie") {
+            AgedBrie::new(name, quality, sell_in)
         } else {
             Self::new(name, quality, sell_in)
         }
