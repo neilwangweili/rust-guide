@@ -46,4 +46,13 @@ impl Location {
         };
     }
 
+    pub fn move_back(&mut self) {
+        match self.direction {
+            Direction::S => { self.y -= 1 }
+            Direction::E => { self.x -= 1 }
+            Direction::N => { self.y += 1 }
+            Direction::W => { self.x += 1 }
+        };
+    }
+
 }
