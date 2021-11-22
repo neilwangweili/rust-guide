@@ -18,7 +18,7 @@ fn should_init_a_mars_rover_with_x_max_10_y_max_15_x_3_y_3() {
 fn should_mars_rover_turn_left_to_east_at_north() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::N);
     let mut vec = Vec::new();
-    vec.push(TurnLeft::new());
+    vec.push(TurnLeft::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -30,7 +30,7 @@ fn should_mars_rover_turn_left_to_east_at_north() {
 fn should_mars_rover_turn_left_to_south_at_east() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::E);
     let mut vec = Vec::new();
-    vec.push(TurnLeft::new());
+    vec.push(TurnLeft::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -42,7 +42,7 @@ fn should_mars_rover_turn_left_to_south_at_east() {
 fn should_mars_rover_turn_left_to_west_at_south() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::S);
     let mut vec = Vec::new();
-    vec.push(TurnLeft::new());
+    vec.push(TurnLeft::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -54,7 +54,7 @@ fn should_mars_rover_turn_left_to_west_at_south() {
 fn should_mars_rover_turn_left_to_north_at_west() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::W);
     let mut vec = Vec::new();
-    vec.push(TurnLeft::new());
+    vec.push(TurnLeft::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -66,7 +66,7 @@ fn should_mars_rover_turn_left_to_north_at_west() {
 fn should_mars_rover_turn_right_to_west_at_north() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::N);
     let mut vec = Vec::new();
-    vec.push(TurnRight::new());
+    vec.push(TurnRight::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -78,7 +78,7 @@ fn should_mars_rover_turn_right_to_west_at_north() {
 fn should_mars_rover_turn_right_to_south_at_west() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::W);
     let mut vec = Vec::new();
-    vec.push(TurnRight::new());
+    vec.push(TurnRight::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -90,7 +90,7 @@ fn should_mars_rover_turn_right_to_south_at_west() {
 fn should_mars_rover_turn_right_to_east_at_south() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::S);
     let mut vec = Vec::new();
-    vec.push(TurnRight::new());
+    vec.push(TurnRight::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -102,7 +102,7 @@ fn should_mars_rover_turn_right_to_east_at_south() {
 fn should_mars_rover_turn_right_to_north_at_east() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::E);
     let mut vec = Vec::new();
-    vec.push(TurnRight::new());
+    vec.push(TurnRight::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -114,7 +114,7 @@ fn should_mars_rover_turn_right_to_north_at_east() {
 fn should_mars_rover_move_toward_at_east() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::E);
     let mut vec = Vec::new();
-    vec.push(RunToward::new());
+    vec.push(RunToward::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -126,7 +126,7 @@ fn should_mars_rover_move_toward_at_east() {
 fn should_mars_rover_move_toward_at_south() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::S);
     let mut vec = Vec::new();
-    vec.push(RunToward::new());
+    vec.push(RunToward::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -138,7 +138,7 @@ fn should_mars_rover_move_toward_at_south() {
 fn should_mars_rover_move_toward_at_west() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::W);
     let mut vec = Vec::new();
-    vec.push(RunToward::new());
+    vec.push(RunToward::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -150,7 +150,7 @@ fn should_mars_rover_move_toward_at_west() {
 fn should_mars_rover_move_back_at_east() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::E);
     let mut vec = Vec::new();
-    vec.push(RunBack::new());
+    vec.push(RunBack::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -162,7 +162,7 @@ fn should_mars_rover_move_back_at_east() {
 fn should_mars_rover_move_back_at_south() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::S);
     let mut vec = Vec::new();
-    vec.push(RunBack::new());
+    vec.push(RunBack::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -174,7 +174,7 @@ fn should_mars_rover_move_back_at_south() {
 fn should_mars_rover_move_back_at_west() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::W);
     let mut vec = Vec::new();
-    vec.push(RunBack::new());
+    vec.push(RunBack::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -186,7 +186,7 @@ fn should_mars_rover_move_back_at_west() {
 fn should_mars_rover_move_back_at_north() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::N);
     let mut vec = Vec::new();
-    vec.push(RunBack::new());
+    vec.push(RunBack::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),
@@ -198,15 +198,15 @@ fn should_mars_rover_move_back_at_north() {
 fn should_mars_rover_run_successfully() {
     let mut mars_rover = MarsRover::put_on(10, 15, 3, 3, Direction::N);
     let mut vec: Vec<Box<dyn Command>> = Vec::new();
-    vec.push(RunToward::new());
-    vec.push(RunToward::new());
-    vec.push(TurnLeft::new());
-    vec.push(RunToward::new());
-    vec.push(TurnRight::new());
-    vec.push(RunBack::new());
-    vec.push(TurnLeft::new());
-    vec.push(TurnLeft::new());
-    vec.push(RunBack::new());
+    vec.push(RunToward::make());
+    vec.push(RunToward::make());
+    vec.push(TurnLeft::make());
+    vec.push(RunToward::make());
+    vec.push(TurnRight::make());
+    vec.push(RunBack::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(RunBack::make());
     mars_rover.execute_commands(&vec);
     assert_eq!(
         mars_rover.report(),

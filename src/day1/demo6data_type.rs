@@ -72,15 +72,15 @@ pub fn data_type() {
     println!("b = {}", b_i32);
     println!("c = {}", c_i32);
     //也可以使用.来访问它们
-    let five_hundred = tup.0;
-    let six_point_four = tup.1;
-    let one = tup.2;
+    let _five_hundred = tup.0;
+    let _six_point_four = tup.1;
+    let _one = tup.2;
 
     // 另一个包含多个值的方式是 数组（array）。
     // 与元组不同，数组中的每个元素的类型必须相同。
     // Rust 中的数组与一些其他语言中的数组不同，
     // 因为 Rust 中的数组是固定长度的：一旦声明，它们的长度不能增长或缩小。
-    let months = [
+    let _months = [
         "January",
         "February",
         "March",
@@ -95,7 +95,7 @@ pub fn data_type() {
         "December",
     ];
 
-    let array: [i32; 5] = [1, 2, 3, 4, 5];
+    let _array: [i32; 5] = [1, 2, 3, 4, 5];
     // 3;5 -> 3,3,3,3,3
     let array2 = [3; 5];
 

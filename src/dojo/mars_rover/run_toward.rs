@@ -5,7 +5,7 @@ use crate::dojo::mars_rover::run::Run;
 pub struct RunToward {}
 
 impl RunToward {
-    pub fn new() -> Box<dyn Command> {
+    pub fn make() -> Box<dyn Command> {
         Box::new(Self {})
     }
 }

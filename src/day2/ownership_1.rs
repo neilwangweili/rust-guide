@@ -1,6 +1,6 @@
 pub fn ownership_1() -> &'static str {
     {
-        let s = "hello world!";
+        let _s = "hello world!";
     }
     // s is unusable.
     return "";

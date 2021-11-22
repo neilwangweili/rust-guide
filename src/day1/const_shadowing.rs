@@ -11,6 +11,7 @@ pub fn const_shadowing(x: i32) -> i32 {
     // Error:
     // let mut spaces = "   ";
     // spaces = spaces.len(); [类型不符合，将i32类型赋值给str类型会报错]
+    print!("{}", THREE_HOURS_IN_SECONDS);
     let x = x + 1;
     {
         //然后，在内部作用域内，第三个 let 语句也隐藏了 x，将之前的值乘以 2，x 得到的值是 12。

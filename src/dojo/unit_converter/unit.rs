@@ -25,6 +25,6 @@ impl Unit {
     }
 
     pub fn to(&self, unit: &str) -> f32 {
-        &self.value / (&self.units.get(unit)).unwrap()
+        self.value / (&self.units.get(unit)).unwrap()
     }
 }

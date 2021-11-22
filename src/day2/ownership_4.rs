@@ -8,6 +8,6 @@ pub fn ownership_4() -> i32 {
     return x;
 }
 
-fn take_copy(x: i32) {}
+fn take_copy(_x: i32) {}
 
-fn take_ownership(s: String) {}
+fn take_ownership(_s: String) {}
