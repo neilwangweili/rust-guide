@@ -27,4 +27,13 @@ impl Location {
             Direction::W => { self.direction = Direction::N }
         };
     }
+
+    pub fn turn_right(&mut self) {
+        match self.direction {
+            Direction::S => { self.direction = Direction::E }
+            Direction::E => { self.direction = Direction::N }
+            Direction::N => { self.direction = Direction::W }
+            Direction::W => { self.direction = Direction::S }
+        };
+    }
 }

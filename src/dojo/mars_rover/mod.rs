@@ -5,3 +5,4 @@ pub mod direction;
 pub mod command;
 pub mod turn;
 pub mod turn_left;
+pub mod turn_right;
