@@ -1,5 +1,5 @@
 [package]
-name = "learn-rust"
+name = "rust-guide"
 version = "0.1.0"
 edition = "2021"
 authors = ["Neil Wang <webmaster@neilwang.wiki>"]
