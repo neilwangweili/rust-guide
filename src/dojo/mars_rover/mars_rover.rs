@@ -1,4 +1,5 @@
 use crate::dojo::mars_rover::area::Area;
+use crate::dojo::mars_rover::command::Command;
 use crate::dojo::mars_rover::direction::Direction;
 use crate::dojo::mars_rover::location::Location;
 
@@ -17,5 +18,11 @@ impl MarsRover {
 
     pub fn report(&self) -> String {
         self.location.report()
+    }
+
+    pub fn execute_commands<T: Command>(&mut self, commands: &Vec<T>) {
+        for command in commands.iter() {
+            command.execute(&mut self.location);
+        }
     }
 }
