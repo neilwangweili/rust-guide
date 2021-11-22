@@ -7,37 +7,35 @@ on:
   workflow_dispatch:
 jobs:
 
-# Test suite 不知道干啥的
-#  test:
-#    name: Test Suite
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout sources
-#        uses: actions/checkout@v2
-#
-#      - name: Install stable toolchain
-#        uses: actions-rs/toolchain@v1
-#        with:
-#          profile: minimal
-#          toolchain: stable
-#          target: wasm32-unknown-unknown
-#          override: true
-#
-#      - name: Run unit tests
-#        uses: actions-rs/cargo@v1
-#        with:
-#          command: test
-#          args: --locked
-#        env:
-#          RUST_BACKTRACE: 1
-#
-#      - name: Compile WASM contract
-#        uses: actions-rs/cargo@v1
-#        with:
-#          command: build --release --target wasm32-unknown-unknown
-#          args: --locked
-#        env:
-#          RUSTFLAGS: "-C link-arg=-s"
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Run unit tests
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --locked
+        env:
+          RUST_BACKTRACE: 1
+
+      - name: Compile WASM contract
+        uses: actions-rs/cargo@v1
+        with:
+          command: build --release
+          args: --locked
+        env:
+          RUSTFLAGS: "-C link-arg=-s"
 
   codecov:
     name: Unit test coverage
