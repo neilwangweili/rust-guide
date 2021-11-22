@@ -121,3 +121,9 @@ fn should_backstage_pass_item_become_0_out_of_date() {
     gilded_rose.pass_one_day();
     assert_eq!(gilded_rose.get(0).quality(), 0);
 }
+
+#[test]
+fn fix_coverage_unuseful() {
+    let gilded_rose = GildedRose::new(vec![]);
+    assert_eq!(gilded_rose.quality(), 0);
+}
