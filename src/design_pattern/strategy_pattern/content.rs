@@ -1,6 +1,6 @@
-use crate::design_pattern::strategy_mode::less_than_zero_strategy::LessThanZeroStrategy;
-use crate::design_pattern::strategy_mode::more_than_zero_strategy::MoreThanZeroStrategy;
-use crate::design_pattern::strategy_mode::strategy::Strategy;
+use crate::design_pattern::strategy_pattern::less_than_zero_strategy::LessThanZeroStrategy;
+use crate::design_pattern::strategy_pattern::more_than_zero_strategy::MoreThanZeroStrategy;
+use crate::design_pattern::strategy_pattern::strategy::Strategy;
 
 pub struct Content {
     strategy: Box<dyn Strategy>,

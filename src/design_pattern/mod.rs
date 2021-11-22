@@ -1,1 +1,1 @@
-pub mod strategy_mode;
+pub mod strategy_pattern;

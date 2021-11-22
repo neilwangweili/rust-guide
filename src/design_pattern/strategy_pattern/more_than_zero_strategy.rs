@@ -1,4 +1,4 @@
-use crate::design_pattern::strategy_mode::strategy::Strategy;
+use crate::design_pattern::strategy_pattern::strategy::Strategy;
 
 pub struct MoreThanZeroStrategy {
     input: i32,
