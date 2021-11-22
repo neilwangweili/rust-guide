@@ -5,7 +5,6 @@ pub mod direct_panic;
 pub mod fly_things;
 pub mod fly_things_2;
 pub mod flyable;
-pub mod largest;
 pub mod longest;
 pub mod pair;
 pub mod read_username_from_file;

@@ -4,7 +4,6 @@ use rust_guide::day6::create_bird::create_bird;
 use rust_guide::day6::direct_panic::direct_panic;
 use rust_guide::day6::fly_things::fly_things;
 use rust_guide::day6::fly_things_2::fly_things_2;
-use rust_guide::day6::largest::largest;
 use rust_guide::day6::longest::longest;
 use rust_guide::day6::pair::Pair;
 use rust_guide::day6::read_username_from_file::read_username_from_file;
@@ -55,26 +54,6 @@ pub fn unimplemented_method() {
 #[should_panic(expected = "")]
 pub fn unreachable_method() {
     unreachable();
-}
-
-#[test]
-pub fn should_get_max_in_int() {
-    assert_eq!(largest(&vec![34, 50, 25, 100, 65]), 100);
-}
-
-#[test]
-pub fn should_get_max_in_int_2() {
-    assert_eq!(largest(&vec![500, 50, 25, 100, 65]), 500);
-}
-
-#[test]
-pub fn should_get_max_in_double() {
-    assert_eq!(largest(&vec![34.2, 50.0, 25.3, 100.9, 65.6]), 100.9);
-}
-
-#[test]
-pub fn should_get_max_in_char() {
-    assert_eq!(largest(&vec!['a', 'b', 'c', 'f', 'g']), 'g');
 }
 
 #[test]
