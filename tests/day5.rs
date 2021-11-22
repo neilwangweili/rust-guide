@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use rust_guide::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
-                       learn_match::match_coins, match_options::plus_one,
-                       restaurant::eat_at_restaurant};
+                       learn_match::match_coins, match_options::plus_one};
 use rust_guide::day5::build_map_from_two_vector::build_map_from_two_vector;
 use rust_guide::day5::calculate_number_of_letter_occurrences::calculate_number_of_letter_occurrences;
 use rust_guide::day5::for_all_element::for_all_element;
@@ -54,17 +53,6 @@ fn is_a_quarter() {
 #[test]
 fn is_not_a_quarter() {
     assert_eq!(is_quarter(Coin::Dime), false);
-}
-
-#[test]
-fn should_add_to_wait_list_twice() {
-    eat_at_restaurant();
-}
-
-
-#[test]
-fn should_get_toast_correctly() {
-    assert_eq!(rust_guide::day5::restaurant::front_of_house::serving::eat_at_restaurant("Wheat"), "Wheat");
 }
 
 #[test]
