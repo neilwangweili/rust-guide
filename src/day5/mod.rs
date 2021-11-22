@@ -1,7 +1,6 @@
 pub mod build_map_from_two_vector;
 pub mod calculate_number_of_letter_occurrences;
 pub mod coin;
-pub mod for_all_element;
 pub mod if_let;
 pub mod learn_entry;
 pub mod learn_map;

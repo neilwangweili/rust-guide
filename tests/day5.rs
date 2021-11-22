@@ -1,6 +1,5 @@
 use rust_guide::day5::build_map_from_two_vector::build_map_from_two_vector;
 use rust_guide::day5::calculate_number_of_letter_occurrences::calculate_number_of_letter_occurrences;
-use rust_guide::day5::for_all_element::for_all_element;
 use rust_guide::day5::learn_entry::learn_entry;
 use rust_guide::day5::learn_map::init_map;
 use rust_guide::day5::learn_vector::init_vector;
@@ -67,11 +66,6 @@ fn should_init_vector_correctly() {
 fn should_get_element_in_vector() {
     let a = read_element_in_vector()[2];
     assert_eq!(a, 3);
-}
-
-#[test]
-fn should_for_all_element_in_vector() {
-    assert_eq!(for_all_element(vec![1, 2, 3]), vec![1, 2, 3]);
 }
 
 #[test]
