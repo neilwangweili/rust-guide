@@ -21,7 +21,12 @@ pub fn should_panic_directly() {
 
 #[test]
 pub fn should_recoverable_panic_be_caught() {
-    assert_eq!(recoverable_panic(), "Error");
+    assert_eq!(recoverable_panic("./acsc"), "Error");
+}
+
+#[test]
+pub fn should_ok() {
+    assert_eq!(recoverable_panic("README.md"), "Ok");
 }
 
 #[test]
@@ -84,6 +89,11 @@ pub fn should_create_fly_things_with_wing() {
 #[test]
 pub fn should_show_biggest_in_pair() {
     assert_eq!(Pair::new(1, 2).cmp_display(), &2);
+}
+
+#[test]
+pub fn should_show_biggest_in_pair_2() {
+    assert_eq!(Pair::new(2, 1).cmp_display(), &2);
 }
 
 #[test]
