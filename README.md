@@ -1,5 +1,8 @@
 # Learn rust
 
+## [Design patterns by Rust](./src/design_pattern)
+## [Dojo by Rust](./src/dojo)
+
 ## How to deploy, run, and redevelop
 
 Run following script to install rustup:
