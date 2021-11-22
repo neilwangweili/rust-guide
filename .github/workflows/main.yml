@@ -21,6 +21,9 @@ jobs:
           toolchain: 1.51.0
           target: wasm32-unknown-unknown
           override: true
+        run: |
+          rustup update
+          cargo update
 
       - name: Run unit tests
         uses: actions-rs/cargo@v1
