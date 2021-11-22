@@ -21,6 +21,8 @@ jobs:
           toolchain: 1.51.0
           target: wasm32-unknown-unknown
           override: true
+
+      - name: Update version
         run: |
           rustup update
           cargo update
