@@ -46,7 +46,7 @@ fn should_mars_rover_turn_left_to_north_at_west() {
 }
 
 #[test]
-fn should_mars_rover_turn_left_to_west_at_north() {
+fn should_mars_rover_turn_right_to_west_at_north() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::N);
     let mut vec = Vec::new();
     vec.push(TurnRight::new());
@@ -55,10 +55,19 @@ fn should_mars_rover_turn_left_to_west_at_north() {
 }
 
 #[test]
-fn should_mars_rover_turn_left_to_south_at_west() {
+fn should_mars_rover_turn_right_to_south_at_west() {
     let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::W);
     let mut vec = Vec::new();
     vec.push(TurnRight::new());
     mars_rover.execute_commands(&vec);
     assert_eq!(mars_rover.report(), "I'm 3 on the X-axis and 3 on the Y-axis and facing South.");
+}
+
+#[test]
+fn should_mars_rover_turn_right_to_east_at_south() {
+    let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::S);
+    let mut vec = Vec::new();
+    vec.push(TurnRight::new());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(mars_rover.report(), "I'm 3 on the X-axis and 3 on the Y-axis and facing East.");
 }
