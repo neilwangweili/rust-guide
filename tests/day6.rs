@@ -32,11 +32,17 @@ pub fn should_ok() {
 #[test]
 #[should_panic(expected = "No such file or directory")]
 pub fn should_panic_directly_with_question_mark() {
-    let a = read_username_from_file();
+    let a = read_username_from_file("./not_a_correct_direction");
     match a {
         Err(e) => panic!("{}", e),
         _ => {}
     }
+}
+
+#[test]
+pub fn should_panic_directly_with_question_mark_2() {
+    let a = read_username_from_file("README.md");
+    assert_eq!(a.is_ok(), true);
 }
 
 #[test]
