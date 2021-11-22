@@ -1,7 +1,6 @@
 use std::fmt::{Display, Formatter};
 
 pub enum Direction {
-    // Right S E N W
     S,
     E,
     N,
