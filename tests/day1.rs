@@ -1,16 +1,16 @@
-use learn_rust::day1::break_with_numbers::break_with_numbers;
-use learn_rust::day1::break_with_tags::break_with_tags;
-use learn_rust::day1::const_shadowing::const_shadowing;
-use learn_rust::day1::demo1hello_world::hello_world;
-use learn_rust::day1::demo2compare_number::compare_number;
-use learn_rust::day1::demo3type_change::type_change;
-use learn_rust::day1::demo4guess_number::guess_number;
-use learn_rust::day1::demo5variable_readable::variable_readable;
-use learn_rust::day1::demo6data_type::data_type;
-use learn_rust::day1::for_loop::for_loop;
-use learn_rust::day1::given_value_block::given_value_block;
-use learn_rust::day1::learn_if::learn_if;
-use learn_rust::day1::while_loop::while_loop;
+use rust_guide::day1::break_with_numbers::break_with_numbers;
+use rust_guide::day1::break_with_tags::break_with_tags;
+use rust_guide::day1::const_shadowing::const_shadowing;
+use rust_guide::day1::demo1hello_world::hello_world;
+use rust_guide::day1::demo2compare_number::compare_number;
+use rust_guide::day1::demo3type_change::type_change;
+use rust_guide::day1::demo4guess_number::guess_number;
+use rust_guide::day1::demo5variable_readable::variable_readable;
+use rust_guide::day1::demo6data_type::data_type;
+use rust_guide::day1::for_loop::for_loop;
+use rust_guide::day1::given_value_block::given_value_block;
+use rust_guide::day1::learn_if::learn_if;
+use rust_guide::day1::while_loop::while_loop;
 
 #[test]
 fn hello_world_should_return_hello_world() {

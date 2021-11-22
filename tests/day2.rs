@@ -1,17 +1,17 @@
-use learn_rust::day2::clone::clone;
-use learn_rust::day2::deconstruction::deconstruction;
-use learn_rust::day2::ownership_1::ownership_1;
-use learn_rust::day2::ownership_2::ownership_2;
-use learn_rust::day2::ownership_3::ownership_3;
-use learn_rust::day2::ownership_4::ownership_4;
-use learn_rust::day2::ownership_5::ownership_5;
-use learn_rust::day2::references::references;
-use learn_rust::day2::references_2::references_2;
-use learn_rust::day2::references_3::references_3;
-use learn_rust::day2::references_4::references_4;
-use learn_rust::day2::slice_1::slice_1;
-use learn_rust::day2::slice_2::slice_2;
-use learn_rust::day2::string_class::string_class;
+use rust_guide::day2::clone::clone;
+use rust_guide::day2::deconstruction::deconstruction;
+use rust_guide::day2::ownership_1::ownership_1;
+use rust_guide::day2::ownership_2::ownership_2;
+use rust_guide::day2::ownership_3::ownership_3;
+use rust_guide::day2::ownership_4::ownership_4;
+use rust_guide::day2::ownership_5::ownership_5;
+use rust_guide::day2::references::references;
+use rust_guide::day2::references_2::references_2;
+use rust_guide::day2::references_3::references_3;
+use rust_guide::day2::references_4::references_4;
+use rust_guide::day2::slice_1::slice_1;
+use rust_guide::day2::slice_2::slice_2;
+use rust_guide::day2::string_class::string_class;
 
 #[test]
 fn should_variable_in_function_block() {

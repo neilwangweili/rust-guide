@@ -1,17 +1,17 @@
 use std::io::Error;
-use learn_rust::day6::bird::Bird;
-use learn_rust::day6::bird_can_fly::bird_can_fly;
-use learn_rust::day6::create_bird::create_bird;
-use learn_rust::day6::direct_panic::direct_panic;
-use learn_rust::day6::fly_things::fly_things;
-use learn_rust::day6::fly_things_2::fly_things_2;
-use learn_rust::day6::largest::largest;
-use learn_rust::day6::longest::longest;
-use learn_rust::day6::pair::Pair;
-use learn_rust::day6::read_username_from_file::read_username_from_file;
-use learn_rust::day6::recoverable_panic::recoverable_panic;
-use learn_rust::day6::unimplemented::unimplemented;
-use learn_rust::day6::unreachable::unreachable;
+use rust_guide::day6::bird::Bird;
+use rust_guide::day6::bird_can_fly::bird_can_fly;
+use rust_guide::day6::create_bird::create_bird;
+use rust_guide::day6::direct_panic::direct_panic;
+use rust_guide::day6::fly_things::fly_things;
+use rust_guide::day6::fly_things_2::fly_things_2;
+use rust_guide::day6::largest::largest;
+use rust_guide::day6::longest::longest;
+use rust_guide::day6::pair::Pair;
+use rust_guide::day6::read_username_from_file::read_username_from_file;
+use rust_guide::day6::recoverable_panic::recoverable_panic;
+use rust_guide::day6::unimplemented::unimplemented;
+use rust_guide::day6::unreachable::unreachable;
 
 #[test]
 #[should_panic(expected = "Crash and burn!")]

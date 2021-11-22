@@ -1,6 +1,6 @@
-use learn_rust::day1practise::christmas_song::christmas_song;
-use learn_rust::day1practise::degree_convert::degree_convert;
-use learn_rust::day1practise::fibonacci_number::fibonacci_number;
+use rust_guide::day1practise::christmas_song::christmas_song;
+use rust_guide::day1practise::degree_convert::degree_convert;
+use rust_guide::day1practise::fibonacci_number::fibonacci_number;
 
 #[test]
 fn should_0_fahrenheit_equal_neg_17_88_celsius() {

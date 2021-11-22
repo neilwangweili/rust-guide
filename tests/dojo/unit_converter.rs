@@ -1,4 +1,4 @@
-use learn_rust::dojo::unit_converter::unit::Unit;
+use rust_guide::dojo::unit_converter::unit::Unit;
 
 #[test]
 fn should_1000_mm_return_1_m() {

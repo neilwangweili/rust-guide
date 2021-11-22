@@ -1,4 +1,4 @@
-use learn_rust::design_pattern::strategy_pattern::content::Content;
+use rust_guide::design_pattern::strategy_pattern::content::Content;
 
 #[test]
 fn absolute_of_positive_number() {

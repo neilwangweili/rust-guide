@@ -1,14 +1,14 @@
 use std::collections::HashMap;
-use learn_rust::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
+use rust_guide::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
                        learn_match::match_coins, match_options::plus_one,
                        restaurant::eat_at_restaurant};
-use learn_rust::day5::build_map_from_two_vector::build_map_from_two_vector;
-use learn_rust::day5::calculate_number_of_letter_occurrences::calculate_number_of_letter_occurrences;
-use learn_rust::day5::for_all_element::for_all_element;
-use learn_rust::day5::learn_entry::learn_entry;
-use learn_rust::day5::learn_map::init_map;
-use learn_rust::day5::learn_vector::init_vector;
-use learn_rust::day5::read_element_in_vector::read_element_in_vector;
+use rust_guide::day5::build_map_from_two_vector::build_map_from_two_vector;
+use rust_guide::day5::calculate_number_of_letter_occurrences::calculate_number_of_letter_occurrences;
+use rust_guide::day5::for_all_element::for_all_element;
+use rust_guide::day5::learn_entry::learn_entry;
+use rust_guide::day5::learn_map::init_map;
+use rust_guide::day5::learn_vector::init_vector;
+use rust_guide::day5::read_element_in_vector::read_element_in_vector;
 
 #[test]
 fn should_match_denomination_of_penny() {
@@ -64,7 +64,7 @@ fn should_add_to_wait_list_twice() {
 
 #[test]
 fn should_get_toast_correctly() {
-    assert_eq!(learn_rust::day5::restaurant::front_of_house::serving::eat_at_restaurant("Wheat"), "Wheat");
+    assert_eq!(rust_guide::day5::restaurant::front_of_house::serving::eat_at_restaurant("Wheat"), "Wheat");
 }
 
 #[test]
