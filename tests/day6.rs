@@ -90,3 +90,8 @@ pub fn should_show_biggest_in_pair() {
 pub fn find_longest() {
     assert_eq!(longest("12", "123"), "123");
 }
+
+#[test]
+pub fn find_longest_2() {
+    assert_eq!(longest("1234", "123"), "1234");
+}
