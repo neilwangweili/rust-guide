@@ -1,4 +1,4 @@
-# Learn rust
+# Rust guide
 
 ## [Programmer Dojo by Rust](./src/dojo)
 ## [Design patterns by Rust](./src/design_pattern)
