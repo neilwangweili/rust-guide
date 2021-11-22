@@ -63,6 +63,11 @@ pub fn should_get_max_in_int() {
 }
 
 #[test]
+pub fn should_get_max_in_int_2() {
+    assert_eq!(largest(&vec![500, 50, 25, 100, 65]), 500);
+}
+
+#[test]
 pub fn should_get_max_in_double() {
     assert_eq!(largest(&vec![34.2, 50.0, 25.3, 100.9, 65.6]), 100.9);
 }
