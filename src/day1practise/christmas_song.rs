@@ -69,7 +69,7 @@ pub fn christmas_song() -> String {
         result += &calculate_gift(&christmas_array, i);
         result += &christmas_array[i - 1][2];
     }
-    return result;
+    result
 }
 
 fn calculate_gift(christmas_array: &[[String; 3]; 12], i: usize) -> String {
