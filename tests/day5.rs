@@ -1,6 +1,3 @@
-use std::collections::HashMap;
-use rust_guide::day5::{coin::Coin, if_let::is_quarter, us_state::UsState,
-                       learn_match::match_coins, match_options::plus_one};
 use rust_guide::day5::build_map_from_two_vector::build_map_from_two_vector;
 use rust_guide::day5::calculate_number_of_letter_occurrences::calculate_number_of_letter_occurrences;
 use rust_guide::day5::for_all_element::for_all_element;
@@ -8,12 +5,16 @@ use rust_guide::day5::learn_entry::learn_entry;
 use rust_guide::day5::learn_map::init_map;
 use rust_guide::day5::learn_vector::init_vector;
 use rust_guide::day5::read_element_in_vector::read_element_in_vector;
+use rust_guide::day5::{
+    coin::Coin, if_let::is_quarter, learn_match::match_coins, match_options::plus_one,
+    us_state::UsState,
+};
+use std::collections::HashMap;
 
 #[test]
 fn should_match_denomination_of_penny() {
     assert_eq!(match_coins(Coin::Penny), 1);
 }
-
 
 #[test]
 fn should_match_denomination_of_nickel() {

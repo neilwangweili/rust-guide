@@ -17,10 +17,12 @@ fn should_init_struct_successfully() {
 
 #[test]
 fn should_init_struct_by_param_correctly() {
-    let user = learn_init_struct_2(1,
-                                   String::from("Neil"),
-                                   String::from("webmaster@neilwang.wiki"),
-                                   true);
+    let user = learn_init_struct_2(
+        1,
+        String::from("Neil"),
+        String::from("webmaster@neilwang.wiki"),
+        true,
+    );
     assert_eq!(user.id, 1);
     assert_eq!(user.username, String::from("Neil"));
     assert_eq!(user.email, String::from("webmaster@neilwang.wiki"));
@@ -34,10 +36,12 @@ fn should_edit_mut_user_correctly() {
 
 #[test]
 fn should_copy_struct_correctly() {
-    let user = copy_struct(1,
-                                   String::from("Neil"),
-                                   String::from("webmaster@neilwang.wiki"),
-                                   true);
+    let user = copy_struct(
+        1,
+        String::from("Neil"),
+        String::from("webmaster@neilwang.wiki"),
+        true,
+    );
     assert_eq!(user.id, 1);
     assert_eq!(user.username, String::from("Neil"));
     assert_eq!(user.email, String::from("webmaster@neilwang.wiki"));
@@ -59,9 +63,11 @@ fn should_derive_debug_print_struct() {
 
 #[test]
 fn test_getter() {
-    let string = struct_method(1,
-                               String::from("Neil"),
-                               String::from("webmaster@neilwang.wiki"),
-                               true);
+    let string = struct_method(
+        1,
+        String::from("Neil"),
+        String::from("webmaster@neilwang.wiki"),
+        true,
+    );
     assert_eq!(string, 1);
 }

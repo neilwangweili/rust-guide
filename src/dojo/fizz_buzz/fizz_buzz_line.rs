@@ -5,7 +5,7 @@ pub struct FizzBuzzLine {
 impl FizzBuzzLine {
     pub fn new(i: i32) -> Self {
         Self {
-            value: Self::calculate_value(i)
+            value: Self::calculate_value(i),
         }
     }
 

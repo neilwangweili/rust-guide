@@ -102,4 +102,3 @@ fn should_while_loop_run_correctly() {
 fn should_for_run_correctly() {
     assert_eq!(for_loop(), 50);
 }
-

@@ -7,7 +7,7 @@ pub struct Bird {
 impl Bird {
     pub fn new(wing: &str) -> Bird {
         return Bird {
-            wing: String::from(wing)
+            wing: String::from(wing),
         };
     }
 }

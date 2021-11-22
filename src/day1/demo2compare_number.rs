@@ -12,6 +12,6 @@ pub fn compare_number(guess: u32) -> bool {
     return match guess.cmp(&secret_number) {
         Ordering::Less => false,
         Ordering::Greater => false,
-        Ordering::Equal => true
+        Ordering::Equal => true,
     };
 }

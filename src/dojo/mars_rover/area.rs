@@ -5,9 +5,6 @@ pub struct Area {
 
 impl Area {
     pub fn tectonic(x: i32, y: i32) -> Self {
-        Self {
-            x,
-            y,
-        }
+        Self { x, y }
     }
 }

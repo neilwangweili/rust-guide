@@ -10,9 +10,7 @@ impl FizzBuzz {
         for i in 1..=capacity {
             line.push(FizzBuzzLine::new(i));
         }
-        Self {
-            line
-        }
+        Self { line }
     }
 
     pub fn report(&self, index: usize) -> &str {

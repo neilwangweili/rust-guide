@@ -8,12 +8,11 @@ pub struct SulfurasItem {
 
 impl SulfurasItem {
     pub fn new(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
-        Box::new(
-            SulfurasItem {
-                name,
-                quality,
-                sell_in,
-            })
+        Box::new(SulfurasItem {
+            name,
+            quality,
+            sell_in,
+        })
     }
 }
 

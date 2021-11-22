@@ -6,9 +6,7 @@ pub struct LessThanZeroStrategy {
 
 impl LessThanZeroStrategy {
     pub fn new(input: i32) -> Self {
-        Self {
-            input
-        }
+        Self { input }
     }
 }
 

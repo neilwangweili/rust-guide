@@ -36,8 +36,8 @@ impl PassOneDay for Item {
     fn pass_one_day(&mut self) {
         self.sell_in -= 1;
         match self.sell_in >= 0 {
-            true => { self.quality -= 1 }
-            false => { self.quality -= 2 }
+            true => self.quality -= 1,
+            false => self.quality -= 2,
         }
         if self.quality < 0 {
             self.quality = 0;

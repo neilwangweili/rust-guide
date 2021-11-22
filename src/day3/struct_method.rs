@@ -5,6 +5,7 @@ pub fn struct_method(id: i32, username: String, email: String, b: bool) -> i32 {
         id,
         username,
         email,
-        active: b
-    }.get_id()
+        active: b,
+    }
+    .get_id()
 }

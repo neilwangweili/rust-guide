@@ -7,10 +7,7 @@ pub struct Pair<T> {
 
 impl<T> Pair<T> {
     pub fn new(x: T, y: T) -> Self {
-        Self {
-            x,
-            y,
-        }
+        Self { x, y }
     }
 }
 

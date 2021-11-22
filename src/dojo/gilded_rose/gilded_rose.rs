@@ -6,11 +6,8 @@ pub struct GildedRose {
 
 impl GildedRose {
     pub fn new(items: Vec<Box<dyn PassOneDay>>) -> Self {
-        Self {
-            items
-        }
+        Self { items }
     }
-
 
     pub fn get(&self, index: usize) -> &Box<dyn PassOneDay> {
         (&self.items).get(index).unwrap()

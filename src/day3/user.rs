@@ -11,4 +11,3 @@ impl User {
         (&self).id
     }
 }
-

@@ -5,6 +5,6 @@ pub fn learn_init_struct_2(id: i32, username: String, email: String, b: bool) ->
         id,
         username,
         email,
-        active: b
+        active: b,
     }
 }

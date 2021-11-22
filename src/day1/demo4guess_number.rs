@@ -1,5 +1,5 @@
-use std::cmp::Ordering;
 use rand::Rng;
+use std::cmp::Ordering;
 
 pub fn guess_number() -> bool {
     let secret_number: i32 = rand::thread_rng().gen_range(1..=100);

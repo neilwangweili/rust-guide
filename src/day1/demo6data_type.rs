@@ -80,8 +80,20 @@ pub fn data_type() {
     // 与元组不同，数组中的每个元素的类型必须相同。
     // Rust 中的数组与一些其他语言中的数组不同，
     // 因为 Rust 中的数组是固定长度的：一旦声明，它们的长度不能增长或缩小。
-    let months = ["January", "February", "March", "April", "May", "June", "July",
-        "August", "September", "October", "November", "December"];
+    let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
 
     let array: [i32; 5] = [1, 2, 3, 4, 5];
     // 3;5 -> 3,3,3,3,3

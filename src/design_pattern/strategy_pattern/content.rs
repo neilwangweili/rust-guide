@@ -13,7 +13,7 @@ impl Content {
                 Box::new(MoreThanZeroStrategy::new(input))
             } else {
                 Box::new(LessThanZeroStrategy::new(input))
-            }
+            },
         }
     }
 

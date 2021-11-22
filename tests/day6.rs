@@ -1,4 +1,3 @@
-use std::io::Error;
 use rust_guide::day6::bird::Bird;
 use rust_guide::day6::bird_can_fly::bird_can_fly;
 use rust_guide::day6::create_bird::create_bird;
@@ -12,6 +11,7 @@ use rust_guide::day6::read_username_from_file::read_username_from_file;
 use rust_guide::day6::recoverable_panic::recoverable_panic;
 use rust_guide::day6::unimplemented::unimplemented;
 use rust_guide::day6::unreachable::unreachable;
+use std::io::Error;
 
 #[test]
 #[should_panic(expected = "Crash and burn!")]
@@ -84,12 +84,18 @@ pub fn bird_with_big_wing_can_fly() {
 
 #[test]
 pub fn should_something_can_fly() {
-    assert_eq!(fly_things(&Bird::new("big")), "Bird can fly with big wings.");
+    assert_eq!(
+        fly_things(&Bird::new("big")),
+        "Bird can fly with big wings."
+    );
 }
 
 #[test]
 pub fn should_something_can_fly_which_arg_is_trait_bound() {
-    assert_eq!(fly_things_2(&Bird::new("big")), "Bird can fly with big wings.");
+    assert_eq!(
+        fly_things_2(&Bird::new("big")),
+        "Bird can fly with big wings."
+    );
 }
 
 #[test]
