@@ -1,4 +1,4 @@
-use rust_guide::dojo::fizz_buzz::fizz_buzz::FizzBuzz;
+use rust_guide::dojo::fizz_buzz_demo::fizz_buzz::FizzBuzz;
 
 #[test]
 fn should_1_return_1() {

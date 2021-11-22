@@ -1,6 +1,6 @@
-use crate::dojo::mars_rover::command::Command;
-use crate::dojo::mars_rover::location::Location;
-use crate::dojo::mars_rover::turn::Turn;
+use crate::dojo::mars_rover_journey::command::Command;
+use crate::dojo::mars_rover_journey::location::Location;
+use crate::dojo::mars_rover_journey::turn::Turn;
 
 pub struct TurnRight {}
 

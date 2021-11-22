@@ -5,15 +5,15 @@ pub struct Bird {
 }
 
 impl Bird {
-    pub fn new(wing: &str) -> Bird {
-        return Bird {
+    pub fn new(wing: &str) -> Self {
+        Self {
             wing: String::from(wing),
-        };
+        }
     }
 }
 
 impl Flyable for Bird {
     fn fly(&self) -> String {
-        return String::from(String::from("Bird can fly with ") + &self.wing + " wings.");
+        String::from("Bird can fly with ") + &self.wing + " wings."
     }
 }

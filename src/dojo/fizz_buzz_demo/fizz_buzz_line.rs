@@ -22,11 +22,11 @@ impl FizzBuzzLine {
     }
 
     fn has_five(i: i32) -> bool {
-        i % 5 == 0 || i.to_string().contains("5")
+        i % 5 == 0 || i.to_string().contains('5')
     }
 
     fn has_three(i: i32) -> bool {
-        i % 3 == 0 || i.to_string().contains("3")
+        i % 3 == 0 || i.to_string().contains('3')
     }
 
     pub fn value(&self) -> &str {

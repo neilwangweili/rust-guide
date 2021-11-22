@@ -1,4 +1,4 @@
-use crate::dojo::fizz_buzz::fizz_buzz_line::FizzBuzzLine;
+use crate::dojo::fizz_buzz_demo::fizz_buzz_line::FizzBuzzLine;
 
 pub struct FizzBuzz {
     line: Vec<FizzBuzzLine>,
@@ -14,6 +14,6 @@ impl FizzBuzz {
     }
 
     pub fn report(&self, index: usize) -> &str {
-        &self.line.get(index - 1).unwrap().value()
+        self.line.get(index - 1).unwrap().value()
     }
 }

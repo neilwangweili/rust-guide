@@ -1,7 +1,7 @@
-use crate::dojo::gilded_rose::aged_brie_item::AgedBrieItem;
-use crate::dojo::gilded_rose::backstage_pass_item::BackstagePassItem;
-use crate::dojo::gilded_rose::pass_one_day::PassOneDay;
-use crate::dojo::gilded_rose::sulfuras_item::SulfurasItem;
+use crate::dojo::gilded_rose_demo::aged_brie_item::AgedBrieItem;
+use crate::dojo::gilded_rose_demo::backstage_pass_item::BackstagePassItem;
+use crate::dojo::gilded_rose_demo::pass_one_day::PassOneDay;
+use crate::dojo::gilded_rose_demo::sulfuras_item::SulfurasItem;
 
 pub struct Item {
     name: String,
@@ -12,17 +12,17 @@ pub struct Item {
 impl Item {
     pub fn create_item(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
         if name.eq("Sulfuras") {
-            SulfurasItem::new(name, quality, sell_in)
+            SulfurasItem::of(name, quality, sell_in)
         } else if name.eq("Aged Brie") {
-            AgedBrieItem::new(name, quality, sell_in)
+            AgedBrieItem::of(name, quality, sell_in)
         } else if name.eq("Backstage pass") {
-            BackstagePassItem::new(name, quality, sell_in)
+            BackstagePassItem::of(name, quality, sell_in)
         } else {
-            Self::new(name, quality, sell_in)
+            Self::of(name, quality, sell_in)
         }
     }
 
-    fn new(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
+    fn of(name: String, quality: i32, sell_in: i32) -> Box<dyn PassOneDay> {
         Box::new(Self {
             name,
             quality,

@@ -1,10 +1,10 @@
-use rust_guide::dojo::mars_rover::command::Command;
-use rust_guide::dojo::mars_rover::direction::Direction;
-use rust_guide::dojo::mars_rover::mars_rover::MarsRover;
-use rust_guide::dojo::mars_rover::run_back::RunBack;
-use rust_guide::dojo::mars_rover::run_toward::RunToward;
-use rust_guide::dojo::mars_rover::turn_left::TurnLeft;
-use rust_guide::dojo::mars_rover::turn_right::TurnRight;
+use rust_guide::dojo::mars_rover_journey::command::Command;
+use rust_guide::dojo::mars_rover_journey::direction::Direction;
+use rust_guide::dojo::mars_rover_journey::mars_rover::MarsRover;
+use rust_guide::dojo::mars_rover_journey::run_back::RunBack;
+use rust_guide::dojo::mars_rover_journey::run_toward::RunToward;
+use rust_guide::dojo::mars_rover_journey::turn_left::TurnLeft;
+use rust_guide::dojo::mars_rover_journey::turn_right::TurnRight;
 
 #[test]
 fn should_init_a_mars_rover_with_x_max_10_y_max_15_x_3_y_3() {

@@ -1,4 +1,4 @@
-use crate::dojo::mars_rover::direction::Direction;
+use crate::dojo::mars_rover_journey::direction::Direction;
 
 pub struct Location {
     x: i32,

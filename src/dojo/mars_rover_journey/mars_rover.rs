@@ -1,7 +1,7 @@
-use crate::dojo::mars_rover::area::Area;
-use crate::dojo::mars_rover::command::Command;
-use crate::dojo::mars_rover::direction::Direction;
-use crate::dojo::mars_rover::location::Location;
+use crate::dojo::mars_rover_journey::area::Area;
+use crate::dojo::mars_rover_journey::command::Command;
+use crate::dojo::mars_rover_journey::direction::Direction;
+use crate::dojo::mars_rover_journey::location::Location;
 
 pub struct MarsRover {
     area: Area,
