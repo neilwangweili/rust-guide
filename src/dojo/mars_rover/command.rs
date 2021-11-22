@@ -1,5 +1,5 @@
 use crate::dojo::mars_rover::location::Location;
 
-pub trait Command {
+pub trait Command: Sized {
     fn execute(&self, location: &mut Location);
 }
