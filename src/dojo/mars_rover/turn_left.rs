@@ -5,8 +5,8 @@ use crate::dojo::mars_rover::turn::Turn;
 pub struct TurnLeft {}
 
 impl TurnLeft {
-    pub fn new() -> TurnLeft {
-        Self {}
+    pub fn new() -> Box<dyn Command> {
+        Box::new(Self {})
     }
 }
 

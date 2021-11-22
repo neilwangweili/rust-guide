@@ -70,4 +70,4 @@
 - [x] should_mars_rover_move_back_at_north -> "I'm 3 on the X-axis and 4 on the Y-axis and facing North."
 
 #### Integration tests:
-- [ ] x_max:10, y_max:15, x:3, y:3, direction: North. 前进,前进,左转,前进,右转,后退,左转,左转,后退: "I'm 3 on the X-axis and 1 on the Y-axis and facing East."
+- [x] x_max:10, y_max:15, x:3, y:3, direction: North. 前进,前进,左转,前进,右转,后退,左转,左转,后退: "I'm 4 on the X-axis and 1 on the Y-axis and facing East."

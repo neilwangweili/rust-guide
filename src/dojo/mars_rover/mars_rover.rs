@@ -20,7 +20,7 @@ impl MarsRover {
         self.location.report()
     }
 
-    pub fn execute_commands<T: Command>(&mut self, commands: &Vec<T>) {
+    pub fn execute_commands(&mut self, commands: &Vec<Box<dyn Command>>) {
         for command in commands.iter() {
             command.execute(&mut self.location);
         }
