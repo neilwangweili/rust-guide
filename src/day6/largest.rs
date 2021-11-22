@@ -5,5 +5,5 @@ pub fn largest<T>(list: &[T]) -> T where T: PartialOrd + Copy {
             largest = item;
         }
     }
-    largest
+    return largest;
 }
