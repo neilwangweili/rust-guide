@@ -11,8 +11,7 @@ pub fn christmas_song() -> String {
         [String::from("Ninth"), String::from("A guardian angel\n"), String::from("And a song for the Christmas tree.\n")],
         [String::from("Tenth"), String::from("Some mistletoe\n"), String::from("And a song for the Christmas tree.\n")],
         [String::from("Eleventh"), String::from("Gifts for one and all\n"), String::from("And a song for the Christmas tree.\n")],
-        [String::from("Twelfth"), String::from("All their good wishes\n"), String::from("And a song for the Christmas tree.")]
-    ];
+        [String::from("Twelfth"), String::from("All their good wishes\n"), String::from("And a song for the Christmas tree.")]];
     let mut result = String::new();
     for i in 1..=12 {
         result += &(String::from("On the ") + &christmas_array[i - 1][0] + &String::from(" day of Christmas\n\
