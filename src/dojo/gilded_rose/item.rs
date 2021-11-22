@@ -1,8 +1,8 @@
-use crate::dojo_scaffold::gilded_rose::aged_brie_item::AgedBrieItem;
-use crate::dojo_scaffold::gilded_rose::backstage_pass_item::BackstagePassItem;
-use crate::dojo_scaffold::gilded_rose::gilded_rose::GildedRose;
-use crate::dojo_scaffold::gilded_rose::pass_one_day::PassOneDay;
-use crate::dojo_scaffold::gilded_rose::sulfuras_item::SulfurasItem;
+use crate::dojo::gilded_rose::aged_brie_item::AgedBrieItem;
+use crate::dojo::gilded_rose::backstage_pass_item::BackstagePassItem;
+use crate::dojo::gilded_rose::gilded_rose::GildedRose;
+use crate::dojo::gilded_rose::pass_one_day::PassOneDay;
+use crate::dojo::gilded_rose::sulfuras_item::SulfurasItem;
 
 pub struct Item {
     name: String,

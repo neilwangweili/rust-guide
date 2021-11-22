@@ -1,4 +1,4 @@
-use crate::dojo_scaffold::fizz_buzz::fizz_buzz_line::FizzBuzzLine;
+use crate::dojo::fizz_buzz::fizz_buzz_line::FizzBuzzLine;
 
 pub struct FizzBuzz {
     line: Vec<FizzBuzzLine>,

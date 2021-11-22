@@ -1,4 +1,4 @@
-use crate::dojo_scaffold::gilded_rose::pass_one_day::PassOneDay;
+use crate::dojo::gilded_rose::pass_one_day::PassOneDay;
 
 pub struct SulfurasItem {
     name: String,

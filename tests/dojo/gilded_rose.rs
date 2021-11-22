@@ -1,6 +1,6 @@
-use learn_rust::dojo_scaffold::gilded_rose::gilded_rose::GildedRose;
-use learn_rust::dojo_scaffold::gilded_rose::item::Item;
-use learn_rust::dojo_scaffold::gilded_rose::pass_one_day::PassOneDay;
+use learn_rust::dojo::gilded_rose::gilded_rose::GildedRose;
+use learn_rust::dojo::gilded_rose::item::Item;
+use learn_rust::dojo::gilded_rose::pass_one_day::PassOneDay;
 
 #[test]
 fn should_common_project_pass_one_day_quality_down_one() {
