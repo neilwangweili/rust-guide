@@ -34,3 +34,12 @@ fn should_mars_rover_turn_left_to_west_at_south() {
     mars_rover.execute_commands(&vec);
     assert_eq!(mars_rover.report(), "I'm 3 on the X-axis and 3 on the Y-axis and facing West.");
 }
+
+#[test]
+fn should_mars_rover_turn_left_to_north_at_west() {
+    let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::W);
+    let mut vec = Vec::new();
+    vec.push(TurnLeft::new());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(mars_rover.report(), "I'm 3 on the X-axis and 3 on the Y-axis and facing North.");
+}
