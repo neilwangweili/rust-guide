@@ -40,7 +40,7 @@
 
 **Can init a Mars rover.**
 
-- [ ] should_init_a_mars_rover_with_x_max_10_y_max_15_x_3_y_3() -> "I'm 3 on the X-axis and 3 on the Y-axis and facing
+- [x] should_init_a_mars_rover_with_x_max_10_y_max_15_x_3_y_3() -> "I'm 3 on the X-axis and 3 on the Y-axis and facing
   North."
 
 **Can turn left.**
@@ -64,10 +64,26 @@
 - [x] should_mars_rover_move_toward_at_north -> "I'm 3 on the X-axis and 2 on the Y-axis and facing North."
 
 **Can move back.**
+
 - [x] should_mars_rover_move_back_at_east -> "I'm 2 on the X-axis and 3 on the Y-axis and facing East."
 - [x] should_mars_rover_move_back_at_south -> "I'm 3 on the X-axis and 2 on the Y-axis and facing South."
 - [x] should_mars_rover_move_back_at_west -> "I'm 4 on the X-axis and 3 on the Y-axis and facing West."
 - [x] should_mars_rover_move_back_at_north -> "I'm 3 on the X-axis and 4 on the Y-axis and facing North."
 
 #### Integration tests:
-- [x] x_max:10, y_max:15, x:3, y:3, direction: North. 前进,前进,左转,前进,右转,后退,左转,左转,后退: "I'm 4 on the X-axis and 1 on the Y-axis and facing East."
+
+- [x] x_max:10, y_max:15, x:3, y:3, direction: North. 前进,前进,左转,前进,右转,后退,左转,左转,后退: "I'm 4 on the X-axis and 1 on the
+  Y-axis and facing East."
+
+## Iteration 2
+
+### Preview
+
+下面是火星探索团队提出的其他一些需求：
+
+- 应该阻止小车跑到超出整片区域坐标系的地方去
+- 火星不是平的，而是球体，所以如果小车从坐标系的一边跑了出去，应该从另一边跑进来
+- 火星地面上有障碍物，如果火星车遇到了障碍物导致后续指令受阻，应该停留在原地，放弃执行后续指令，并立即向地球回报
+-
+
+你需要自己判断，是否采纳这些需求。
