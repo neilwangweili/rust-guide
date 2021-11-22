@@ -90,3 +90,12 @@ fn should_mars_rover_move_toward_at_east() {
     mars_rover.execute_commands(&vec);
     assert_eq!(mars_rover.report(), "I'm 4 on the X-axis and 3 on the Y-axis and facing East.");
 }
+
+#[test]
+fn should_mars_rover_move_toward_at_south() {
+    let mut mars_rover = MarsRover::put_on(10, 10, 3, 3, Direction::S);
+    let mut vec = Vec::new();
+    vec.push(RunToward::new());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(mars_rover.report(), "I'm 3 on the X-axis and 4 on the Y-axis and facing South.");
+}
