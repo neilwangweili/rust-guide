@@ -83,6 +83,11 @@ fn should_return_word_end_index() {
 }
 
 #[test]
+fn should_return_word_end_index_no() {
+    assert_eq!(slice_1(&String::from("Hello")), 5);
+}
+
+#[test]
 fn slice_role() {
     let mut s = String::from("Hello world!");
     let (s1, s2, s3, s4) = slice_2(&s);
