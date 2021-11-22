@@ -20,10 +20,10 @@ pub fn data_type() {
     // Rust 的浮点数类型是 f32 和 f64，分别占 32 位和 64 位。默认类型是 f64，
     // 因为在现代 CPU 中，它与 f32 速度几乎一样，不过精度更高。
 
-    let x = 2.0; // f64
-    let y: f32 = 3.0; // f32
-    println!("x = {}", x);
-    println!("y = {}", y);
+    let x_f64 = 2.0; // f64
+    let y_f32: f32 = 3.0; // f32
+    println!("x = {}", x_f64);
+    println!("y = {}", y_f32);
 
     // Rust 中的所有数字类型都支持基本数学运算：加法、减法、乘法、除法和取余。
     // 整数除法会向下舍入到最接近的整数。下面的代码展示了如何在 let 语句中使用它们：
@@ -47,16 +47,16 @@ pub fn data_type() {
     println!("remainder = {}", remainder);
     // 正如其他大部分编程语言一样，Rust 中的布尔类型有两个可能的值：true 和 false。
     // Rust 中的布尔类型使用 bool 表示。例如：
-    let t = true;
-    let f: bool = false; // 显式指定类型注解
-    println!("t = {}", t);
-    println!("f = {}", f);
+    let t_bool = true;
+    let f_bool: bool = false; // 显式指定类型注解
+    println!("t = {}", t_bool);
+    println!("f = {}", f_bool);
     // 字符，用单引号标注
-    let c = 'z';
-    let z = 'ℤ';
+    let c_char = 'z';
+    let z_char = 'ℤ';
     let heart_eyed_cat = '😻';
-    println!("c = {}", c);
-    println!("z = {}", z);
+    println!("c = {}", c_char);
+    println!("z = {}", z_char);
     println!("heart_eyed_cat = {}", heart_eyed_cat);
     // 复合类型（Compound types）可以将多个值组合成一个类型。
     // Rust 有两个原生的复合类型：元组（tuple）和数组（array）。
@@ -67,10 +67,10 @@ pub fn data_type() {
     let tup: (i32, f64, u8) = (500, 6.4, 1);
 
     // 可运用解构来获取tup的值
-    let (a, b, c) = tup;
-    println!("a = {}", a);
-    println!("b = {}", b);
-    println!("c = {}", c);
+    let (a_i32, b_i32, c_i32) = tup;
+    println!("a = {}", a_i32);
+    println!("b = {}", b_i32);
+    println!("c = {}", c_i32);
     //也可以使用.来访问它们
     let five_hundred = tup.0;
     let six_point_four = tup.1;

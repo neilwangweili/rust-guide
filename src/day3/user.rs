@@ -8,6 +8,6 @@ pub struct User {
 
 impl User {
     pub fn get_id(&self) -> i32 {
-        (&self).id
+        self.id
     }
 }
