@@ -59,8 +59,8 @@
 **Can move toward.**
 
 - [x] should_mars_rover_move_toward_at_east -> "I'm 4 on the X-axis and 3 on the Y-axis and facing East."
-- [ ] should_mars_rover_move_toward_at_south -> "I'm 3 on the X-axis and 4 on the Y-axis and facing South."
-- [ ] should_mars_rover_move_toward_at_west -> "I'm 2 on the X-axis and 3 on the Y-axis and facing West."
+- [x] should_mars_rover_move_toward_at_south -> "I'm 3 on the X-axis and 4 on the Y-axis and facing South."
+- [x] should_mars_rover_move_toward_at_west -> "I'm 2 on the X-axis and 3 on the Y-axis and facing West."
 - [ ] should_mars_rover_move_toward_at_north -> "I'm 3 on the X-axis and 2 on the Y-axis and facing North."
 
 **Can move back.**
