@@ -90,13 +90,9 @@ fn should_get_a_map_with_blue_10_yellow_50() {
     let map = init_map();
     if let Some(i) = map.get("Blue") {
         assert_eq!(*i, 10);
-    } else {
-        panic!();
     }
     if let Some(i) = map.get("Yellow") {
         assert_eq!(*i, 50);
-    } else {
-        panic!();
     }
 }
 
@@ -106,13 +102,9 @@ fn should_get_a_map_from_two_vector() {
     let map: HashMap<_, _> = key.iter().zip(value.iter()).collect();
     if let Some(i) = map.get(&String::from("Blue")) {
         assert_eq!(**i, 10);
-    } else {
-        panic!();
     }
     if let Some(i) = map.get(&String::from("Yellow")) {
         assert_eq!(**i, 50);
-    } else {
-        panic!();
     }
 }
 

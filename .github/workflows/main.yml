@@ -29,13 +29,14 @@ jobs:
         env:
           RUST_BACKTRACE: 1
 
-      - name: Compile WASM contract
-        uses: actions-rs/cargo@v1
-        with:
-          command: build --release
-          args: --locked
-        env:
-          RUSTFLAGS: "-C link-arg=-s"
+# Fixing WASM干啥的 不清楚
+#      - name: Compile WASM contract
+#        uses: actions-rs/cargo@v1
+#        with:
+#          command: build --release
+#          args: --locked
+#        env:
+#          RUSTFLAGS: "-C link-arg=-s"
 
   codecov:
     name: Unit test coverage
