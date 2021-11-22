@@ -26,9 +26,9 @@
     1. Turn - 转向（特性）
         1. TurnLeft - 左转
         2. TurnRight - 右转
-    2. Move - 移动（特性）
-        1. MoveToward - 前进
-        2. MoveBack - 后退
+    2. Run - 移动（特性）
+        1. RunToward - 前进
+        2. RunBack - 后退
 
 #### 关系：
 

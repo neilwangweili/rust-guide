@@ -36,4 +36,14 @@ impl Location {
             Direction::W => { self.direction = Direction::S }
         };
     }
+
+    pub fn move_toward(&mut self) {
+        match self.direction {
+            Direction::S => { self.y += 1 }
+            Direction::E => { self.x += 1 }
+            Direction::N => { self.y -= 1 }
+            Direction::W => { self.x -= 1 }
+        };
+    }
+
 }
