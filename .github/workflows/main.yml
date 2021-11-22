@@ -57,7 +57,7 @@ jobs:
         uses: actions-rs/tarpaulin@v0.1
         with:
           version: '0.18.5'
-          args: '-- --test-threads 1 --fail-under 100'
+          args: '-- --test-threads 1'
 
       - name: Upload to codecov.io
         uses: codecov/codecov-action@v2
