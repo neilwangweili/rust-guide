@@ -1,3 +1,4 @@
+use rust_guide::day3::copy_struct::copy_struct;
 use rust_guide::day3::learn_init_struct::learn_init_struct;
 use rust_guide::day3::learn_init_struct_2::learn_init_struct_2;
 use rust_guide::day3::learn_init_struct_3::learn_init_struct_3;
@@ -33,7 +34,7 @@ fn should_edit_mut_user_correctly() {
 
 #[test]
 fn should_copy_struct_correctly() {
-    let user = learn_init_struct_2(1,
+    let user = copy_struct(1,
                                    String::from("Neil"),
                                    String::from("webmaster@neilwang.wiki"),
                                    true);
