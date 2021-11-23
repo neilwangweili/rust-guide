@@ -7,9 +7,6 @@ pub struct Degree {
 }
 
 impl Degree {
-    pub fn new(degree: f64) -> Self {
-        Self { degree }
-    }
 
     pub fn calculate_length(&self) -> (f64, f64) {
         (self.degree.cos(), self.degree.sin())
@@ -56,11 +53,5 @@ impl Degree {
 
     pub fn report(&self) -> String {
         self.to_direction().report()
-    }
-}
-
-impl Display for Degree {
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        self.to_direction().fmt(f)
     }
 }
