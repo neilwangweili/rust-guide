@@ -17,17 +17,13 @@ impl Location {
         )
     }
 
-    pub fn x(&self) -> f64 {
-        self.x
-    }
-    pub fn y(&self) -> f64 {
-        self.y
+    pub fn move_toward(&mut self, x: f64, y: f64) {
+        self.x += x;
+        self.y += y;
     }
 
-    pub fn set_x(&mut self, x: f64) {
-        self.x = x;
-    }
-    pub fn set_y(&mut self, y: f64) {
-        self.y = y;
+    pub fn move_back(&mut self, x: f64, y: f64) {
+        self.x -= x;
+        self.y -= y;
     }
 }

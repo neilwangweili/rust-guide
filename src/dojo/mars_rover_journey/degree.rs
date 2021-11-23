@@ -7,7 +7,6 @@ pub struct Degree {
 }
 
 impl Degree {
-
     pub fn calculate_length(&self) -> (f64, f64) {
         (self.degree.cos(), self.degree.sin())
     }
@@ -17,8 +16,8 @@ impl Degree {
             degree: match direction {
                 Direction::S => FRAC_PI_2,
                 Direction::E => 0.0,
-                Direction::N => (FRAC_PI_2 * 3.0),
-                Direction::W => (FRAC_PI_2 * 2.0),
+                Direction::N => FRAC_PI_2 * 3.0,
+                Direction::W => FRAC_PI_2 * 2.0,
             },
         }
     }
