@@ -42,19 +42,19 @@ impl Coordinate {
 
     pub fn move_toward(&mut self) {
         match self.direction {
-            Direction::S => self.location.set_y(self.location.y() + 1),
-            Direction::E => self.location.set_x(self.location.x() + 1),
-            Direction::N => self.location.set_y(self.location.y() - 1),
-            Direction::W => self.location.set_x(self.location.x() - 1),
+            Direction::S => self.location.set_y(self.location.y() + 1.0),
+            Direction::E => self.location.set_x(self.location.x() + 1.0),
+            Direction::N => self.location.set_y(self.location.y() - 1.0),
+            Direction::W => self.location.set_x(self.location.x() - 1.0),
         };
     }
 
     pub fn move_back(&mut self) {
         match self.direction {
-            Direction::S => self.location.set_y(self.location.y() - 1),
-            Direction::E => self.location.set_x(self.location.x() - 1),
-            Direction::N => self.location.set_y(self.location.y() + 1),
-            Direction::W => self.location.set_x(self.location.x() + 1),
+            Direction::S => self.location.set_y(self.location.y() - 1.0),
+            Direction::E => self.location.set_x(self.location.x() - 1.0),
+            Direction::N => self.location.set_y(self.location.y() + 1.0),
+            Direction::W => self.location.set_x(self.location.x() + 1.0),
         };
     }
 }
