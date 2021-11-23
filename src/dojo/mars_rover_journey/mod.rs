@@ -1,5 +1,6 @@
 pub mod area;
 pub mod command;
+pub mod coordinate;
 pub mod direction;
 pub mod location;
 pub mod mars_rover;

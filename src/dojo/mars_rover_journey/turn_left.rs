@@ -1,5 +1,5 @@
 use crate::dojo::mars_rover_journey::command::Command;
-use crate::dojo::mars_rover_journey::location::Location;
+use crate::dojo::mars_rover_journey::coordinate::Coordinate;
 use crate::dojo::mars_rover_journey::turn::Turn;
 
 pub struct TurnLeft {}
@@ -11,8 +11,8 @@ impl TurnLeft {
 }
 
 impl Command for TurnLeft {
-    fn execute(&self, location: &mut Location) {
-        location.turn_left();
+    fn execute(&self, coordinate: &mut Coordinate) {
+        coordinate.turn_left();
     }
 }
 

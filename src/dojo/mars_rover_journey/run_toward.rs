@@ -1,5 +1,5 @@
 use crate::dojo::mars_rover_journey::command::Command;
-use crate::dojo::mars_rover_journey::location::Location;
+use crate::dojo::mars_rover_journey::coordinate::Coordinate;
 use crate::dojo::mars_rover_journey::run::Run;
 
 pub struct RunToward {}
@@ -11,8 +11,8 @@ impl RunToward {
 }
 
 impl Command for RunToward {
-    fn execute(&self, location: &mut Location) {
-        location.move_toward();
+    fn execute(&self, coordinate: &mut Coordinate) {
+        coordinate.move_toward();
     }
 }
 

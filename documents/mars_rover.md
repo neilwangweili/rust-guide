@@ -19,9 +19,9 @@
 
 1. MarsRover - 火星车
 2. Area - 区域
-3. Location - 位置
-4. Direction - 方向
-5. ExecutingCommands - 指令集
+3. Coordinate - 协调者
+4. Location - 位置
+5. Direction - 方向
 6. Command - 指令（特性）
     1. Turn - 转向（特性）
         1. TurnLeft - 左转
@@ -32,7 +32,7 @@
 
 #### 关系：
 
-1 has a 2,3. 3 has a 4. 5 have some 6. Implementations of 6: Turn, Move.
+1 has a 2,3. 3 has a 4,5. Implementations of 6: Turn, Move.
 
 ### Tasking:
 
