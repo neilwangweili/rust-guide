@@ -16,11 +16,7 @@ impl Coordinate {
     }
 
     pub fn report(&self) -> String {
-        format!(
-            "{} and {}.",
-            self.location.report(),
-            self.degree.report()
-        )
+        format!("{} and {}.", self.location.report(), self.degree.report())
     }
 
     pub fn turn_left(&mut self) {

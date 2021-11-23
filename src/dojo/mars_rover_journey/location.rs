@@ -11,9 +11,11 @@ impl Location {
     }
 
     pub fn report(&self) -> String {
-        format!("I'm {:.1} on the X-axis and {:.1} on the Y-axis", self.x, self.y)
+        format!(
+            "I'm {:.1} on the X-axis and {:.1} on the Y-axis",
+            self.x, self.y
+        )
     }
-
 
     pub fn x(&self) -> f64 {
         self.x
@@ -21,7 +23,6 @@ impl Location {
     pub fn y(&self) -> f64 {
         self.y
     }
-
 
     pub fn set_x(&mut self, x: f64) {
         self.x = x;

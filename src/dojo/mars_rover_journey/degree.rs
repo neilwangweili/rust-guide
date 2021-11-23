@@ -1,6 +1,6 @@
+use crate::dojo::mars_rover_journey::direction::Direction;
 use std::f64::consts::{FRAC_PI_2, TAU};
 use std::fmt::{Display, Formatter};
-use crate::dojo::mars_rover_journey::direction::Direction;
 
 pub struct Degree {
     degree: f64,
@@ -22,20 +22,17 @@ impl Degree {
                 Direction::E => 0.0,
                 Direction::N => (FRAC_PI_2 * 3.0),
                 Direction::W => (FRAC_PI_2 * 2.0),
-            }
+            },
         }
     }
 
     pub fn to_direction(&self) -> Direction {
-        let a = self.degree % TAU;
         if self.degree == 0.0 {
             Direction::E
         } else if self.degree == FRAC_PI_2 {
             Direction::S
-        } else if self.degree == (FRAC_PI_2 * 2.0) {
+        } else if self.degree == FRAC_PI_2 * 2.0 {
             Direction::W
-        } else if self.degree == (FRAC_PI_2 * 3.0) {
-            Direction::N
         } else {
             Direction::N
         }
@@ -47,7 +44,7 @@ impl Degree {
     }
 
     pub fn turn_right(&mut self) {
-        self.degree += (FRAC_PI_2 * 3.0);
+        self.degree += FRAC_PI_2 * 3.0;
         self.remove_a_tau();
     }
 
