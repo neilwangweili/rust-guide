@@ -21,8 +21,9 @@
 2. Area - 区域
 3. Coordinate - 协调者
 4. Location - 位置
-5. Direction - 方向
-6. Command - 指令（特性）
+5. Degree - 角度
+6. Direction - 方向
+7. Command - 指令（特性）
     1. Turn - 转向（特性）
         1. TurnLeft - 左转
         2. TurnRight - 右转
@@ -32,7 +33,16 @@
 
 #### 关系：
 
-1 has a 2,3. 3 has a 4,5. Implementations of 6: Turn, Move.
+1 has a 2,3. 3 has a 4,5. 
+5 based on 6. 
+Implementations of 7: Turn, Move.
+
+#### 流程
+1. 构建火星车，确定区域大小与当前角度
+2. 当前角度根据Location(W/S/E/N)进行计算
+3. 转向时 ± pi/2
+4. 移动时，根据当前角度进行数学公式计算(x ± cos(degree)) (y ± sin(degree))
+5. 火星车执行完毕后report位置及方向，方向根据当前角度换算为Direction
 
 ### Tasking:
 
