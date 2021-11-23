@@ -213,3 +213,41 @@ fn should_mars_rover_run_successfully() {
         "I'm 4.0 on the X-axis and 1.0 on the Y-axis and facing South."
     );
 }
+
+#[test]
+fn should_mars_rover_turns_correctly() {
+    let mut mars_rover = MarsRover::put_on(10, 15, 3, 3, Direction::N);
+    let mut vec: Vec<Box<dyn Command>> = Vec::new();
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(
+        mars_rover.report(),
+        "I'm 3.0 on the X-axis and 3.0 on the Y-axis and facing North."
+    );
+}
+
+#[test]
+fn should_mars_rover_turns_correctly_2() {
+    let mut mars_rover = MarsRover::put_on(10, 15, 3, 3, Direction::N);
+    let mut vec: Vec<Box<dyn Command>> = Vec::new();
+    vec.push(TurnRight::make());
+    vec.push(TurnRight::make());
+    vec.push(TurnRight::make());
+    vec.push(TurnRight::make());
+    vec.push(TurnRight::make());
+    vec.push(TurnRight::make());
+    vec.push(TurnRight::make());
+    vec.push(TurnRight::make());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(
+        mars_rover.report(),
+        "I'm 3.0 on the X-axis and 3.0 on the Y-axis and facing North."
+    );
+}
