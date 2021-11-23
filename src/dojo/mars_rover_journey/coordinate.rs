@@ -29,11 +29,11 @@ impl Coordinate {
 
     pub fn move_toward(&mut self) {
         let (x, y) = self.degree.calculate_length();
-        self.location.move_toward(x, y);
+        self.location.move_toward(x * 1.0, y * 1.0);
     }
 
     pub fn move_back(&mut self) {
         let (x, y) = self.degree.calculate_length();
-        self.location.move_back(x, y);
+        self.location.move_back(x * 1.0, y * 1.0);
     }
 }
