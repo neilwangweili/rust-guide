@@ -11,7 +11,7 @@ impl Location {
     }
 
     pub fn report(&self) -> String {
-        format!("I'm {} on the X-axis and {} on the Y-axis", self.x as i32, self.y as i32)
+        format!("I'm {:.1} on the X-axis and {:.1} on the Y-axis", self.x, self.y)
     }
 
 
