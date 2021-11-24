@@ -13,3 +13,6 @@ rand = "0.8.4"
 
 [features]
 default = []
+
+[profile.dev]
+opt-level = 3
