@@ -10,7 +10,6 @@ use rust_guide::day6::read_username_from_file::read_username_from_file;
 use rust_guide::day6::recoverable_panic::recoverable_panic;
 use rust_guide::day6::unimplemented::unimplemented;
 use rust_guide::day6::unreachable::unreachable;
-use std::io::Error;
 
 #[test]
 #[should_panic(expected = "Crash and burn!")]

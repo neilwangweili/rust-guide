@@ -89,7 +89,7 @@ fn should_return_word_end_index_no() {
 
 #[test]
 fn slice_role() {
-    let mut s = String::from("Hello world!");
+    let s = String::from("Hello world!");
     let (s1, s2, s3, s4) = slice_2(&s);
     assert_eq!(s1, "ello");
     assert_eq!(s2, "Hello");

@@ -1,4 +1,3 @@
-use rust_guide::day4::ip_address_kind::IpAddressKind;
 use rust_guide::day4::learn_option::learn_option;
 use rust_guide::day4::learn_use_enum::learn_use_enum;
 use rust_guide::day4::learn_use_enum_2::learn_use_enum_2;
@@ -12,7 +11,7 @@ fn should_create_two_kinds_of_structs() {
 
 #[test]
 fn should_create_two_enum_with_arguments() {
-    let (v4, v6) = learn_use_enum_2();
+    let (_v4, _v6) = learn_use_enum_2();
 }
 
 #[test]
