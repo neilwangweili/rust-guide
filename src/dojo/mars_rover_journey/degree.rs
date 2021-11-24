@@ -1,6 +1,5 @@
 use crate::dojo::mars_rover_journey::direction::Direction;
 use std::f64::consts::{FRAC_PI_2, TAU};
-use std::fmt::{Display, Formatter};
 
 pub struct Degree {
     degree: f64,
