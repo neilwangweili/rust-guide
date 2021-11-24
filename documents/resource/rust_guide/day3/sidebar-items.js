@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["color",""],["copy_struct",""],["learn_init_struct",""],["learn_init_struct_2",""],["learn_init_struct_3",""],["learn_init_tuple_struct",""],["print_user",""],["struct_method",""],["user",""]]});

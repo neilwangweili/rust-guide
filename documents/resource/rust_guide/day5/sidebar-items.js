@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["build_map_from_two_vector",""],["calculate_number_of_letter_occurrences",""],["coin",""],["if_let",""],["learn_entry",""],["learn_map",""],["learn_match",""],["learn_vector",""],["match_options",""],["read_element_in_vector",""],["us_state",""]]});
