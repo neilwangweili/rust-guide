@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-cargo fix
+cargo fix --allow-dirty

@@ -11,5 +11,5 @@ macro_rules! calculate_result {
     // ty (类型 type)
     ($expression: expr) => {
         $expression
-    }
+    };
 }
