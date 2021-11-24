@@ -1,4 +1,4 @@
-use rust_guide::{add, calculate_result, create_function, find_min, vector};
+use rust_guide::{add, bar, calculate_result, create_function, find_min, vector};
 
 #[test]
 fn should_create_function_macro_rule_run_correctly() {
@@ -34,4 +34,10 @@ fn find_min_2() {
 #[test]
 fn find_min_3() {
     assert_eq!(find_min!(1, 2, 3, 4, 5), 1);
+}
+
+#[test]
+fn should_bar_create_a_field_3() {
+    bar!(a);
+    assert_eq!(a, 3);
 }
