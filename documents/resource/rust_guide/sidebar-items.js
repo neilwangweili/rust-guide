@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["day1",""],["day1practise",""],["day2",""],["day3",""],["day4",""],["day5",""],["day6",""],["design_pattern",""],["dojo",""]]});

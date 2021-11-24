@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["clone",""],["deconstruction",""],["ownership_1",""],["ownership_2",""],["ownership_3",""],["ownership_4",""],["ownership_5",""],["references",""],["references_2",""],["references_3",""],["references_4",""],["slice_1",""],["slice_2",""],["string_class",""]]});

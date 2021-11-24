@@ -1,1 +1,0 @@
-initSidebarItems({"mod":[["aged_brie_item",""],["backstage_pass_item",""],["gilded_rose",""],["item",""],["pass_one_day",""],["sulfuras_item",""]]});

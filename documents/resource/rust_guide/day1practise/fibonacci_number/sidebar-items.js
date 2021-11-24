@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["fibonacci_number",""]]});
