@@ -1,4 +1,4 @@
-use rust_guide::{add, calculate_result, create_function};
+use rust_guide::{add, calculate_result, create_function, vector};
 
 #[test]
 fn should_create_function_macro_rule_run_correctly() {
@@ -14,4 +14,9 @@ fn should_calculate_result_macro_rule_run_correctly() {
 #[test]
 fn should_add_macro_rule_run_correctly() {
     assert_eq!(add!(1, 2), 3);
+}
+
+#[test]
+fn should_vector_macro_rule_run_correctly() {
+    assert_eq!(vector![1, 2], vec![1, 2]);
 }
