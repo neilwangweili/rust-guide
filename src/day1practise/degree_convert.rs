@@ -7,12 +7,12 @@ pub fn degree_convert(input: f64, unit: &str, target_unit: &str) -> String {
     } else {
         (input - CELSIUS_ERROR_VALUE) / CELSIUS
     };
-    return format!(
+    format!(
         "{:.2}",
         if target_unit.eq("FAHRENHEIT") {
             value * FAHRENHEIT
         } else {
             value * CELSIUS + CELSIUS_ERROR_VALUE
         }
-    );
+    )
 }
