@@ -19,5 +19,5 @@ pub fn const_shadowing(x: i32) -> i32 {
         println!("The value of x in the inner scope is: {}", x);
     }
     // 当该作用域结束时，内部 shadowing 的作用域也结束了，x 又返回到 6
-    return x;
+    x
 }

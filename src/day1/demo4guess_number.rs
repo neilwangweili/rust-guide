@@ -17,5 +17,5 @@ pub fn guess_number() -> bool {
             }
         }
     }
-    return true;
+    true
 }

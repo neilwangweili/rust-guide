@@ -9,9 +9,9 @@ pub fn compare_number(guess: u32) -> bool {
     //Random number form 1 to 100. Not include 101.
     // let secret_number = rand::thread_rng().gen_range(1..101);
     let secret_number = 5;
-    return match guess.cmp(&secret_number) {
+    match guess.cmp(&secret_number) {
         Ordering::Less => false,
         Ordering::Greater => false,
         Ordering::Equal => true,
-    };
+    }
 }

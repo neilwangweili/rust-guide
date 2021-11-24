@@ -3,5 +3,5 @@ pub fn for_loop() -> i32 {
     for element in array.iter() {
         println!("{}", element);
     }
-    return 50;
+    50
 }

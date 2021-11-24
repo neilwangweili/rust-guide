@@ -6,5 +6,5 @@ pub fn variable_readable() -> i32 {
     print!("{}", y);
     // Correctly, y is mutable.
     y = 6;
-    return y;
+    y
 }

@@ -12,5 +12,5 @@ pub fn break_with_tags() -> i32 {
         }
         count += 1;
     }
-    return count;
+    count
 }
