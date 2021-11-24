@@ -3,5 +3,5 @@ pub fn references_3() -> String {
     // Warning: Can't give &mut s1 to more than one variable
     let s2 = &mut s1;
     s2.push_str(" world!");
-    return s1;
+    s1
 }

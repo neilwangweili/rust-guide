@@ -5,7 +5,7 @@ pub fn ownership_4() -> i32 {
     let x = 5;
     take_copy(x);
     // x is still usable because x is created in stack.
-    return x;
+    x
 }
 
 fn take_copy(_x: i32) {}

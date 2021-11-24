@@ -6,5 +6,5 @@ pub fn references() -> (String, String) {
 }
 
 fn borrow_string(s: &String) -> String {
-    return String::from(s);
+    String::from(s)
 }
