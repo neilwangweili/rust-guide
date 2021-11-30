@@ -1,4 +1,5 @@
-use rust_guide::{add, bar, calculate_result, create_function, find_min, vector};
+use std::collections::HashMap;
+use rust_guide::{add, bar, calculate_result, create_function, find_min, hash, vector};
 
 #[test]
 fn should_create_function_macro_rule_run_correctly() {
@@ -40,4 +41,12 @@ fn find_min_3() {
 fn should_bar_create_a_field_3() {
     bar!(a);
     assert_eq!(a, 3);
+}
+
+#[test]
+fn should_create_map_like_ruby() {
+    let map = hash!(1 => 2, 2 => 3, 3 => 4);
+    assert_eq!(map.get(&1).unwrap(), &2);
+    assert_eq!(map.get(&2).unwrap(), &3);
+    assert_eq!(map.get(&3).unwrap(), &4);
 }
