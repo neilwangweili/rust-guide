@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use rust_guide::{add, bar, calculate_result, create_function, find_min, hash, vector};
+use std::collections::HashMap;
 
 #[test]
 fn should_create_function_macro_rule_run_correctly() {
