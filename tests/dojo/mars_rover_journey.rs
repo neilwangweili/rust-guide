@@ -299,3 +299,24 @@ fn should_stop_move_outside_e() {
         "I'm 5.0 on the X-axis and 5.0 on the Y-axis and facing East."
     );
 }
+
+#[test]
+fn should_mars_rover_v2_run_correctly() {
+    let mut mars_rover = MarsRover::put_on(5, 5, 3, 3, Direction::S);
+    let mut vec = Vec::new();
+    vec.push(RunToward::make());
+    vec.push(RunToward::make());
+    vec.push(RunToward::make());
+    vec.push(TurnLeft::make());
+    vec.push(RunToward::make());
+    vec.push(TurnRight::make());
+    vec.push(RunBack::make());
+    vec.push(TurnLeft::make());
+    vec.push(TurnLeft::make());
+    vec.push(RunBack::make());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(
+        mars_rover.report(),
+        "I'm 2.0 on the X-axis and 5.0 on the Y-axis and facing North."
+    );
+}
