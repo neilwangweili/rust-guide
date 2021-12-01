@@ -11,6 +11,9 @@ impl Area {
 
 impl Area {
     pub fn tectonic(x: i32, y: i32) -> Self {
-        Self { x: x as f64, y: y as f64 }
+        Self {
+            x: x as f64,
+            y: y as f64,
+        }
     }
 }
