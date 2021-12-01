@@ -251,3 +251,15 @@ fn should_mars_rover_turns_correctly_2() {
         "I'm 3.0 on the X-axis and 3.0 on the Y-axis and facing North."
     );
 }
+
+#[test]
+fn should_stop_move_outside_n() {
+    let mut mars_rover = MarsRover::put_on(5, 5, 5, 0, Direction::N);
+    let mut vec = Vec::new();
+    vec.push(RunToward::make());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(
+        mars_rover.report(),
+        "I'm 5.0 on the X-axis and 0.0 on the Y-axis and facing North."
+    );
+}

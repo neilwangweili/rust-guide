@@ -4,15 +4,13 @@ use crate::dojo::mars_rover_journey::coordinate::Coordinate;
 use crate::dojo::mars_rover_journey::direction::Direction;
 
 pub struct MarsRover {
-    area: Area,
     coordinate: Coordinate,
 }
 
 impl MarsRover {
     pub fn put_on(x_max: i32, y_max: i32, x: i32, y: i32, direction: Direction) -> Self {
         Self {
-            area: Area::tectonic(x_max, y_max),
-            coordinate: Coordinate::set(x, y, direction),
+            coordinate: Coordinate::set(x, y, direction, Area::tectonic(x_max, y_max)),
         }
     }
 

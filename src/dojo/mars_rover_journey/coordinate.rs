@@ -1,3 +1,4 @@
+use crate::dojo::mars_rover_journey::area::Area;
 use crate::dojo::mars_rover_journey::degree::Degree;
 use crate::dojo::mars_rover_journey::direction::Direction;
 use crate::dojo::mars_rover_journey::location::Location;
@@ -8,9 +9,9 @@ pub struct Coordinate {
 }
 
 impl Coordinate {
-    pub fn set(x: i32, y: i32, direction: Direction) -> Coordinate {
+    pub fn set(x: i32, y: i32, direction: Direction, area: Area) -> Coordinate {
         Self {
-            location: Location::set(x, y),
+            location: Location::set(x, y, area),
             degree: Degree::from_direction(direction),
         }
     }
