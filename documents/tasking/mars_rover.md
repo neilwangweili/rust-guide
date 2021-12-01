@@ -118,8 +118,8 @@ command上加上Area判断，若即将超出坐标系，则不执行此命令。
 **Can stop move outside.**
 
 - [x] should_stop_move_outside_n -> "I'm 5 on the X-axis and 0 on the Y-axis and facing North."
-- [ ] should_stop_move_outside_s -> "I'm 5 on the X-axis and 5 on the Y-axis and facing South."
-- [ ] should_stop_move_outside_w -> "I'm 0 on the X-axis and 5 on the Y-axis and facing West."
+- [x] should_stop_move_outside_s -> "I'm 5 on the X-axis and 5 on the Y-axis and facing South."
+- [x] should_stop_move_outside_w -> "I'm 0 on the X-axis and 5 on the Y-axis and facing West."
 - [ ] should_stop_move_outside_e -> "I'm 5 on the X-axis and 5 on the Y-axis and facing East."
 
 #### Integration tests:

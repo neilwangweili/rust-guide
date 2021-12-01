@@ -275,3 +275,15 @@ fn should_stop_move_outside_s() {
         "I'm 5.0 on the X-axis and 5.0 on the Y-axis and facing South."
     );
 }
+
+#[test]
+fn should_stop_move_outside_w() {
+    let mut mars_rover = MarsRover::put_on(5, 5, 0, 5, Direction::W);
+    let mut vec = Vec::new();
+    vec.push(RunToward::make());
+    mars_rover.execute_commands(&vec);
+    assert_eq!(
+        mars_rover.report(),
+        "I'm 0.0 on the X-axis and 5 on the Y-axis and facing West."
+    );
+}
