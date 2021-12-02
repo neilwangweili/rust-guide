@@ -30,7 +30,9 @@ impl Bound {
     pub fn element(&self) -> f64 {
         self.element
     }
+
     pub fn contains(&self) -> bool {
         self.contains
     }
+
 }
