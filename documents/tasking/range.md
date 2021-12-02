@@ -46,8 +46,8 @@
 # Scenarios
 
 ## 概念划分
-1. Interval -> trait
-2. Range
+1. Range -> trait
+2. Interval
 3. Collection
 
 # Tasking
@@ -55,3 +55,20 @@
 #### integer range contains
 - [ ] should_e2_6_contains_2_4 -> true
 - [ ] should_e2_6_not_contains_n1_1_6_10 -> false
+
+#### getAllPoints
+- [ ] should_e2_6_return_2_3_4_5 -> {2, 3, 4, 5}
+
+#### overlapsRange
+
+- [ ] should_e2_5_not_overlap_e7_10 -> false
+- [ ] should_2_10_overlap_e3_5 -> true
+- [ ] should_e3_5_overlap_e3_5 -> true
+- [ ] should_e2_5_overlap_with_e3_10 -> true
+- [ ] should_e3_5_overlap_with_e2_10 -> true
+
+#### equals
+- [ ] e3_5_equals_e3_5 -> true
+- [ ] e2_10_not_equals_e3_5 -> false
+- [ ] e2_5_not_equals_e3_10 -> false
+- [ ] e3_5_not_equals_e2_10 -> true
