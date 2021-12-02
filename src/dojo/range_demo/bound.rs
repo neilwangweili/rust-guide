@@ -1,6 +1,6 @@
 pub struct Bound {
-    pub element: f64,
-    pub contains: bool,
+    element: f64,
+    contains: bool,
 }
 
 impl Bound {
@@ -25,5 +25,12 @@ impl Bound {
         } else {
             bound_string[0..(bound_string.len() - 1)].parse().unwrap()
         }
+    }
+
+    pub fn element(&self) -> f64 {
+        self.element
+    }
+    pub fn contains(&self) -> bool {
+        self.contains
     }
 }

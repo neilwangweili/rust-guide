@@ -21,19 +21,19 @@ impl Interval {
     fn report_left(&self) -> String {
         format!(
             "{}{}",
-            match self.left.contains {
+            match self.left.contains() {
                 true => "[",
                 false => "(",
             },
-            self.left.element
+            self.left.element()
         )
     }
 
     fn report_right(&self) -> String {
         format!(
             "{}{}",
-            self.right.element,
-            match self.right.contains {
+            self.right.element(),
+            match self.right.contains() {
                 true => "]",
                 false => ")",
             }
