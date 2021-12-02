@@ -26,5 +26,4 @@ impl Bound {
             bound_string[0..(bound_string.len() - 1)].parse().unwrap()
         }
     }
-
 }
