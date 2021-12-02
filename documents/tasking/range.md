@@ -46,11 +46,18 @@
 # Scenarios
 
 ## 概念划分
-1. Range -> trait
+1. Range
 2. Interval
-3. Collection
+3. Bound
+
+1 has vec 2. 2 has two 3.
 
 # Tasking
+
+#### create correct range
+- [x] should_create_e2_6 -> [2, 6)
+- [x] should_create_e2_6 -> (2, 6]
+- [x] should_create_e2_6 -> (2, 6)
 
 #### integer range contains
 - [ ] should_e2_6_contains_2_4 -> true
