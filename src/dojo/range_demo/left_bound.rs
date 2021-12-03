@@ -7,8 +7,10 @@ pub struct LeftBound {
 impl LeftBound {
     pub fn init(bound_string: &str) -> Self {
         Self {
-            self_bound: Bound::init(LeftBound::get_element(bound_string),
-                                    Bound::is_contains_bound(bound_string))
+            self_bound: Bound::init(
+                LeftBound::get_element(bound_string),
+                Bound::is_contains_bound(bound_string),
+            ),
         }
     }
 

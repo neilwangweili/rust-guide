@@ -5,10 +5,7 @@ pub struct Bound {
 
 impl Bound {
     pub fn init(element: f64, contains: bool) -> Self {
-        Self {
-            element,
-            contains,
-        }
+        Self { element, contains }
     }
 
     pub fn is_contains_bound(contains: &str) -> bool {
@@ -21,5 +18,4 @@ impl Bound {
     pub fn contains(&self) -> bool {
         self.contains
     }
-
 }
