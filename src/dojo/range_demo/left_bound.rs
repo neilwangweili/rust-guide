@@ -32,7 +32,8 @@ impl LeftBound {
     pub fn element(&self) -> f64 {
         self.self_bound.element()
     }
-    // pub fn contains(&self) -> bool {
-    //     self.self_bound.contains()
-    // }
+
+    pub fn contains(&self) -> bool {
+        self.self_bound.contains()
+    }
 }

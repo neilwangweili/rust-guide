@@ -75,6 +75,8 @@
 - [x] should_e3_5_overlap_e3_5 -> true
 - [x] should_e2_5_overlap_with_e3_10 -> true
 - [x] should_e3_5_overlap_with_e2_10 -> true
+- [x] should_e3_e5_overlap_with_e5_e10 -> true
+- [x] should_e3_e5_not_overlap_with_5_e10 -> false
 
 #### equals
 - [ ] e3_5_equals_e3_5 -> true

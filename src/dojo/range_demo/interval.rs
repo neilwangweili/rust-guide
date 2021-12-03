@@ -17,10 +17,10 @@ impl Interval {
 
     pub fn overlaps_range(&self, o: &Interval) -> bool {
         let (o1, o2) = Interval::swap_asc(&self, o);
-        if o1.right.element() > o2.left.element() {
-            true
+        if o1.right.contains() && o2.left.contains() {
+            o1.right.element() >= o2.left.element()
         } else {
-            false
+            o1.right.element() > o2.left.element()
         }
     }
 
