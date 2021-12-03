@@ -40,6 +40,76 @@ fn should_e2_6_and_3_8_return_e2_8() {
 }
 
 #[test]
+fn should_e2_6_and_2_5_return_e2_6() {
+    let mut range = Range::init("[2,6)");
+    range.and_default(" (2,5)");
+    assert_eq!(range.show(), "[2, 6)");
+}
+
+#[test]
+fn should_2_6_and_2_5_return_2_6() {
+    let mut range = Range::init("(2,6)");
+    range.and_default(" (2,5)");
+    assert_eq!(range.show(), "(2, 6)");
+}
+
+#[test]
+fn should_2_6_and_e2_6_return_e2_6() {
+    let mut range = Range::init("(2,6)");
+    range.and_default(" [2,6)");
+    assert_eq!(range.show(), "[2, 6)");
+}
+
+#[test]
+fn should_2_6_and_3_5_return_2_6() {
+    let mut range = Range::init("(2,6)");
+    range.and_default(" (3,5)");
+    assert_eq!(range.show(), "(2, 6)");
+}
+
+#[test]
+fn should_2_6_and_3_e7_return_2_e7() {
+    let mut range = Range::init("(2,6)");
+    range.and_default(" (3,7]");
+    assert_eq!(range.show(), "(2, 7]");
+}
+
+#[test]
+fn should_2_e7_and_3_e4_return_2_e7() {
+    let mut range = Range::init("(2,7]");
+    range.and_default(" (3,4)");
+    assert_eq!(range.show(), "(2, 7]");
+}
+
+#[test]
+fn should_2_7_and_3_7_return_2_7() {
+    let mut range = Range::init("(2,7)");
+    range.and_default(" (3,7)");
+    assert_eq!(range.show(), "(2, 7)");
+}
+
+#[test]
+fn should_2_e7_and_3_7_return_2_e7() {
+    let mut range = Range::init("(2,7]");
+    range.and_default(" (3,7)");
+    assert_eq!(range.show(), "(2, 7]");
+}
+
+#[test]
+fn should_2_7_and_3_e7_return_2_e7() {
+    let mut range = Range::init("(2,7)");
+    range.and_default(" (3,7]");
+    assert_eq!(range.show(), "(2, 7]");
+}
+
+#[test]
+fn should_2_e7_and_3_e7_return_2_e7() {
+    let mut range = Range::init("(2,7]");
+    range.and_default(" (3,7]");
+    assert_eq!(range.show(), "(2, 7]");
+}
+
+#[test]
 fn should_e2_5_not_overlap_e7_10() {
     let range = Range::init("[2,5)");
     let range_2 = Range::init("[7,10)");

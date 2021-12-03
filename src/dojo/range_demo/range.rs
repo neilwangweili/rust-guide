@@ -53,17 +53,30 @@ impl Range {
             let o1_left_contains = o1.left().contains();
             let o1_right_element = o1.right().element();
             let o1_right_contains = o1.right().contains();
+            let o2_left_element = o2.left().element();
             let o2_left_contains = o2.left().contains();
             let o2_right_element = o2.right().element();
             let o2_right_contains = o2.right().contains();
             bounds.remove(i + 1);
             bounds.remove(i);
-            let left_contains = if o1_left_contains || o2_left_contains {
+            let left_contains = if o1_left_element == o2_left_element && (o1_left_contains || o2_left_contains) {
+                "["
+            } else if o1_left_element == o2_left_element && !(o1_left_contains || o2_left_contains) {
+                "("
+            } else if o1_left_element != o2_left_element && o1_left_contains {
                 "["
             } else {
                 "("
             };
-            let right_contains = if o1_right_contains || o2_right_contains {
+            let right_contains = if o1_right_element == o2_right_element && (o1_right_contains || o2_right_contains) {
+                "]"
+            } else if o1_right_element == o2_right_element && !(o1_right_contains || o2_right_contains) {
+                ")"
+            } else if o1_right_element > o2_right_element && o1_right_contains {
+                "]"
+            } else if o1_right_element > o2_right_element && !o1_right_contains {
+                ")"
+            } else if o1_right_element < o2_right_element && o2_right_contains {
                 "]"
             } else {
                 ")"
