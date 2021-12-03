@@ -60,7 +60,10 @@
 - [x] should_create_e2_6 -> [2, 6)
 - [x] should_create_e2_6 -> (2, 6]
 - [x] should_create_e2_6 -> (2, 6)
-- [x] should_e2_6_and_3_7_return_e2_7 -> [2, 6) ∪ (7, 8)
+
+#### add
+
+#### or
 
 #### integer range contains
 - [ ] should_e2_6_contains_2_4 -> true
