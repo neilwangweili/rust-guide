@@ -42,5 +42,4 @@ impl Interval {
     pub fn right(&self) -> &RightBound {
         &self.right
     }
-
 }
