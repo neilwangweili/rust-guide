@@ -28,7 +28,7 @@ impl Interval {
         format!("{}, {}", self.left.show(), self.right.show())
     }
 
-    fn swap_asc<'a>(o1: &'a Interval, o2: &'a Interval) -> (&'a Interval, &'a Interval) {
+    pub fn swap_asc<'a>(o1: &'a Interval, o2: &'a Interval) -> (&'a Interval, &'a Interval) {
         match o1.left.element() < o2.left.element() {
             true => (o1, o2),
             false => (o2, o1),

@@ -39,9 +39,13 @@ impl Range {
 
     pub fn and(&mut self) {
         let bounds = self.mut_bounds();
-        for i in 0..bounds.len() - 1 {
-            let o1: &Interval = bounds.get(i).unwrap();
-            let o2: &Interval = bounds.get(i + 1).unwrap();
+        for i in bounds.len() - 2..=0 {
+            let this: &Interval = bounds.get(i).unwrap();
+            let next: &Interval = bounds.get(i + 1).unwrap();
+            if !this.overlaps_range(next) {
+                continue;
+            }
+            // let (o1, o2) = Interval::swap_asc(this, next);
         }
     }
 
