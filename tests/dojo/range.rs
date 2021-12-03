@@ -45,3 +45,24 @@ fn should_2_10_overlap_e3_5() {
     let range_2 = Range::init("[3,5)");
     assert_eq!(range.overlaps_range(&range_2), true);
 }
+
+#[test]
+fn should_e3_5_overlap_e3_5() {
+    let range = Range::init("[3,5)");
+    let range_2 = Range::init("[3,5)");
+    assert_eq!(range.overlaps_range(&range_2), true);
+}
+
+#[test]
+fn should_e2_5_overlap_with_e3_10() {
+    let range = Range::init("[2,5)");
+    let range_2 = Range::init("[3,10)");
+    assert_eq!(range.overlaps_range(&range_2), true);
+}
+
+#[test]
+fn should_e3_5_overlap_with_e2_10() {
+    let range = Range::init("[3,5)");
+    let range_2 = Range::init("[2,10)");
+    assert_eq!(range.overlaps_range(&range_2), true);
+}
