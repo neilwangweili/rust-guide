@@ -34,11 +34,15 @@ impl Range {
     pub fn and_default(&mut self, new_range: &str) {
         let mut range = Range::init(new_range);
         self.bounds.append(range.mut_bounds());
+        self.sort();
         self.and();
     }
 
     pub fn and(&mut self) {
-        let bounds = self.mut_bounds();
+        if !self.overlaps_range() {
+            return;
+        }
+        let bounds = self.sort();
         for i in bounds.len() - 2..=0 {
             let this: &Interval = bounds.get(i).unwrap();
             let next: &Interval = bounds.get(i + 1).unwrap();
@@ -49,10 +53,30 @@ impl Range {
         }
     }
 
+    fn sort(&mut self) -> &mut Vec<Interval> {
+        let bounds = self.mut_bounds();
+        bounds.sort_by(|a, b| {
+            PartialOrd::partial_cmp(&a.left().element(), &b.left().element()).unwrap()
+        });
+        bounds
+    }
+
     pub fn overlaps_range_to_others(&self, o: &Range) -> bool {
         let mut result = false;
         for bound in o.bounds() {
             for self_bound in &self.bounds {
+                result |= bound.overlaps_range(self_bound);
+            }
+        }
+        result
+    }
+
+    fn overlaps_range(&self) -> bool {
+        let mut result = false;
+        for i in 0..self.bounds.len() {
+            let bound = &self.bounds[i];
+            for j in i + 1..self.bounds.len() {
+                let self_bound = &self.bounds[j];
                 result |= bound.overlaps_range(self_bound);
             }
         }

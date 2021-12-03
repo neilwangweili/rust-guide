@@ -19,10 +19,24 @@ fn should_create_2_6_3() {
 }
 
 #[test]
-fn should_e2_6_and_3_7_return_e2_7() {
+fn should_e2_6_and_7_8_return_e2_7() {
     let mut range = Range::init(" [2, 6 )");
     range.and_default("(7,8)");
     assert_eq!(range.show(), "[2, 6) ∪ (7, 8)");
+}
+
+#[test]
+fn should_e2_6_and_7_8_return_e2_7_2() {
+    let mut range = Range::init("(7,8)");
+    range.and_default(" [2, 6 )");
+    assert_eq!(range.show(), "[2, 6) ∪ (7, 8)");
+}
+
+#[test]
+fn should_e2_6_and_7_8_return_e2_7_3() {
+    let mut range = Range::init("(3,8)");
+    range.and_default(" [2, 6 )");
+    assert_eq!(range.show(), "[2, 6) ∪ (3, 8)");
 }
 
 #[test]

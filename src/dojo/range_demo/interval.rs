@@ -34,4 +34,8 @@ impl Interval {
             false => (o2, o1),
         }
     }
+
+    pub fn left(&self) -> &LeftBound {
+        &self.left
+    }
 }
