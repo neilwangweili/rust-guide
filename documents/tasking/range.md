@@ -48,7 +48,9 @@
 ## 概念划分
 1. Range
 2. Interval
-3. Bound
+3. Bound - trait
+4. LeftBound
+5. RightBound
 
 1 has vec 2. 2 has two 3.
 
