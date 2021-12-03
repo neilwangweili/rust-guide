@@ -15,6 +15,10 @@ impl Interval {
         }
     }
 
+    pub fn overlaps_range(&self, o: &Interval) -> bool {
+        false
+    }
+
     pub fn show(&self) -> String {
         format!("{}, {}", self.left.show(), self.right.show())
     }
