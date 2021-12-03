@@ -38,6 +38,18 @@ impl Range {
         self.and();
     }
 
+    pub fn and_range(&mut self, new_range: &mut Range) {
+        self.bounds.append(new_range.mut_bounds());
+        self.sort();
+        self.and();
+    }
+
+    pub fn and_interval(&mut self, new_interval: Interval) {
+        self.bounds.insert(0, new_interval);
+        self.sort();
+        self.and();
+    }
+
     pub fn and(&mut self) {
         if !self.overlaps_range() {
             return;

@@ -1,3 +1,4 @@
+use rust_guide::dojo::range_demo::interval::Interval;
 use rust_guide::dojo::range_demo::range::Range;
 
 #[test]
@@ -29,6 +30,20 @@ fn should_e2_6_and_7_8_return_e2_7() {
 fn should_e2_6_and_7_8_return_e2_7_2() {
     let mut range = Range::init("(7,8)");
     range.and_default(" [2, 6 )");
+    assert_eq!(range.show(), "[2, 6) ∪ (7, 8)");
+}
+
+#[test]
+fn should_e2_6_and_7_8_return_e2_7_range() {
+    let mut range = Range::init("(7,8)");
+    range.and_range(&mut Range::init(" [2, 6 )"));
+    assert_eq!(range.show(), "[2, 6) ∪ (7, 8)");
+}
+
+#[test]
+fn should_e2_6_and_7_8_return_e2_7_interval() {
+    let mut range = Range::init("(7,8)");
+    range.and_interval(Interval::init(String::from("[2,6)")));
     assert_eq!(range.show(), "[2, 6) ∪ (7, 8)");
 }
 
