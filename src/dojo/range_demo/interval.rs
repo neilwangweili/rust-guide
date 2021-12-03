@@ -16,10 +16,22 @@ impl Interval {
     }
 
     pub fn overlaps_range(&self, o: &Interval) -> bool {
-        false
+        let (o1, o2) = Interval::swap_asc(&self, o);
+        if o1.right.element() > o2.left.element() {
+            true
+        } else {
+            false
+        }
     }
 
     pub fn show(&self) -> String {
         format!("{}, {}", self.left.show(), self.right.show())
+    }
+
+    fn swap_asc<'a>(o1: &'a Interval, o2: &'a Interval) -> (&'a Interval, &'a Interval) {
+        match o1.left.element() < o2.left.element() {
+            true => (o1, o2),
+            false => (o2, o1),
+        }
     }
 }
