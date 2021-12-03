@@ -40,11 +40,12 @@ impl Range {
     pub fn and(&mut self) {
         let bounds = self.mut_bounds();
         for i in 0..bounds.len() - 1 {
-            let _a: &Interval = bounds.get(i).unwrap();
+            let o1: &Interval = bounds.get(i).unwrap();
+            let o2: &Interval = bounds.get(i + 1).unwrap();
         }
     }
 
-    pub fn overlaps_range(&self, o: &Range) -> bool {
+    pub fn overlaps_range_to_others(&self, o: &Range) -> bool {
         let mut result = false;
         for bound in o.bounds() {
             for self_bound in &self.bounds {
