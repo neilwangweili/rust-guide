@@ -44,12 +44,36 @@ impl Range {
         }
         let bounds = self.sort();
         for i in bounds.len() - 2..=0 {
-            let this: &Interval = bounds.get(i).unwrap();
-            let next: &Interval = bounds.get(i + 1).unwrap();
-            if !this.overlaps_range(next) {
+            let o1: &Interval = bounds.get(i).unwrap();
+            let o2: &Interval = bounds.get(i + 1).unwrap();
+            if !o1.overlaps_range(o2) {
                 continue;
             }
-            // let (o1, o2) = Interval::swap_asc(this, next);
+            let o1_left_element = o1.left().element();
+            let o1_left_contains = o1.left().contains();
+            let o1_right_element = o1.right().element();
+            let o1_right_contains = o1.right().contains();
+            let o2_left_contains = o2.left().contains();
+            let o2_right_element = o2.right().element();
+            let o2_right_contains = o2.right().contains();
+            bounds.remove(i + 1);
+            bounds.remove(i);
+            let left_contains = if o1_left_contains || o2_left_contains {
+                "["
+            } else {
+                "("
+            };
+            let right_contains = if o1_right_contains || o2_right_contains {
+                "]"
+            } else {
+                ")"
+            };
+            bounds.insert(i, Interval::init(format!("{}{},{}{}",
+                                                    left_contains, o1_left_element,
+                                                    match o1_right_element > o2_right_element {
+                                                        true => o1_right_element,
+                                                        false => o2_right_element
+                                                    }, right_contains)));
         }
     }
 

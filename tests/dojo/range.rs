@@ -33,10 +33,10 @@ fn should_e2_6_and_7_8_return_e2_7_2() {
 }
 
 #[test]
-fn should_e2_6_and_7_8_return_e2_7_3() {
+fn should_e2_6_and_3_8_return_e2_8() {
     let mut range = Range::init("(3,8)");
     range.and_default(" [2, 6 )");
-    assert_eq!(range.show(), "[2, 6) ∪ (3, 8)");
+    assert_eq!(range.show(), "[2, 8)");
 }
 
 #[test]
