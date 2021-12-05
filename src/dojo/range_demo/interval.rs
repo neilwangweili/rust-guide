@@ -72,7 +72,7 @@ impl Interval {
         } else if self.right_in_range_left_equals(that) {
             self.left_bound_contains(that)
         } else {
-            self.right_bound_contains(that) && self.right_bound_contains(that)
+            self.left_bound_contains(that) && self.right_bound_contains(that)
         }
     }
 
