@@ -27,7 +27,11 @@ impl Range {
     }
 
     pub fn show(&self) -> String {
-        self.build_collection_bound(self.build_interval_bound())
+        if self.bounds.len() == 0 {
+            String::from("∅")
+        } else {
+            self.build_collection_bound(self.build_interval_bound())
+        }
     }
 
     fn build_collection_bound(&self, mut result: String) -> String {
@@ -228,6 +232,8 @@ impl Range {
         let trim_range_string = range_string.replace(" ", "");
         if trim_range_string.contains("[") || trim_range_string.contains("(") {
             vec![Interval::init(trim_range_string)]
+        } else if trim_range_string == "" {
+            vec![]
         } else {
             Range::init_collections(range_string)
         }

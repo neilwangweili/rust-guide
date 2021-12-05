@@ -17,32 +17,24 @@ impl Interval {
 
     pub fn overlaps_range(&self, o: &Interval) -> bool {
         let (o1, o2) = Interval::swap_asc(&self, o);
-        if o1.right.contains() && o2.left.contains() {
-            o1.right.element() >= o2.left.element()
+        if Self::cover_end_points(o1, o2) {
+            Self::element_eq_lt(o1, o2)
         } else {
-            o1.right.element() > o2.left.element()
+            Self::element_lt(o1, o2)
         }
     }
 
     pub fn over_close_range(&self, o: &Interval) -> bool {
         let (o1, o2) = Interval::swap_asc(&self, o);
-        if (o1.right.contains() && o2.left.contains()) || (o1.right.contains() ^ o2.left.contains())
-        {
-            o1.right.element() >= o2.left.element()
+        if Self::cover_end_points(o1, o2) || Self::has_one_big_contains(o1, o2) {
+            Self::element_eq_lt(o1, o2)
         } else {
-            o1.right.element() > o2.left.element()
+            Self::element_lt(o1, o2)
         }
     }
 
     pub fn show(&self) -> String {
         format!("{}, {}", self.left.show(), self.right.show())
-    }
-
-    fn swap_asc<'a>(o1: &'a Interval, o2: &'a Interval) -> (&'a Interval, &'a Interval) {
-        match o1.left.element() < o2.left.element() {
-            true => (o1, o2),
-            false => (o2, o1),
-        }
     }
 
     pub fn equals(&self, that: &Interval) -> bool {
@@ -72,6 +64,29 @@ impl Interval {
             self.left_bound_contains(that)
         } else {
             self.left_bound_contains(that) && self.right_bound_contains(that)
+        }
+    }
+
+    fn has_one_big_contains(o1: &Interval, o2: &Interval) -> bool {
+        o1.right.contains() ^ o2.left.contains()
+    }
+
+    fn element_lt(o1: &Interval, o2: &Interval) -> bool {
+        o1.right.element() > o2.left.element()
+    }
+
+    fn element_eq_lt(o1: &Interval, o2: &Interval) -> bool {
+        o1.right.element() >= o2.left.element()
+    }
+
+    fn cover_end_points(o1: &Interval, o2: &Interval) -> bool {
+        o1.right.contains() && o2.left.contains()
+    }
+
+    fn swap_asc<'a>(o1: &'a Interval, o2: &'a Interval) -> (&'a Interval, &'a Interval) {
+        match o1.left.element() < o2.left.element() {
+            true => (o1, o2),
+            false => (o2, o1),
         }
     }
 
