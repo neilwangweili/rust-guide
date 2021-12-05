@@ -251,3 +251,23 @@ fn e3_e5_not_equals_e2_e5() {
     let range_2 = Range::init("[2,5]");
     assert_eq!(range.equals(&range_2), false);
 }
+
+#[test]
+fn should_create_collection() {
+    let range = Range::init("{1,2,3,4,5}");
+    assert_eq!(range.show(), "{1, 2, 3, 4, 5}");
+}
+
+#[test]
+fn should_create_collection_with_interval() {
+    let mut range = Range::init("{1,2,3,4,5}");
+    range.and_default("[-1,0)");
+    assert_eq!(range.show(), "[-1, 0) ∪ {1, 2, 3, 4, 5}");
+}
+
+#[test]
+fn should_create_collection_add_interval_correctly() {
+    let mut range = Range::init("{1,2,3,4,5}");
+    range.and_default("[-1,1.5)");
+    assert_eq!(range.show(), "[-1, 1.5) ∪ {2, 3, 4, 5}");
+}

@@ -56,4 +56,8 @@ impl Interval {
     pub fn right(&self) -> &RightBound {
         &self.right
     }
+
+    pub fn is_collection(&self) -> bool {
+        &self.left().element() == &self.right().element()
+    }
 }

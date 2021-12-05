@@ -28,11 +28,28 @@ impl Range {
 
     pub fn show(&self) -> String {
         let mut result = String::new();
+        let mut interval_list = Vec::new();
         for bound in self.bounds.iter() {
+            if bound.is_collection() {
+                interval_list.push(bound);
+                continue;
+            }
             if result == "" {
                 result += &bound.show()
             } else {
                 result = result + " ∪ " + &bound.show()
+            }
+        }
+        for i in 0..interval_list.len() {
+            if i == 0 && result == "" {
+                result += "{"
+            } else if i == 0 {
+                result += " ∪ {"
+            }
+            if i < interval_list.len() - 1 {
+                result += &format!("{}, ", interval_list.get(i).unwrap().left().element());
+            } else {
+                result += &format!("{}}}", interval_list.get(i).unwrap().left().element());
             }
         }
         result
@@ -164,6 +181,19 @@ impl Range {
 
     fn init_bounds(range_string: &str) -> Vec<Interval> {
         let trim_range_string = range_string.replace(" ", "");
-        vec![Interval::init(trim_range_string)]
+        if trim_range_string.contains("[") || trim_range_string.contains("(") {
+            vec![Interval::init(trim_range_string)]
+        } else {
+            Range::init_collections(range_string)
+        }
+    }
+
+    fn init_collections(collection_string: &str) -> Vec<Interval> {
+        let str = collection_string.replace("{", "").replace("}", "");
+        let mut interval = Vec::new();
+        for collection in str.split(",") {
+            interval.push(Interval::init(format!("[{},{}]", collection, collection)));
+        }
+        interval
     }
 }
