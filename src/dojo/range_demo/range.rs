@@ -104,23 +104,33 @@ impl Range {
             if !o1.over_close_range(o2) {
                 continue;
             }
-            let (o1_left_element, o1_left_contains, o1_right_element, o1_right_contains) = Self::get_bounds_values(o1);
-            let (o2_left_element, o2_left_contains, o2_right_element, o2_right_contains) = Self::get_bounds_values(o2);
+            let (o1_left_element, o1_left_contains, o1_right_element, o1_right_contains) =
+                Self::get_bounds_values(o1);
+            let (o2_left_element, o2_left_contains, o2_right_element, o2_right_contains) =
+                Self::get_bounds_values(o2);
             bounds.remove(i + 1);
             bounds.remove(i);
-            let left_contains = Self::cal_left_contains(o1_left_element, o1_left_contains, o2_left_element, o2_left_contains);
-            let right_contains = Self::cal_right_contains(o1_right_element, o1_right_contains, o2_right_element, o2_right_contains);
             bounds.insert(
                 i,
                 Interval::init(format!(
                     "{}{},{}{}",
-                    left_contains,
+                    Self::cal_left_contains(
+                        o1_left_element,
+                        o1_left_contains,
+                        o2_left_element,
+                        o2_left_contains,
+                    ),
                     o1_left_element,
                     match o1_right_element > o2_right_element {
                         true => o1_right_element,
                         false => o2_right_element,
                     },
-                    right_contains
+                    Self::cal_right_contains(
+                        o1_right_element,
+                        o1_right_contains,
+                        o2_right_element,
+                        o2_right_contains,
+                    )
                 )),
             );
         }
@@ -148,27 +158,56 @@ impl Range {
     }
 
     pub fn get_all_points(&self) -> String {
-        let left = self.bounds()[0].left().element().floor() as usize;
-        let right = self.bounds()[self.bounds.len() - 1]
-            .right()
-            .element()
-            .ceil() as usize;
-        Range::init(&self.create_all_points(left, right)).show()
+        Range::init(
+            &self.create_all_points(
+                self.bounds()[0].left().element().floor() as usize,
+                self.bounds()[self.bounds.len() - 1]
+                    .right()
+                    .element()
+                    .ceil() as usize,
+            ),
+        )
+            .show()
     }
 
-    fn cal_right_contains(o1_right_element: f64, o1_right_contains: bool, o2_right_element: f64, o2_right_contains: bool) -> &'static str {
-        if Range::right_contains_to_string(o1_right_element, o1_right_contains, o2_right_element, o2_right_contains)
-            || Range::right_element_out_of_range(o1_right_element, o2_right_element) && o1_right_contains
-            || Range::right_element_in_range(o1_right_element, o2_right_element) && o2_right_contains {
+    fn cal_right_contains(
+        o1_right_element: f64,
+        o1_right_contains: bool,
+        o2_right_element: f64,
+        o2_right_contains: bool,
+    ) -> &'static str {
+        if Range::right_contains_to_string(
+            o1_right_element,
+            o1_right_contains,
+            o2_right_element,
+            o2_right_contains,
+        ) || Range::right_element_out_of_range(o1_right_element, o2_right_element)
+            && o1_right_contains
+            || Range::right_element_in_range(o1_right_element, o2_right_element)
+            && o2_right_contains
+        {
             "]"
         } else {
             ")"
         }
     }
 
-    fn cal_left_contains(o1_left_element: f64, o1_left_contains: bool, o2_left_element: f64, o2_left_contains: bool) -> &'static str {
-        if Range::left_contains_to_string(o1_left_element, o1_left_contains, o2_left_element, o2_left_contains)
-            || Range::left_element_not_equals_and_contains(o1_left_element, o2_left_element, o1_left_contains) {
+    fn cal_left_contains(
+        o1_left_element: f64,
+        o1_left_contains: bool,
+        o2_left_element: f64,
+        o2_left_contains: bool,
+    ) -> &'static str {
+        if Range::left_contains_to_string(
+            o1_left_element,
+            o1_left_contains,
+            o2_left_element,
+            o2_left_contains,
+        ) || Range::left_element_not_equals_and_contains(
+            o1_left_element,
+            o2_left_element,
+            o1_left_contains,
+        ) {
             "["
         } else {
             "("
@@ -183,16 +222,32 @@ impl Range {
         o1_right_element > o2_right_element
     }
 
-    fn left_element_not_equals_and_contains(o1_left_element: f64, o2_left_element: f64, o1_left_contains: bool) -> bool {
+    fn left_element_not_equals_and_contains(
+        o1_left_element: f64,
+        o2_left_element: f64,
+        o1_left_contains: bool,
+    ) -> bool {
         o1_left_element != o2_left_element && o1_left_contains
     }
 
-    fn right_contains_to_string(o1_right_element: f64, o1_right_contains: bool, o2_right_element: f64, o2_right_contains: bool) -> bool {
-        o1_right_element == o2_right_element && Self::find_if_contains_big(o1_right_contains, o2_right_contains)
+    fn right_contains_to_string(
+        o1_right_element: f64,
+        o1_right_contains: bool,
+        o2_right_element: f64,
+        o2_right_contains: bool,
+    ) -> bool {
+        o1_right_element == o2_right_element
+            && Self::find_if_contains_big(o1_right_contains, o2_right_contains)
     }
 
-    fn left_contains_to_string(o1_left_element: f64, o1_left_contains: bool, o2_left_element: f64, o2_left_contains: bool) -> bool {
-        o1_left_element == o2_left_element && Self::find_if_contains_big(o1_left_contains, o2_left_contains)
+    fn left_contains_to_string(
+        o1_left_element: f64,
+        o1_left_contains: bool,
+        o2_left_element: f64,
+        o2_left_contains: bool,
+    ) -> bool {
+        o1_left_element == o2_left_element
+            && Self::find_if_contains_big(o1_left_contains, o2_left_contains)
     }
 
     fn find_if_contains_big(o1: bool, o2: bool) -> bool {
@@ -200,7 +255,12 @@ impl Range {
     }
 
     fn get_bounds_values(o1: &Interval) -> (f64, bool, f64, bool) {
-        (o1.left().element(), o1.left().contains(), o1.right().element(), o1.right().contains())
+        (
+            o1.left().element(),
+            o1.left().contains(),
+            o1.right().element(),
+            o1.right().contains(),
+        )
     }
 
     fn sort_and(&mut self) {
@@ -221,8 +281,7 @@ impl Range {
         for i in 0..self.bounds.len() {
             let bound = &self.bounds[i];
             for j in i + 1..self.bounds.len() {
-                let self_bound = &self.bounds[j];
-                result |= bound.over_close_range(self_bound);
+                result |= bound.over_close_range(&self.bounds[j]);
             }
         }
         result
