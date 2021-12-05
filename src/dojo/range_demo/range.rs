@@ -64,22 +64,17 @@ impl Range {
     }
 
     pub fn and_default(&mut self, new_range: &str) {
-        let mut range = Range::init(new_range);
-        self.bounds.append(range.mut_bounds());
-        self.sort();
-        self.and();
+        self.and_range(&mut Range::init(new_range));
     }
 
     pub fn and_range(&mut self, new_range: &mut Range) {
         self.bounds.append(new_range.mut_bounds());
-        self.sort();
-        self.and();
+        self.sort_and();
     }
 
     pub fn and_interval(&mut self, new_interval: Interval) {
         self.bounds.insert(0, new_interval);
-        self.sort();
-        self.and();
+        self.sort_and();
     }
 
     pub fn and(&mut self) {
@@ -149,14 +144,6 @@ impl Range {
         self.and();
     }
 
-    fn sort(&mut self) -> &mut Vec<Interval> {
-        let bounds = self.mut_bounds();
-        bounds.sort_by(|a, b| {
-            PartialOrd::partial_cmp(&a.left().element(), &b.left().element()).unwrap()
-        });
-        bounds
-    }
-
     pub fn overlaps_range_to_others(&self, o: &Range) -> bool {
         let mut result = false;
         for bound in o.bounds() {
@@ -165,6 +152,19 @@ impl Range {
             }
         }
         result
+    }
+
+    fn sort_and(&mut self) {
+        self.sort();
+        self.and();
+    }
+
+    fn sort(&mut self) -> &mut Vec<Interval> {
+        let bounds = self.mut_bounds();
+        bounds.sort_by(|a, b| {
+            PartialOrd::partial_cmp(&a.left().element(), &b.left().element()).unwrap()
+        });
+        bounds
     }
 
     fn over_close_range(&self) -> bool {
