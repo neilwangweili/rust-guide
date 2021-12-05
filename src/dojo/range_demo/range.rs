@@ -100,6 +100,11 @@ impl Range {
         self.and();
     }
 
+    pub fn or_default(&mut self, that: &str) {
+        let mut range = Self::init(that);
+        self.or_range(&range);
+    }
+
     pub fn or_range(&mut self, that: &Range) {
         let mut result_bounds = Vec::new();
         for bound in self.bounds() {

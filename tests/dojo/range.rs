@@ -611,8 +611,7 @@ fn should_e2_e4_or_e4_e5_return_n4() {
 #[test]
 fn should_e2_e4_or_4_e5_return_n4() {
     let mut range = Range::init("[2,4]");
-    let range_2 = Range::init("(4,5]");
-    range.or_range(&range_2);
+    range.or_default("(4,5]");
     assert_eq!(range.show(), "∅");
 }
 
