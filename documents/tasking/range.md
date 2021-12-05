@@ -67,7 +67,7 @@
 
 #### integer range contains
 - [x] should_e2_6_contains_2_4 -> true
-- [ ] should_e2_6_not_contains_n1_1_6_10 -> false
+- [x] should_e2_6_not_contains_n1_1_6_10 -> false
 
 #### getAllPoints
 - [ ] should_e2_6_return_2_3_4_5 -> {2, 3, 4, 5}

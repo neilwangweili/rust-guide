@@ -279,6 +279,13 @@ fn should_e2_6_contains_2_4() {
     assert_eq!(range.range_contains(&range_2), true);
 }
 
+#[test]
+fn should_e2_6_not_contains_n1_1_6_10() {
+    let range = Range::init("[2,6)");
+    let range_2 = Range::init("{-1,1,6,10}");
+    assert_eq!(range.range_contains(&range_2), false);
+}
+
 // #[test]
 // fn should_e2_6_return_2_3_4_5() {
 //     let mut range = Range::init("[2,6)");
