@@ -388,3 +388,102 @@ fn should_init_empty() {
     let range = Range::init("");
     assert_eq!(range.show(), "∅");
 }
+
+#[test]
+fn should_empty_equals_empty() {
+    let range = Range::init("");
+    let range_2 = Range::init("");
+    assert_eq!(range.equals(&range_2), true);
+}
+
+#[test]
+fn should_empty_not_equals_others() {
+    let range = Range::init("");
+    let range_2 = Range::init("{1}");
+    assert_eq!(range.equals(&range_2), false);
+}
+
+#[test]
+fn should_others_not_equals_empty() {
+    let range = Range::init("{1}");
+    let range_2 = Range::init("");
+    assert_eq!(range.equals(&range_2), false);
+}
+
+#[test]
+fn should_empty_add_others() {
+    let mut range = Range::init("");
+    let mut range_2 = Range::init("{1}");
+    range.and_range(&mut range_2);
+    assert_eq!(range.show(), "{1}");
+}
+
+#[test]
+fn should_others_add_empty() {
+    let mut range = Range::init("{1}");
+    let mut range_2 = Range::init("");
+    range.and_range(&mut range_2);
+    assert_eq!(range.show(), "{1}");
+}
+
+#[test]
+fn should_empty_add_empty() {
+    let mut range = Range::init("");
+    let mut range_2 = Range::init("");
+    range.and_range(&mut range_2);
+    assert_eq!(range.show(), "∅");
+}
+
+#[test]
+fn should_empty_overlaps_range_to_others() {
+    let range = Range::init("");
+    let range_2 = Range::init("{1}");
+    assert_eq!(range.overlaps_range_to_others(&range_2), false);
+}
+
+#[test]
+fn should_others_overlaps_range_to_empty() {
+    let range = Range::init("{1}");
+    let range_2 = Range::init("");
+    assert_eq!(range.overlaps_range_to_others(&range_2), true);
+}
+
+#[test]
+fn should_empty_overlaps_range_to_empty() {
+    let range = Range::init("");
+    let range_2 = Range::init("");
+    assert_eq!(range.overlaps_range_to_others(&range_2), true);
+}
+
+#[test]
+fn should_empty_range_contains_others() {
+    let range = Range::init("");
+    let range_2 = Range::init("{1}");
+    assert_eq!(range.range_contains(&range_2), false);
+}
+
+#[test]
+fn should_empty_range_contains_empty() {
+    let range = Range::init("");
+    let range_2 = Range::init("");
+    assert_eq!(range.range_contains(&range_2), true);
+}
+
+#[test]
+fn should_others_range_contains_empty() {
+    let range = Range::init("{1}");
+    let range_2 = Range::init("");
+    assert_eq!(range.range_contains(&range_2), true);
+}
+
+#[test]
+fn should_empty_get_all_points() {
+    let range = Range::init("");
+    assert_eq!(range.get_all_points(), "∅");
+}
+
+#[test]
+fn should_1_2_1_4_get_all_points() {
+    let range = Range::init("(1.2,1.4)");
+    assert_eq!(range.get_all_points(), "∅");
+}

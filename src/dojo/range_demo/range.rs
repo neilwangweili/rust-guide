@@ -34,43 +34,6 @@ impl Range {
         }
     }
 
-    fn build_collection_bound(&self, mut result: String) -> String {
-        let mut interval_list = Vec::new();
-        for bound in self.bounds.iter() {
-            if bound.is_collection() {
-                interval_list.push(bound);
-            }
-        }
-        for i in 0..interval_list.len() {
-            if i == 0 && result == "" {
-                result += "{"
-            } else if i == 0 {
-                result += " ∪ {"
-            }
-            if i < interval_list.len() - 1 {
-                result += &format!("{}, ", interval_list.get(i).unwrap().left().element());
-            } else {
-                result += &format!("{}}}", interval_list.get(i).unwrap().left().element());
-            }
-        }
-        result
-    }
-
-    fn build_interval_bound(&self) -> String {
-        let mut result = String::new();
-        for bound in self.bounds.iter() {
-            if bound.is_collection() {
-                continue;
-            }
-            if result == "" {
-                result += &bound.show()
-            } else {
-                result = result + " ∪ " + &bound.show()
-            }
-        }
-        result
-    }
-
     pub fn mut_bounds(&mut self) -> &mut Vec<Interval> {
         &mut self.bounds
     }
@@ -138,6 +101,9 @@ impl Range {
     }
 
     pub fn overlaps_range_to_others(&self, o: &Range) -> bool {
+        if o.bounds().len() == 0 {
+            return true;
+        }
         let mut result = false;
         for bound in o.bounds() {
             for self_bound in &self.bounds {
@@ -148,6 +114,12 @@ impl Range {
     }
 
     pub fn range_contains(&self, that: &Range) -> bool {
+        if self.bounds().len() == 0 && that.bounds().len() == 0 {
+            return true;
+        }
+        if self.bounds().len() == 0 {
+            return false;
+        }
         let mut result = true;
         for bound in self.bounds().iter() {
             for that_bound in that.bounds().iter() {
@@ -158,16 +130,57 @@ impl Range {
     }
 
     pub fn get_all_points(&self) -> String {
-        Range::init(
-            &self.create_all_points(
-                self.bounds()[0].left().element().floor() as usize,
-                self.bounds()[self.bounds.len() - 1]
-                    .right()
-                    .element()
-                    .ceil() as usize,
-            ),
-        )
-        .show()
+        if self.bounds().len() == 0 {
+            String::from("∅")
+        } else {
+            Range::init(
+                &self.create_all_points(
+                    self.bounds()[0].left().element().floor() as usize,
+                    self.bounds()[self.bounds.len() - 1]
+                        .right()
+                        .element()
+                        .ceil() as usize,
+                ),
+            )
+                .show()
+        }
+    }
+
+    fn build_collection_bound(&self, mut result: String) -> String {
+        let mut interval_list = Vec::new();
+        for bound in self.bounds.iter() {
+            if bound.is_collection() {
+                interval_list.push(bound);
+            }
+        }
+        for i in 0..interval_list.len() {
+            if i == 0 && result == "" {
+                result += "{"
+            } else if i == 0 {
+                result += " ∪ {"
+            }
+            if i < interval_list.len() - 1 {
+                result += &format!("{}, ", interval_list.get(i).unwrap().left().element());
+            } else {
+                result += &format!("{}}}", interval_list.get(i).unwrap().left().element());
+            }
+        }
+        result
+    }
+
+    fn build_interval_bound(&self) -> String {
+        let mut result = String::new();
+        for bound in self.bounds.iter() {
+            if bound.is_collection() {
+                continue;
+            }
+            if result == "" {
+                result += &bound.show()
+            } else {
+                result = result + " ∪ " + &bound.show()
+            }
+        }
+        result
     }
 
     fn cal_right_contains(
@@ -184,7 +197,7 @@ impl Range {
         ) || Range::right_element_out_of_range(o1_right_element, o2_right_element)
             && o1_right_contains
             || Range::right_element_in_range(o1_right_element, o2_right_element)
-                && o2_right_contains
+            && o2_right_contains
         {
             "]"
         } else {
@@ -291,7 +304,7 @@ impl Range {
         let trim_range_string = range_string.replace(" ", "");
         if trim_range_string.contains("[") || trim_range_string.contains("(") {
             vec![Interval::init(trim_range_string)]
-        } else if trim_range_string == "" {
+        } else if trim_range_string == "" || trim_range_string == "{}" {
             vec![]
         } else {
             Range::init_collections(range_string)
