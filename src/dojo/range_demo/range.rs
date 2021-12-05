@@ -1,7 +1,5 @@
 use crate::dojo::range_demo::interval::Interval;
 
-
-
 pub struct Range {
     bounds: Vec<Interval>,
 }
