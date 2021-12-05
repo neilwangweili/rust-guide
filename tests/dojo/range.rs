@@ -187,3 +187,18 @@ fn should_e3_e5_not_overlap_with_5_10() {
     let range_2 = Range::init("(5,10]");
     assert_eq!(range.overlaps_range_to_others(&range_2), false);
 }
+
+#[test]
+fn e3_5_equals_e3_5() {
+    let range = Range::init("[3,5]");
+    let range_2 = Range::init("(3,5]");
+    assert_eq!(range.equals(&range_2), true);
+}
+
+#[test]
+fn e3_5_7_8_not_equals_e3_5() {
+    let mut range = Range::init("[3,5]");
+    range.and_default("(7,8)");
+    let range_2 = Range::init("(3,5]");
+    assert_eq!(range.equals(&range_2), false);
+}

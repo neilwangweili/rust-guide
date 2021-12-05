@@ -29,6 +29,10 @@ impl RightBound {
         })
     }
 
+    pub fn equals(&self, that: &RightBound) -> bool {
+        self.element() == that.element() && self.contains() == that.contains()
+    }
+
     pub fn element(&self) -> f64 {
         self.self_bound.element()
     }

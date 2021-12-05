@@ -45,6 +45,10 @@ impl Interval {
         }
     }
 
+    pub fn equals(&self, that: &Interval) -> bool {
+        self.right().equals(that.right()) && self.left().equals(that.right())
+    }
+
     pub fn left(&self) -> &LeftBound {
         &self.left
     }

@@ -1,3 +1,5 @@
+use std::any::Any;
+use std::ops::Add;
 use crate::dojo::range_demo::interval::Interval;
 
 pub struct Range {
@@ -9,6 +11,17 @@ impl Range {
         Self {
             bounds: Range::init_bounds(range_string),
         }
+    }
+
+    pub fn equals(&self, that: &Range) -> bool {
+        let mut result = true;
+        if self.bounds().len() != that.bounds().len() {
+            return false;
+        }
+        for i in 0..self.bounds().len() {
+            result &= self.bounds().get(i).unwrap().equals(that.bounds().get(i).unwrap());
+        }
+        !result
     }
 
     pub fn show(&self) -> String {
