@@ -85,27 +85,33 @@ impl Interval {
     }
 
     fn cal_right_bound(o1: &Interval, o2: &Interval) -> (f64, bool) {
-        (if Self::right_element_lt(o1, o2) {
-            o2.right().element()
-        } else if Self::right_element_gt(o1, o2) {
-            o1.right().element()
-        } else {
-            o1.right().element()
-        }, if Self::right_element_lt(o1, o2) {
-            o2.right().contains()
-        } else if Self::right_element_gt(o1, o2) {
-            o1.right().contains()
-        } else {
-            o1.right().contains() && o2.right().contains()
-        })
+        (
+            if Self::right_element_lt(o1, o2) {
+                o2.right().element()
+            } else if Self::right_element_gt(o1, o2) {
+                o1.right().element()
+            } else {
+                o1.right().element()
+            },
+            if Self::right_element_lt(o1, o2) {
+                o2.right().contains()
+            } else if Self::right_element_gt(o1, o2) {
+                o1.right().contains()
+            } else {
+                o1.right().contains() && o2.right().contains()
+            },
+        )
     }
 
     fn cal_left_bound(o1: &Interval, o2: &Interval) -> (f64, bool) {
-        (o2.left().element(), if Self::left_element_lt(o1, o2) {
-            o2.left().contains()
-        } else {
-            o1.left().contains() && o2.left().contains()
-        })
+        (
+            o2.left().element(),
+            if Self::left_element_lt(o1, o2) {
+                o2.left().contains()
+            } else {
+                o1.left().contains() && o2.left().contains()
+            },
+        )
     }
 
     fn left_element_lt(o1: &Interval, o2: &Interval) -> bool {
