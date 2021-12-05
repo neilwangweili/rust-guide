@@ -216,3 +216,10 @@ fn e2_5_not_equals_e3_10() {
     let range_2 = Range::init("[3,10)");
     assert_eq!(range.equals(&range_2), false);
 }
+
+#[test]
+fn e3_5_not_equals_e2_10() {
+    let range = Range::init("[3,5)");
+    let range_2 = Range::init("[2,10)");
+    assert_eq!(range.equals(&range_2), false);
+}
