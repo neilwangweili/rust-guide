@@ -100,6 +100,19 @@ impl Range {
         self.and();
     }
 
+    pub fn or_range(&mut self, that: &Range) {
+        let mut result_bounds = Vec::new();
+        for bound in self.bounds() {
+            for that_bound in that.bounds() {
+                if bound.overlaps_range(that_bound) {
+                    let new_bound = bound.get_overlaps(that_bound);
+                    result_bounds.push(new_bound);
+                }
+            }
+        }
+        self.bounds = result_bounds;
+    }
+
     pub fn overlaps_range_to_others(&self, o: &Range) -> bool {
         if o.bounds().len() == 0 {
             return true;

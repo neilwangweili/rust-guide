@@ -23,7 +23,15 @@ impl LeftBound {
     }
 
     pub fn get_contains_tag(&self) -> String {
-        String::from(match self.self_bound.contains() {
+        Self::get_tag(self.self_bound.contains())
+    }
+
+    pub fn get_contains_tag_from_out(contains: bool) -> String {
+        Self::get_tag(contains)
+    }
+
+    fn get_tag(contains: bool) -> String {
+        String::from(match contains {
             true => "[",
             false => "(",
         })

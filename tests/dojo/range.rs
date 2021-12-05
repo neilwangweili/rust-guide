@@ -487,3 +487,154 @@ fn should_1_2_1_4_get_all_points() {
     let range = Range::init("(1.2,1.4)");
     assert_eq!(range.get_all_points(), "∅");
 }
+
+#[test]
+fn should_1_3_or_2_4_return_2_3() {
+    let mut range = Range::init("(1,3)");
+    let range_2 = Range::init("(2,4)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 3)");
+}
+
+#[test]
+fn should_2_4_or_1_3_return_2_3() {
+    let mut range = Range::init("(2,4)");
+    let range_2 = Range::init("(1,3)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 3)");
+}
+
+#[test]
+fn should_2_4_or_2_4_return_2_4() {
+    let mut range = Range::init("(2,4)");
+    let range_2 = Range::init("(2,4)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4)");
+}
+
+#[test]
+fn should_e2_4_or_2_4_return_2_4() {
+    let mut range = Range::init("[2,4)");
+    let range_2 = Range::init("(2,4)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4)");
+}
+
+#[test]
+fn should_2_4_or_e2_4_return_2_4() {
+    let mut range = Range::init("(2,4)");
+    let range_2 = Range::init("[2,4)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4)");
+}
+
+#[test]
+fn should_2_e4_or_2_4_return_2_4() {
+    let mut range = Range::init("(2,4]");
+    let range_2 = Range::init("(2,4)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4)");
+}
+
+#[test]
+fn should_2_4_or_2_e4_return_2_4() {
+    let mut range = Range::init("(2,4)");
+    let range_2 = Range::init("(2,4]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4)");
+}
+
+#[test]
+fn should_e2_e4_or_2_4_return_2_4() {
+    let mut range = Range::init("[2,4]");
+    let range_2 = Range::init("(2,4)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4)");
+}
+
+#[test]
+fn should_2_4_or_e2_e4_return_2_4() {
+    let mut range = Range::init("(2,4)");
+    let range_2 = Range::init("[2,4]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4)");
+}
+
+#[test]
+fn should_e2_4_or_e2_e4_return_e2_4() {
+    let mut range = Range::init("[2,4)");
+    let range_2 = Range::init("[2,4]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "[2, 4)");
+}
+
+#[test]
+fn should_2_e4_or_e2_e4_return_2_e4() {
+    let mut range = Range::init("(2,4]");
+    let range_2 = Range::init("[2,4]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4]");
+}
+
+#[test]
+fn should_e2_e4_or_e2_4_return_e2_4() {
+    let mut range = Range::init("[2,4]");
+    let range_2 = Range::init("[2,4)");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "[2, 4)");
+}
+
+#[test]
+fn should_e2_e4_or_2_e4_return_2_e4() {
+    let mut range = Range::init("[2,4]");
+    let range_2 = Range::init("(2,4]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 4]");
+}
+
+#[test]
+fn should_e2_e4_or_e2_e4_return_e2_e4() {
+    let mut range = Range::init("[2,4]");
+    let range_2 = Range::init("[2,4]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "[2, 4]");
+}
+
+#[test]
+fn should_e2_e4_or_e4_e5_return_n4() {
+    let mut range = Range::init("[2,4]");
+    let range_2 = Range::init("[4,5]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "{4}");
+}
+
+#[test]
+fn should_e2_e4_or_4_e5_return_n4() {
+    let mut range = Range::init("[2,4]");
+    let range_2 = Range::init("(4,5]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "∅");
+}
+
+#[test]
+fn should_2_4_5_7_or_1_3_n6_return_2_3() {
+    let mut range = Range::init("(2,4)");
+    range.and_default("(5,7)");
+    let mut range_2 = Range::init("(1,3)");
+    range_2.and_default("{6}");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "(2, 3) ∪ {6}");
+}
+
+#[test]
+fn integration_or() {
+    let mut range = Range::init("[1,2]");
+    range.and_default("[3,4]");
+    range.and_default("{5,6,7,8,9,10}");
+    range.and_default("[9,10)");
+    let mut range_2 = Range::init("[1.5,3.5)");
+    range_2.and_default("[3.7,4)");
+    range_2.and_default("[5,11]");
+    range.or_range(&range_2);
+    assert_eq!(range.show(), "[1.5, 2] ∪ [3, 3.5) ∪ [3.7, 4) ∪ [9, 10] ∪ {5, 6, 7, 8}");
+}

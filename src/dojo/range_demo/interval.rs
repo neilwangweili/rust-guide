@@ -15,8 +15,21 @@ impl Interval {
         }
     }
 
-    pub fn overlaps_range(&self, o: &Interval) -> bool {
-        let (o1, o2) = Interval::swap_asc(&self, o);
+    pub fn get_overlaps(&self, that: &Self) -> Self {
+        let (o1, o2) = Self::swap_asc(self, that);
+        let (left_element, left_contains) = Self::cal_left_bound(o1, o2);
+        let (right_element, right_contains) = Self::cal_right_bound(o1, o2);
+        Self::init(format!(
+            "{}{},{}{}",
+            LeftBound::get_contains_tag_from_out(left_contains),
+            left_element,
+            right_element,
+            RightBound::get_contains_tag_from_out(right_contains)
+        ))
+    }
+
+    pub fn overlaps_range(&self, o: &Self) -> bool {
+        let (o1, o2) = Self::swap_asc(&self, o);
         if Self::cover_end_points(o1, o2) {
             Self::element_eq_lt(o1, o2)
         } else {
@@ -69,6 +82,42 @@ impl Interval {
 
     fn has_one_big_contains(o1: &Interval, o2: &Interval) -> bool {
         o1.right.contains() ^ o2.left.contains()
+    }
+
+    fn cal_right_bound(o1: &Interval, o2: &Interval) -> (f64, bool) {
+        (if Self::right_element_lt(o1, o2) {
+            o2.right().element()
+        } else if Self::right_element_gt(o1, o2) {
+            o1.right().element()
+        } else {
+            o1.right().element()
+        }, if Self::right_element_lt(o1, o2) {
+            o2.right().contains()
+        } else if Self::right_element_gt(o1, o2) {
+            o1.right().contains()
+        } else {
+            o1.right().contains() && o2.right().contains()
+        })
+    }
+
+    fn cal_left_bound(o1: &Interval, o2: &Interval) -> (f64, bool) {
+        (o2.left().element(), if Self::left_element_lt(o1, o2) {
+            o2.left().contains()
+        } else {
+            o1.left().contains() && o2.left().contains()
+        })
+    }
+
+    fn left_element_lt(o1: &Interval, o2: &Interval) -> bool {
+        o1.left().element() < o2.left().element()
+    }
+
+    fn right_element_lt(o1: &Interval, o2: &Interval) -> bool {
+        o2.right().element() < o1.right().element()
+    }
+
+    fn right_element_gt(o1: &Interval, o2: &Interval) -> bool {
+        o2.right().element() > o1.right().element()
     }
 
     fn element_lt(o1: &Interval, o2: &Interval) -> bool {
