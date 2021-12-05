@@ -7,11 +7,11 @@ pub struct Range {
 impl Range {
     pub fn init(range_string: &str) -> Self {
         Self {
-            bounds: Range::init_bounds(range_string),
+            bounds: Self::init_bounds(range_string),
         }
     }
 
-    pub fn equals(&self, that: &Range) -> bool {
+    pub fn equals(&self, that: &Self) -> bool {
         let mut result = true;
         if self.bounds().len() != that.bounds().len() {
             return false;
@@ -43,10 +43,10 @@ impl Range {
     }
 
     pub fn and_default(&mut self, new_range: &str) {
-        self.and_range(&mut Range::init(new_range));
+        self.and_range(&mut Self::init(new_range));
     }
 
-    pub fn and_range(&mut self, new_range: &mut Range) {
+    pub fn and_range(&mut self, new_range: &mut Self) {
         self.bounds.append(new_range.mut_bounds());
         self.sort_and();
     }
@@ -105,7 +105,7 @@ impl Range {
         self.or_range(&range);
     }
 
-    pub fn or_range(&mut self, that: &Range) {
+    pub fn or_range(&mut self, that: &Self) {
         let mut result_bounds = Vec::new();
         for bound in self.bounds() {
             for that_bound in that.bounds() {
@@ -118,7 +118,7 @@ impl Range {
         self.bounds = result_bounds;
     }
 
-    pub fn overlaps_range_to_others(&self, o: &Range) -> bool {
+    pub fn overlaps_range_to_others(&self, o: &Self) -> bool {
         if o.bounds().len() == 0 {
             return true;
         }
@@ -131,7 +131,7 @@ impl Range {
         result
     }
 
-    pub fn range_contains(&self, that: &Range) -> bool {
+    pub fn range_contains(&self, that: &Self) -> bool {
         if self.bounds().len() == 0 && that.bounds().len() == 0 {
             return true;
         }
@@ -151,7 +151,7 @@ impl Range {
         if self.bounds().len() == 0 {
             String::from("∅")
         } else {
-            Range::init(
+            Self::init(
                 &self.create_all_points(
                     self.bounds()[0].left().element().floor() as usize,
                     self.bounds()[self.bounds.len() - 1]
@@ -207,15 +207,14 @@ impl Range {
         o2_right_element: f64,
         o2_right_contains: bool,
     ) -> &'static str {
-        if Range::right_contains_to_string(
+        if Self::right_contains_to_string(
             o1_right_element,
             o1_right_contains,
             o2_right_element,
             o2_right_contains,
-        ) || Range::right_element_out_of_range(o1_right_element, o2_right_element)
+        ) || Self::right_element_out_of_range(o1_right_element, o2_right_element)
             && o1_right_contains
-            || Range::right_element_in_range(o1_right_element, o2_right_element)
-                && o2_right_contains
+            || Self::right_element_in_range(o1_right_element, o2_right_element) && o2_right_contains
         {
             "]"
         } else {
@@ -229,12 +228,12 @@ impl Range {
         o2_left_element: f64,
         o2_left_contains: bool,
     ) -> &'static str {
-        if Range::left_contains_to_string(
+        if Self::left_contains_to_string(
             o1_left_element,
             o1_left_contains,
             o2_left_element,
             o2_left_contains,
-        ) || Range::left_element_not_equals_and_contains(
+        ) || Self::left_element_not_equals_and_contains(
             o1_left_element,
             o2_left_element,
             o1_left_contains,
@@ -325,7 +324,7 @@ impl Range {
         } else if trim_range_string == "" || trim_range_string == "{}" {
             vec![]
         } else {
-            Range::init_collections(range_string)
+            Self::init_collections(range_string)
         }
     }
 
@@ -341,7 +340,7 @@ impl Range {
     fn create_all_points(&self, left: usize, right: usize) -> String {
         let mut matched = Vec::new();
         for i in left..right {
-            if self.range_contains(&Range::init(&format!("{{{}}}", i))) {
+            if self.range_contains(&Self::init(&format!("{{{}}}", i))) {
                 matched.push(i);
             }
         }

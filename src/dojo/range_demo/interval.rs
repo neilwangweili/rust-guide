@@ -37,8 +37,8 @@ impl Interval {
         }
     }
 
-    pub fn over_close_range(&self, o: &Interval) -> bool {
-        let (o1, o2) = Interval::swap_asc(&self, o);
+    pub fn over_close_range(&self, o: &Self) -> bool {
+        let (o1, o2) = Self::swap_asc(&self, o);
         if Self::cover_end_points(o1, o2) || Self::has_one_big_contains(o1, o2) {
             Self::element_eq_lt(o1, o2)
         } else {
@@ -50,7 +50,7 @@ impl Interval {
         format!("{}, {}", self.left.show(), self.right.show())
     }
 
-    pub fn equals(&self, that: &Interval) -> bool {
+    pub fn equals(&self, that: &Self) -> bool {
         self.right().equals(that.right()) && self.left().equals(that.left())
     }
 
@@ -66,7 +66,7 @@ impl Interval {
         &self.left().element() == &self.right().element()
     }
 
-    pub fn range_contains(&self, that: &Interval) -> bool {
+    pub fn range_contains(&self, that: &Self) -> bool {
         if self.out_of_range(that) {
             false
         } else if self.in_range(that) {
@@ -80,11 +80,11 @@ impl Interval {
         }
     }
 
-    fn has_one_big_contains(o1: &Interval, o2: &Interval) -> bool {
+    fn has_one_big_contains(o1: &Self, o2: &Self) -> bool {
         o1.right.contains() ^ o2.left.contains()
     }
 
-    fn cal_right_bound(o1: &Interval, o2: &Interval) -> (f64, bool) {
+    fn cal_right_bound(o1: &Self, o2: &Self) -> (f64, bool) {
         (
             if Self::right_element_lt(o1, o2) {
                 o2.right().element()
@@ -103,7 +103,7 @@ impl Interval {
         )
     }
 
-    fn cal_left_bound(o1: &Interval, o2: &Interval) -> (f64, bool) {
+    fn cal_left_bound(o1: &Self, o2: &Self) -> (f64, bool) {
         (
             o2.left().element(),
             if Self::left_element_lt(o1, o2) {
@@ -114,74 +114,74 @@ impl Interval {
         )
     }
 
-    fn left_element_lt(o1: &Interval, o2: &Interval) -> bool {
+    fn left_element_lt(o1: &Self, o2: &Self) -> bool {
         o1.left().element() < o2.left().element()
     }
 
-    fn right_element_lt(o1: &Interval, o2: &Interval) -> bool {
+    fn right_element_lt(o1: &Self, o2: &Self) -> bool {
         o2.right().element() < o1.right().element()
     }
 
-    fn right_element_gt(o1: &Interval, o2: &Interval) -> bool {
+    fn right_element_gt(o1: &Self, o2: &Self) -> bool {
         o2.right().element() > o1.right().element()
     }
 
-    fn element_lt(o1: &Interval, o2: &Interval) -> bool {
+    fn element_lt(o1: &Self, o2: &Self) -> bool {
         o1.right.element() > o2.left.element()
     }
 
-    fn element_eq_lt(o1: &Interval, o2: &Interval) -> bool {
+    fn element_eq_lt(o1: &Self, o2: &Self) -> bool {
         o1.right.element() >= o2.left.element()
     }
 
-    fn cover_end_points(o1: &Interval, o2: &Interval) -> bool {
+    fn cover_end_points(o1: &Self, o2: &Self) -> bool {
         o1.right.contains() && o2.left.contains()
     }
 
-    fn swap_asc<'a>(o1: &'a Interval, o2: &'a Interval) -> (&'a Interval, &'a Interval) {
+    fn swap_asc<'a>(o1: &'a Self, o2: &'a Self) -> (&'a Self, &'a Self) {
         match o1.left.element() < o2.left.element() {
             true => (o1, o2),
             false => (o2, o1),
         }
     }
 
-    fn left_bound_contains(&self, that: &Interval) -> bool {
+    fn left_bound_contains(&self, that: &Self) -> bool {
         self.left().contains() || !that.left().contains()
     }
 
-    fn out_of_range(&self, that: &Interval) -> bool {
+    fn out_of_range(&self, that: &Self) -> bool {
         !self.in_range(that) && !self.right_element_equals(that) && !self.left_element_equals(that)
     }
 
-    fn in_range(&self, that: &Interval) -> bool {
+    fn in_range(&self, that: &Self) -> bool {
         self.left_in_range(that) && self.right_in_range(that)
     }
 
-    fn right_in_range(&self, that: &Interval) -> bool {
+    fn right_in_range(&self, that: &Self) -> bool {
         self.right().element() > that.right().element()
     }
 
-    fn left_in_range(&self, that: &Interval) -> bool {
+    fn left_in_range(&self, that: &Self) -> bool {
         self.left().element() < that.left().element()
     }
 
-    fn left_in_range_right_equals(&self, that: &Interval) -> bool {
+    fn left_in_range_right_equals(&self, that: &Self) -> bool {
         self.left_in_range(that) && self.right_element_equals(that)
     }
 
-    fn right_element_equals(&self, that: &Interval) -> bool {
+    fn right_element_equals(&self, that: &Self) -> bool {
         self.right().element() == that.right().element()
     }
 
-    fn right_in_range_left_equals(&self, that: &Interval) -> bool {
+    fn right_in_range_left_equals(&self, that: &Self) -> bool {
         self.left_element_equals(that) && self.right_in_range(that)
     }
 
-    fn left_element_equals(&self, that: &Interval) -> bool {
+    fn left_element_equals(&self, that: &Self) -> bool {
         self.left().element() == that.left().element()
     }
 
-    fn right_bound_contains(&self, that: &Interval) -> bool {
+    fn right_bound_contains(&self, that: &Self) -> bool {
         self.right().contains() || !that.right().contains()
     }
 }

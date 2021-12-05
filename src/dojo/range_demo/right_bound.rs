@@ -8,7 +8,7 @@ impl RightBound {
     pub fn init(bound_string: &str) -> Self {
         Self {
             self_bound: Bound::init(
-                RightBound::get_element(bound_string),
+                Self::get_element(bound_string),
                 Bound::is_contains_bound(bound_string),
             ),
         }
@@ -37,7 +37,7 @@ impl RightBound {
         })
     }
 
-    pub fn equals(&self, that: &RightBound) -> bool {
+    pub fn equals(&self, that: &Self) -> bool {
         self.element() == that.element() && self.contains() == that.contains()
     }
 
