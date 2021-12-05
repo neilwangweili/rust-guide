@@ -1,6 +1,6 @@
-use std::any::Any;
-use std::ops::Add;
 use crate::dojo::range_demo::interval::Interval;
+
+
 
 pub struct Range {
     bounds: Vec<Interval>,
@@ -19,7 +19,11 @@ impl Range {
             return false;
         }
         for i in 0..self.bounds().len() {
-            result &= self.bounds().get(i).unwrap().equals(that.bounds().get(i).unwrap());
+            result &= self
+                .bounds()
+                .get(i)
+                .unwrap()
+                .equals(that.bounds().get(i).unwrap());
         }
         result
     }

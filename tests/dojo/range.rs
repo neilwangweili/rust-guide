@@ -223,3 +223,31 @@ fn e3_5_not_equals_e2_10() {
     let range_2 = Range::init("[2,10)");
     assert_eq!(range.equals(&range_2), false);
 }
+
+#[test]
+fn e3_5_not_equals_3_5() {
+    let range = Range::init("[3,5)");
+    let range_2 = Range::init("(3,5)");
+    assert_eq!(range.equals(&range_2), false);
+}
+
+#[test]
+fn m3_5_not_equals_3_e5() {
+    let range = Range::init("(3,5)");
+    let range_2 = Range::init("(3,5]");
+    assert_eq!(range.equals(&range_2), false);
+}
+
+#[test]
+fn e3_e5_not_equals_e3_e6() {
+    let range = Range::init("[3,5]");
+    let range_2 = Range::init("[3,6]");
+    assert_eq!(range.equals(&range_2), false);
+}
+
+#[test]
+fn e3_e5_not_equals_e2_e5() {
+    let range = Range::init("[3,5]");
+    let range_2 = Range::init("[2,5]");
+    assert_eq!(range.equals(&range_2), false);
+}
