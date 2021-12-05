@@ -206,4 +206,25 @@ impl Range {
         }
         result
     }
+
+    pub fn get_all_points(&self) -> String {
+        let left = self.bounds()[0].left().element().floor() as usize;
+        let right = self.bounds()[self.bounds.len() - 1].right().element().ceil() as usize;
+        let mut matched = Vec::new();
+        for i in left..right {
+            if self.range_contains(&Range::init(&format!("{{{}}}", i))) {
+                matched.push(i);
+            }
+        }
+        let mut result_str = String::from("{");
+        for i in 0..matched.len() {
+            if i < matched.len() - 1 {
+                result_str = result_str + &matched.get(i).unwrap().to_string() + ",";
+            } else {
+                result_str += &matched.get(i).unwrap().to_string();
+            }
+        }
+        result_str += "}";
+        Range::init(&result_str).show()
+    }
 }

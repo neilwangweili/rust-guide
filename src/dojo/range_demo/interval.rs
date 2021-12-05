@@ -1,5 +1,4 @@
 use crate::dojo::range_demo::left_bound::LeftBound;
-use crate::dojo::range_demo::range::Range;
 use crate::dojo::range_demo::right_bound::RightBound;
 
 pub struct Interval {
