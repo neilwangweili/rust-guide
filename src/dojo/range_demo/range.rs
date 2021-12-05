@@ -88,14 +88,8 @@ impl Range {
             if !o1.over_close_range(o2) {
                 continue;
             }
-            let o1_left_element = o1.left().element();
-            let o1_left_contains = o1.left().contains();
-            let o1_right_element = o1.right().element();
-            let o1_right_contains = o1.right().contains();
-            let o2_left_element = o2.left().element();
-            let o2_left_contains = o2.left().contains();
-            let o2_right_element = o2.right().element();
-            let o2_right_contains = o2.right().contains();
+            let (o1_left_element, o1_left_contains, o1_right_element, o1_right_contains) = Self::get_bounds_values(o1);
+            let (o2_left_element, o2_left_contains, o2_right_element, o2_right_contains) = Self::get_bounds_values(o2);
             bounds.remove(i + 1);
             bounds.remove(i);
             let left_contains = if o1_left_element == o2_left_element
@@ -171,6 +165,10 @@ impl Range {
             .element()
             .ceil() as usize;
         Range::init(&self.create_all_points(left, right)).show()
+    }
+
+    fn get_bounds_values(o1: &Interval) -> (f64, bool, f64, bool) {
+        (o1.left().element(), o1.left().contains(), o1.right().element(), o1.right().contains())
     }
 
     fn sort_and(&mut self) {
