@@ -167,7 +167,7 @@ impl Range {
                     .ceil() as usize,
             ),
         )
-            .show()
+        .show()
     }
 
     fn cal_right_contains(
@@ -184,7 +184,7 @@ impl Range {
         ) || Range::right_element_out_of_range(o1_right_element, o2_right_element)
             && o1_right_contains
             || Range::right_element_in_range(o1_right_element, o2_right_element)
-            && o2_right_contains
+                && o2_right_contains
         {
             "]"
         } else {
