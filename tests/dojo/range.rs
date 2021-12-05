@@ -640,3 +640,21 @@ fn integration_or() {
         "[1.5, 2] ∪ [3, 3.5) ∪ [3.7, 4) ∪ [9, 10] ∪ {5, 6, 7, 8}"
     );
 }
+
+#[test]
+fn should_create_unlimited() {
+    let mut range = Range::init("[1,+∞)");
+    assert_eq!(range.show(), "[1, +∞)");
+}
+
+#[test]
+fn should_create_unlimited_2() {
+    let mut range = Range::init("(-∞,2)");
+    assert_eq!(range.show(), "(-∞, 2)");
+}
+
+#[test]
+fn should_create_unlimited_3() {
+    let mut range = Range::init("(-∞,+∞)");
+    assert_eq!(range.show(), "(-∞, +∞)");
+}

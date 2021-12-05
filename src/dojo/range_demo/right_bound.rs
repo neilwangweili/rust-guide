@@ -15,11 +15,19 @@ impl RightBound {
     }
 
     fn get_element(bound_string: &str) -> f64 {
-        bound_string[0..(bound_string.len() - 1)].parse().unwrap()
+        if bound_string.contains("+∞") {
+            f64::MAX
+        } else {
+            bound_string[0..(bound_string.len() - 1)].parse().unwrap()
+        }
     }
 
     pub fn show(&self) -> String {
-        format!("{}{}", self.self_bound.element(), self.get_contains_tag())
+        format!("{}{}", if self.self_bound.element() == f64::MAX {
+            String::from("+∞")
+        } else {
+            String::from(self.self_bound.element().to_string())
+        }, self.get_contains_tag())
     }
 
     pub fn get_contains_tag(&self) -> String {

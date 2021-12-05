@@ -15,11 +15,19 @@ impl LeftBound {
     }
 
     fn get_element(bound_string: &str) -> f64 {
-        bound_string[1..].parse().unwrap()
+        if bound_string.contains("-∞") {
+            f64::MIN
+        } else {
+            bound_string[1..].parse().unwrap()
+        }
     }
 
     pub fn show(&self) -> String {
-        format!("{}{}", self.get_contains_tag(), self.self_bound.element())
+        format!("{}{}", self.get_contains_tag(), if self.self_bound.element() == f64::MIN {
+            String::from("-∞")
+        } else {
+            String::from(self.self_bound.element().to_string())
+        })
     }
 
     pub fn get_contains_tag(&self) -> String {
