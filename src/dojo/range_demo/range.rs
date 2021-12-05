@@ -92,35 +92,8 @@ impl Range {
             let (o2_left_element, o2_left_contains, o2_right_element, o2_right_contains) = Self::get_bounds_values(o2);
             bounds.remove(i + 1);
             bounds.remove(i);
-            let left_contains = if o1_left_element == o2_left_element
-                && (o1_left_contains || o2_left_contains)
-            {
-                "["
-            } else if o1_left_element == o2_left_element && !(o1_left_contains || o2_left_contains)
-            {
-                "("
-            } else if o1_left_element != o2_left_element && o1_left_contains {
-                "["
-            } else {
-                "("
-            };
-            let right_contains = if o1_right_element == o2_right_element
-                && (o1_right_contains || o2_right_contains)
-            {
-                "]"
-            } else if o1_right_element == o2_right_element
-                && !(o1_right_contains || o2_right_contains)
-            {
-                ")"
-            } else if o1_right_element > o2_right_element && o1_right_contains {
-                "]"
-            } else if o1_right_element > o2_right_element && !o1_right_contains {
-                ")"
-            } else if o1_right_element < o2_right_element && o2_right_contains {
-                "]"
-            } else {
-                ")"
-            };
+            let left_contains = Self::cal_left_contains(o1_left_element, o1_left_contains, o2_left_element, o2_left_contains);
+            let right_contains = Self::cal_right_contains(o1_right_element, o1_right_contains, o2_right_element, o2_right_contains);
             bounds.insert(
                 i,
                 Interval::init(format!(
@@ -165,6 +138,37 @@ impl Range {
             .element()
             .ceil() as usize;
         Range::init(&self.create_all_points(left, right)).show()
+    }
+
+    fn cal_right_contains(o1_right_element: f64, o1_right_contains: bool, o2_right_element: f64, o2_right_contains: bool) -> &str {
+        if o1_right_element == o2_right_element && (o1_right_contains || o2_right_contains) {
+            "]"
+        } else if o1_right_element == o2_right_element
+            && !(o1_right_contains || o2_right_contains)
+        {
+            ")"
+        } else if o1_right_element > o2_right_element && o1_right_contains {
+            "]"
+        } else if o1_right_element > o2_right_element && !o1_right_contains {
+            ")"
+        } else if o1_right_element < o2_right_element && o2_right_contains {
+            "]"
+        } else {
+            ")"
+        }
+    }
+
+    fn cal_left_contains(o1_left_element: f64, o1_left_contains: bool, o2_left_element: f64, o2_left_contains: bool) -> &str {
+        if o1_left_element == o2_left_element && (o1_left_contains || o2_left_contains) {
+            "["
+        } else if o1_left_element == o2_left_element && !(o1_left_contains || o2_left_contains)
+        {
+            "("
+        } else if o1_left_element != o2_left_element && o1_left_contains {
+            "["
+        } else {
+            "("
+        }
     }
 
     fn get_bounds_values(o1: &Interval) -> (f64, bool, f64, bool) {
