@@ -101,7 +101,7 @@ impl Range {
     }
 
     pub fn or_default(&mut self, that: &str) {
-        let mut range = Self::init(that);
+        let range = Self::init(that);
         self.or_range(&range);
     }
 

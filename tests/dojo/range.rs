@@ -635,5 +635,8 @@ fn integration_or() {
     range_2.and_default("[3.7,4)");
     range_2.and_default("[5,11]");
     range.or_range(&range_2);
-    assert_eq!(range.show(), "[1.5, 2] ∪ [3, 3.5) ∪ [3.7, 4) ∪ [9, 10] ∪ {5, 6, 7, 8}");
+    assert_eq!(
+        range.show(),
+        "[1.5, 2] ∪ [3, 3.5) ∪ [3.7, 4) ∪ [9, 10] ∪ {5, 6, 7, 8}"
+    );
 }
