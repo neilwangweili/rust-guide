@@ -23,11 +23,15 @@ impl RightBound {
     }
 
     pub fn show(&self) -> String {
-        format!("{}{}", if self.self_bound.element() == f64::MAX {
-            String::from("+∞")
-        } else {
-            String::from(self.self_bound.element().to_string())
-        }, self.get_contains_tag())
+        format!(
+            "{}{}",
+            if self.self_bound.element() == f64::MAX {
+                String::from("+∞")
+            } else {
+                String::from(self.self_bound.element().to_string())
+            },
+            self.get_contains_tag()
+        )
     }
 
     pub fn get_contains_tag(&self) -> String {

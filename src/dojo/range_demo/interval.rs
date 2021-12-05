@@ -8,7 +8,8 @@ pub struct Interval {
 
 impl Interval {
     pub fn init(interval_string: String) -> Self {
-        let elements: Vec<&str> = interval_string.split(",").collect();
+        let string = interval_string.replace(" ", "");
+        let elements: Vec<&str> = string.split(",").collect();
         Self {
             left: LeftBound::init(elements[0]),
             right: RightBound::init(elements[1]),
@@ -78,6 +79,10 @@ impl Interval {
         } else {
             self.left_bound_contains(that) && self.right_bound_contains(that)
         }
+    }
+
+    pub fn has_unlimited(&self) -> bool {
+        self.left().element() == f64::MIN || self.right().element() == f64::MAX
     }
 
     fn has_one_big_contains(o1: &Self, o2: &Self) -> bool {

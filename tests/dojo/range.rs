@@ -643,18 +643,78 @@ fn integration_or() {
 
 #[test]
 fn should_create_unlimited() {
-    let mut range = Range::init("[1,+∞)");
+    let range = Range::init("[1,+∞)");
     assert_eq!(range.show(), "[1, +∞)");
 }
 
 #[test]
 fn should_create_unlimited_2() {
-    let mut range = Range::init("(-∞,2)");
+    let range = Range::init("(-∞,2)");
     assert_eq!(range.show(), "(-∞, 2)");
 }
 
 #[test]
 fn should_create_unlimited_3() {
-    let mut range = Range::init("(-∞,+∞)");
+    let range = Range::init("(-∞,+∞)");
     assert_eq!(range.show(), "(-∞, +∞)");
+}
+
+#[test]
+fn should_unlimited_and() {
+    let mut range = Range::init("(-∞,2)");
+    range.and_default("[2,3]");
+    assert_eq!(range.show(), "(-∞, 3]");
+}
+
+#[test]
+fn should_unlimited_and_2() {
+    let mut range = Range::init("(-∞,2)");
+    range.and_default("[2,+∞)");
+    assert_eq!(range.show(), "(-∞, +∞)");
+}
+
+#[test]
+fn should_unlimited_or() {
+    let mut range = Range::init("(-∞,+∞)");
+    range.or_default("[2,+∞)");
+    assert_eq!(range.show(), "[2, +∞)");
+}
+
+#[test]
+fn should_unlimited_or_2() {
+    let mut range = Range::init("(-∞,+∞)");
+    range.or_default("[2,3)");
+    assert_eq!(range.show(), "[2, 3)");
+}
+
+#[test]
+fn should_unlimited_overlaps_range_to_others() {
+    let mut range = Range::init("(-∞,+∞)");
+    assert_eq!(range.overlaps_range_to_others(&Range::init("{1,2,3,4,5}")), true);
+}
+
+#[test]
+fn should_unlimited_overlaps_range_to_others_2() {
+    let mut range = Range::init("(-∞,2)");
+    assert_eq!(range.overlaps_range_to_others(&Range::init("(3,+∞)")), false);
+}
+
+#[test]
+fn should_unlimited_range_contains() {
+    let mut range = Range::init("(-∞,2)");
+    assert_eq!(range.range_contains(&Range::init("(1,+∞)")), false);
+}
+
+#[test]
+fn should_unlimited_range_covered() {
+    let mut range = Range::init("(-∞,2)");
+    range.and_default("{3,4,5,6}");
+    assert_eq!(range.range_contains(&Range::init("{3}")), true);
+}
+
+#[test]
+fn should_unlimited_get_all_points() {
+    let mut range = Range::init("(-∞,2)");
+    range.and_default("{3,4,5,6}");
+    assert_eq!(range.get_all_points(), "(-∞, 2) ∪ {3, 4, 5, 6}");
 }
