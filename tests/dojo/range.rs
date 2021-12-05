@@ -379,6 +379,6 @@ fn should_2_e6_not_contains_n_2() {
 
 #[test]
 fn should_e2_6_return_2_3_4_5() {
-    let mut range = Range::init("[2,6)");
+    let range = Range::init("[2,6)");
     assert_eq!(range.get_all_points(), "{2, 3, 4, 5}");
 }

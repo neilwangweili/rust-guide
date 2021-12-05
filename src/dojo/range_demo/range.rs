@@ -209,7 +209,10 @@ impl Range {
 
     pub fn get_all_points(&self) -> String {
         let left = self.bounds()[0].left().element().floor() as usize;
-        let right = self.bounds()[self.bounds.len() - 1].right().element().ceil() as usize;
+        let right = self.bounds()[self.bounds.len() - 1]
+            .right()
+            .element()
+            .ceil() as usize;
         let mut matched = Vec::new();
         for i in left..right {
             if self.range_contains(&Range::init(&format!("{{{}}}", i))) {
