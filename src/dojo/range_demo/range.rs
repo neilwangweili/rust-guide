@@ -121,15 +121,10 @@ impl Range {
             let mut result = if bounds.len() == 0 {
                 Self::init("")
             } else {
-                Self::init(
-                    &self.create_all_points(
-                        bounds[0].left().element().floor() as usize,
-                        bounds[bounds.len() - 1]
-                            .right()
-                            .element()
-                            .ceil() as usize,
-                    ),
-                )
+                Self::init(&self.create_all_points(
+                    bounds[0].left().element().floor() as i32,
+                    bounds[bounds.len() - 1].right().element().ceil() as i32,
+                ))
             };
             for bound in unlimited_bounds {
                 result.and_interval(Interval::init(bound.show()));
@@ -355,7 +350,7 @@ impl Range {
         interval
     }
 
-    fn create_all_points(&self, left: usize, right: usize) -> String {
+    fn create_all_points(&self, left: i32, right: i32) -> String {
         let mut matched = Vec::new();
         for i in left..=right {
             if self.range_contains(&Self::init(&format!("{{{}}}", i))) {

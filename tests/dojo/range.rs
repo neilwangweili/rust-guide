@@ -689,19 +689,25 @@ fn should_unlimited_or_2() {
 
 #[test]
 fn should_unlimited_overlaps_range_to_others() {
-    let mut range = Range::init("(-∞,+∞)");
-    assert_eq!(range.overlaps_range_to_others(&Range::init("{1,2,3,4,5}")), true);
+    let range = Range::init("(-∞,+∞)");
+    assert_eq!(
+        range.overlaps_range_to_others(&Range::init("{1,2,3,4,5}")),
+        true
+    );
 }
 
 #[test]
 fn should_unlimited_overlaps_range_to_others_2() {
-    let mut range = Range::init("(-∞,2)");
-    assert_eq!(range.overlaps_range_to_others(&Range::init("(3,+∞)")), false);
+    let range = Range::init("(-∞,2)");
+    assert_eq!(
+        range.overlaps_range_to_others(&Range::init("(3,+∞)")),
+        false
+    );
 }
 
 #[test]
 fn should_unlimited_range_contains() {
-    let mut range = Range::init("(-∞,2)");
+    let range = Range::init("(-∞,2)");
     assert_eq!(range.range_contains(&Range::init("(1,+∞)")), false);
 }
 
@@ -717,4 +723,17 @@ fn should_unlimited_get_all_points() {
     let mut range = Range::init("(-∞,2)");
     range.and_default("{3,4,5,6}");
     assert_eq!(range.get_all_points(), "(-∞, 2) ∪ {3, 4, 5, 6}");
+}
+
+#[test]
+fn should_unlimited_get_all_points_2() {
+    let mut range = Range::init("(2,+∞)");
+    range.and_default("{-1}");
+    assert_eq!(range.get_all_points(), "(2, +∞) ∪ {-1}");
+}
+
+#[test]
+fn should_unlimited_get_all_points_3() {
+    let range = Range::init("(-∞,+∞)");
+    assert_eq!(range.get_all_points(), "(-∞, +∞)");
 }
