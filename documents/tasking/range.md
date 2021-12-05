@@ -84,6 +84,6 @@
 
 #### equals
 - [x] e3_5_equals_e3_5 -> true
-- [ ] e2_10_not_equals_e3_5 -> false
+- [x] e2_10_not_equals_e3_5 -> false
 - [ ] e2_5_not_equals_e3_10 -> false
 - [ ] e3_5_not_equals_e2_10 -> true

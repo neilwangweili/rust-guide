@@ -21,7 +21,7 @@ impl Range {
         for i in 0..self.bounds().len() {
             result &= self.bounds().get(i).unwrap().equals(that.bounds().get(i).unwrap());
         }
-        !result
+        result
     }
 
     pub fn show(&self) -> String {
