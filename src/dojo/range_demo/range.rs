@@ -154,6 +154,25 @@ impl Range {
         result
     }
 
+    pub fn range_contains(&self, that: &Range) -> bool {
+        let mut result = true;
+        for bound in self.bounds().iter() {
+            for that_bound in that.bounds().iter() {
+                result &= bound.range_contains(that_bound);
+            }
+        }
+        result
+    }
+
+    pub fn get_all_points(&self) -> String {
+        let left = self.bounds()[0].left().element().floor() as usize;
+        let right = self.bounds()[self.bounds.len() - 1]
+            .right()
+            .element()
+            .ceil() as usize;
+        Range::init(&self.create_all_points(left, right)).show()
+    }
+
     fn sort_and(&mut self) {
         self.sort();
         self.and();
@@ -197,22 +216,7 @@ impl Range {
         interval
     }
 
-    pub fn range_contains(&self, that: &Range) -> bool {
-        let mut result = true;
-        for bound in self.bounds().iter() {
-            for that_bound in that.bounds().iter() {
-                result &= bound.range_contains(that_bound);
-            }
-        }
-        result
-    }
-
-    pub fn get_all_points(&self) -> String {
-        let left = self.bounds()[0].left().element().floor() as usize;
-        let right = self.bounds()[self.bounds.len() - 1]
-            .right()
-            .element()
-            .ceil() as usize;
+    fn create_all_points(&self, left: usize, right: usize) -> String {
         let mut matched = Vec::new();
         for i in left..right {
             if self.range_contains(&Range::init(&format!("{{{}}}", i))) {
@@ -228,6 +232,6 @@ impl Range {
             }
         }
         result_str += "}";
-        Range::init(&result_str).show()
+        result_str
     }
 }
