@@ -271,3 +271,16 @@ fn should_create_collection_add_interval_correctly() {
     range.and_default("[-1,1.5)");
     assert_eq!(range.show(), "[-1, 1.5) ∪ {2, 3, 4, 5}");
 }
+
+#[test]
+fn should_e2_6_contains_2_4() {
+    let range = Range::init("[2,6)");
+    let range_2 = Range::init("(2,4)");
+    assert_eq!(range.range_contains(&range_2), true);
+}
+
+// #[test]
+// fn should_e2_6_return_2_3_4_5() {
+//     let mut range = Range::init("[2,6)");
+//     assert_eq!(range.get_all_points(), "[-1, 1.5) ∪ {2, 3, 4, 5}");
+// }

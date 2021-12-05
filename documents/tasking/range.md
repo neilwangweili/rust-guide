@@ -66,7 +66,7 @@
 #### or
 
 #### integer range contains
-- [ ] should_e2_6_contains_2_4 -> true
+- [x] should_e2_6_contains_2_4 -> true
 - [ ] should_e2_6_not_contains_n1_1_6_10 -> false
 
 #### getAllPoints

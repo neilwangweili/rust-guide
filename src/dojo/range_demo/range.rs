@@ -196,4 +196,14 @@ impl Range {
         }
         interval
     }
+
+    pub fn range_contains(&self, that: &Range) -> bool {
+        let mut result = true;
+        for bound in self.bounds().iter() {
+            for that_bound in that.bounds().iter() {
+                result &= bound.range_contains(that_bound);
+            }
+        }
+        result
+    }
 }
