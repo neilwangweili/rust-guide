@@ -48,6 +48,14 @@ fn should_e2_6_and_7_8_return_e2_7_interval() {
 }
 
 #[test]
+fn should_e2_6_and_7_8_and_5_8e_return_e2_e8() {
+    let mut range = Range::init("(7,8)");
+    range.and_interval(Interval::init(String::from("[2,6)")));
+    range.and_interval(Interval::init(String::from("[6,8]")));
+    assert_eq!(range.show(), "[2, 8]");
+}
+
+#[test]
 fn should_e2_6_and_3_8_return_e2_8() {
     let mut range = Range::init("(3,8)");
     range.and_default(" [2, 6 )");

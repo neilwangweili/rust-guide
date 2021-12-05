@@ -51,14 +51,14 @@ impl Range {
     }
 
     pub fn and(&mut self) {
-        if !self.overlaps_range() {
+        if !self.over_close_range() {
             return;
         }
         let bounds = self.sort();
-        for i in bounds.len() - 2..=0 {
+        for i in (0..bounds.len() - 1).rev() {
             let o1: &Interval = bounds.get(i).unwrap();
             let o2: &Interval = bounds.get(i + 1).unwrap();
-            if !o1.overlaps_range(o2) {
+            if !o1.over_close_range(o2) {
                 continue;
             }
             let o1_left_element = o1.left().element();
@@ -135,13 +135,13 @@ impl Range {
         result
     }
 
-    fn overlaps_range(&self) -> bool {
+    fn over_close_range(&self) -> bool {
         let mut result = false;
         for i in 0..self.bounds.len() {
             let bound = &self.bounds[i];
             for j in i + 1..self.bounds.len() {
                 let self_bound = &self.bounds[j];
-                result |= bound.overlaps_range(self_bound);
+                result |= bound.over_close_range(self_bound);
             }
         }
         result

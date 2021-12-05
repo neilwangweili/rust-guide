@@ -24,6 +24,16 @@ impl Interval {
         }
     }
 
+    pub fn over_close_range(&self, o: &Interval) -> bool {
+        let (o1, o2) = Interval::swap_asc(&self, o);
+        if (o1.right.contains() && o2.left.contains()) || (o1.right.contains() ^ o2.left.contains())
+        {
+            o1.right.element() >= o2.left.element()
+        } else {
+            o1.right.element() > o2.left.element()
+        }
+    }
+
     pub fn show(&self) -> String {
         format!("{}, {}", self.left.show(), self.right.show())
     }
