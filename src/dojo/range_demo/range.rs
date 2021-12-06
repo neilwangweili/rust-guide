@@ -34,10 +34,6 @@ impl Range {
         }
     }
 
-    pub fn mut_bounds(&mut self) -> &mut Vec<Interval> {
-        &mut self.bounds
-    }
-
     pub fn bounds(&self) -> &Vec<Interval> {
         &self.bounds
     }
@@ -212,6 +208,10 @@ impl Range {
             }
         }
         result
+    }
+
+    fn mut_bounds(&mut self) -> &mut Vec<Interval> {
+        &mut self.bounds
     }
 
     fn cal_right_contains(
