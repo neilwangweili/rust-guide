@@ -163,7 +163,7 @@ impl Interval {
     }
 
     fn right_in_range(&self, that: &Self) -> bool {
-        self.right().element() > that.right().element()
+        self.right().right_in_range(that.right())
     }
 
     fn left_in_range(&self, that: &Self) -> bool {

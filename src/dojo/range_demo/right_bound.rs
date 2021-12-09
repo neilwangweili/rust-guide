@@ -1,5 +1,6 @@
 use crate::dojo::range_demo::bound::Bound;
 
+
 pub struct RightBound {
     self_bound: Bound,
 }
@@ -12,6 +13,10 @@ impl RightBound {
                 Bound::is_contains_bound(bound_string),
             ),
         }
+    }
+
+    pub fn right_in_range(&self, that: &Self) -> bool {
+        self.element() > that.element()
     }
 
     fn get_element(bound_string: &str) -> f64 {
