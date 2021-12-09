@@ -82,7 +82,7 @@ impl Interval {
     }
 
     pub fn has_unlimited(&self) -> bool {
-        self.left().element() == f64::MIN || self.right().element() == f64::MAX
+        self.left().has_unlimited() || self.right().has_unlimited()
     }
 
     fn has_one_big_contains(o1: &Self, o2: &Self) -> bool {

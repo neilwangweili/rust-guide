@@ -1,6 +1,5 @@
 use crate::dojo::range_demo::bound::Bound;
 
-
 pub struct RightBound {
     self_bound: Bound,
 }
@@ -17,6 +16,10 @@ impl RightBound {
 
     pub fn right_in_range(&self, that: &Self) -> bool {
         self.element() > that.element()
+    }
+
+    pub fn has_unlimited(&self) -> bool {
+        self.element() == f64::MAX
     }
 
     fn get_element(bound_string: &str) -> f64 {

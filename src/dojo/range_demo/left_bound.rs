@@ -14,12 +14,8 @@ impl LeftBound {
         }
     }
 
-    fn get_element(bound_string: &str) -> f64 {
-        if bound_string.contains("-∞") {
-            f64::MIN
-        } else {
-            bound_string[1..].parse().unwrap()
-        }
+    pub fn has_unlimited(&self) -> bool {
+        self.element() == f64::MIN
     }
 
     pub fn show(&self) -> String {
@@ -40,6 +36,14 @@ impl LeftBound {
 
     pub fn get_contains_tag_from_out(contains: bool) -> String {
         Self::get_tag(contains)
+    }
+
+    fn get_element(bound_string: &str) -> f64 {
+        if bound_string.contains("-∞") {
+            f64::MIN
+        } else {
+            bound_string[1..].parse().unwrap()
+        }
     }
 
     fn get_tag(contains: bool) -> String {
