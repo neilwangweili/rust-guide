@@ -13,6 +13,10 @@ impl GrepLine {
         &self.line
     }
 
+    pub fn show(&self) -> &str {
+        self.line()
+    }
+
     pub fn have(&self, str: &str) -> bool {
         self.line().contains(str)
     }
