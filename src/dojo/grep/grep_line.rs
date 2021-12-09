@@ -14,7 +14,7 @@ impl GrepLine {
     }
 
     pub fn have(&self, str: &str) -> bool {
-        self.line().contains(str)
+        self.line().to_lowercase().contains(str)
     }
 
     pub fn clone(&self) -> GrepLine {
