@@ -23,7 +23,7 @@ impl Grep {
         result
     }
 
-    pub fn lines(&self) -> &Vec<GrepLine> {
+    fn lines(&self) -> &Vec<GrepLine> {
         &self.lines
     }
 }

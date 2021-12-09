@@ -9,10 +9,6 @@ impl GrepLine {
         }
     }
 
-    pub fn line(&self) -> &str {
-        &self.line
-    }
-
     pub fn show(&self) -> &str {
         self.line()
     }
@@ -25,5 +21,9 @@ impl GrepLine {
         Self {
             line: String::from(self.line()),
         }
+    }
+
+    fn line(&self) -> &str {
+        &self.line
     }
 }
