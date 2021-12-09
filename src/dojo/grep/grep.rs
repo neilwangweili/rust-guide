@@ -1,5 +1,5 @@
+use crate::dojo::grep::file_scanner::FileScanner;
 use crate::dojo::grep::grep_line::GrepLine;
-use std::fs;
 
 pub struct Grep {
     lines: Vec<GrepLine>,
@@ -7,10 +7,12 @@ pub struct Grep {
 
 impl Grep {
     pub fn of(source: &str) -> Self {
-        let source_string =
-            fs::read_to_string(source).expect("Something went wrong reading the file");
-        let a = source_string.split("\n").map(|o| GrepLine::of(o)).collect();
-        Self { lines: a }
+        Self {
+            lines: FileScanner::of(source)
+                .scan()
+                .map(|o| GrepLine::of(o))
+                .collect(),
+        }
     }
 
     pub fn about(&self, str: &str) -> Vec<GrepLine> {
