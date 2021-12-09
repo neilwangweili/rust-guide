@@ -17,13 +17,15 @@ impl GrepLine {
         self.line().to_lowercase().contains(str)
     }
 
-    pub fn clone(&self) -> GrepLine {
+    fn line(&self) -> &str {
+        &self.line
+    }
+}
+
+impl Clone for GrepLine {
+    fn clone(&self) -> GrepLine {
         Self {
             line: String::from(self.line()),
         }
-    }
-
-    fn line(&self) -> &str {
-        &self.line
     }
 }

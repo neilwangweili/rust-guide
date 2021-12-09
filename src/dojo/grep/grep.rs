@@ -16,13 +16,11 @@ impl Grep {
     }
 
     pub fn about(&self, str: &str) -> Vec<GrepLine> {
-        let mut result = Vec::new();
-        for line in self.lines() {
-            if line.have(str) {
-                result.push(line.clone());
-            }
-        }
-        result
+        self.lines()
+            .iter()
+            .filter(|o| o.have(str))
+            .cloned()
+            .collect()
     }
 
     fn lines(&self) -> &Vec<GrepLine> {
