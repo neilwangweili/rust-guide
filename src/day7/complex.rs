@@ -13,7 +13,6 @@ impl Complex {
         self.b
     }
 
-
     pub fn new(a: f64, b: f64) -> Self {
         Self { a, b }
     }
