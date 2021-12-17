@@ -1,5 +1,6 @@
 use rust_guide::{add, bar, calculate_result, create_function, find_min, hash, vector};
 use std::collections::HashMap;
+use rust_guide::day7::complex::Complex;
 
 #[test]
 fn should_create_function_macro_rule_run_correctly() {
@@ -49,4 +50,11 @@ fn should_create_map_like_ruby() {
     assert_eq!(map.get(&1).unwrap(), &2);
     assert_eq!(map.get(&2).unwrap(), &3);
     assert_eq!(map.get(&3).unwrap(), &4);
+}
+
+#[test]
+fn should_rewrite_add() {
+    let z = Complex::new(2.0, 3.0) + Complex::new(4.0, 6.0);
+    assert_eq!(z.a(), 6.0);
+    assert_eq!(z.b(), 9.0);
 }

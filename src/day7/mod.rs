@@ -5,3 +5,4 @@ pub mod create_function;
 pub mod find_min;
 pub mod hash;
 pub mod vector;
+pub mod complex;
