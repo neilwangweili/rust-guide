@@ -2,7 +2,7 @@ use std::thread;
 use std::time::Duration;
 
 pub fn workout(intensity: i32, random_number: i32) -> String {
-    let expensive_closure = |intensity: i32| {
+    let expensive_closure = |intensity: i32| -> i32 {
         println!("Calculating now...");
         thread::sleep(Duration::from_secs(1));
         intensity

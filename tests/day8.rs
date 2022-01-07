@@ -1,3 +1,4 @@
+use rust_guide::day8::add_four::add_four;
 use rust_guide::day8::workout::workout;
 
 #[test]
@@ -13,4 +14,9 @@ fn should_take_a_break_when_random_number_3() {
 #[test]
 fn run_30_circles() {
     assert_eq!(workout(30, 0), "Today, run 30 circles.");
+}
+
+#[test]
+fn should_add_four_correctly() {
+    assert_eq!(add_four(1), 5);
 }
