@@ -1,4 +1,5 @@
 use rust_guide::day9::list::List::{Cons, Nil};
+use rust_guide::day9::my_box::MyBox;
 
 #[test]
 fn should_create_list_as_1_2_3_4() {
@@ -13,4 +14,10 @@ fn should_create_list_as_1_2_3_4() {
 fn should_null_return_0() {
     let list = Nil;
     assert_eq!(list.get(), 0);
+}
+
+#[test]
+fn should_my_box_test() {
+    let x = MyBox::new(5);
+    assert_eq!(*x, 5);
 }
