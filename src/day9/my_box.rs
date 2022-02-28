@@ -15,3 +15,9 @@ impl<T> Deref for MyBox<T> {
         &self.0
     }
 }
+
+impl<T> Drop for MyBox<T> {
+    fn drop(&mut self) {
+        print!("Drop!");
+    }
+}
