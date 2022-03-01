@@ -1,7 +1,7 @@
-use std::rc::Rc;
 use rust_guide::day9::list::List::{Cons, Nil};
 use rust_guide::day9::my_box::MyBox;
 use rust_guide::day9::my_rc_list::MyRcList;
+use std::rc::Rc;
 
 #[test]
 fn should_create_list_as_1_2_3_4() {
@@ -26,8 +26,11 @@ fn should_my_box_test() {
 
 #[test]
 fn my_rc_list_multi_reference_success() {
-    let a = Rc::new(MyRcList::Cons(5, Rc::new(MyRcList::Cons(4, Rc::new(MyRcList::Nil)))));
-    let b = MyRcList::Cons(3, Rc::clone(&a));
-    let c = MyRcList::Cons(4, Rc::clone(&a));
+    let a = Rc::new(MyRcList::Cons(
+        5,
+        Rc::new(MyRcList::Cons(4, Rc::new(MyRcList::Nil))),
+    ));
+    let _b = MyRcList::Cons(3, Rc::clone(&a));
+    let _c = MyRcList::Cons(4, Rc::clone(&a));
     assert_eq!(Rc::strong_count(&a), 3);
 }
