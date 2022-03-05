@@ -1,4 +1,5 @@
 use rust_guide::day9::list::List::{Cons, Nil};
+use rust_guide::day9::mock_messenger::MockMessenger;
 use rust_guide::day9::my_box::MyBox;
 use rust_guide::day9::my_rc_list::MyRcList;
 use std::rc::Rc;
@@ -33,4 +34,11 @@ fn my_rc_list_multi_reference_success() {
     let _b = MyRcList::Cons(3, Rc::clone(&a));
     let _c = MyRcList::Cons(4, Rc::clone(&a));
     assert_eq!(Rc::strong_count(&a), 3);
+}
+
+#[test]
+fn it_sends_an_over_75_percent_warning_message() {
+    let mock_messenger = MockMessenger::new();
+    mock_messenger.send("1");
+    assert_eq!(mock_messenger.sent_messages.borrow().len(), 1);
 }
