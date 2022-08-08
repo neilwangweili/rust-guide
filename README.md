@@ -19,7 +19,7 @@ cargo build
 
 Run the following script to verify that the development environment is working, or to test and validate the use case.
 ~~~shell
-sh ./scripts/check-all.sh
+sh ./scripts/check_all.sh
 ~~~
 
 ## Attention
