@@ -1,4 +1,5 @@
 use rust_guide::day8::add_four::add_four;
+use rust_guide::day8::cache::Cache;
 use rust_guide::day8::parse_type::parse_type;
 use rust_guide::day8::workout::workout;
 
@@ -20,6 +21,12 @@ fn run_30_circles() {
 #[test]
 fn should_add_four_correctly() {
     assert_eq!(add_four(1), 5);
+}
+
+#[test]
+fn should_get_some_when_cache_keeps_nothing() {
+    let mut cache = Cache::new(|it| it);
+    assert_eq!(12, cache.get(12));
 }
 
 #[test]
