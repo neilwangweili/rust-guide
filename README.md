@@ -25,6 +25,6 @@ sh ./scripts/check_all.sh
 ## Attention
 Test coverage must be 100%.
 
-## The role of this repository
+## The usages of this repository
 
 Learn Rust grammar and practice.
