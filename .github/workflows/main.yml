@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Integration test
-        run: sh ./scripts/coverage.sh
+        run: sh ./scripts/ci/check-all.sh
