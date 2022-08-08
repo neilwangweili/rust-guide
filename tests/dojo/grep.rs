@@ -9,7 +9,7 @@ fn should_init_grep() {
 #[test]
 fn should_print_grep_line() {
     let grep = Grep::of("./tests/dojo/file_for_test_grep/test1.txt").about("hello");
-    assert_eq!(grep[0].show(), "hello 1");
+    assert_eq!(true, grep[0].show().contains("hello 1"));
 }
 
 #[test]

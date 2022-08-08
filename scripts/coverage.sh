@@ -5,7 +5,7 @@ export RUSTFLAGS="-Zprofile -Ccodegen-units=1 -Copt-level=0 -Clink-dead-code -Co
 export RUSTDOCFLAGS="-Cpanic=abort"
 cargo clean
 cargo +nightly build
-cargo +nightly test -- --test-threads=1
+cargo +nightly test -- --test-threads=10
 grcov ./target/debug/ -s . -t html --llvm --branch --ignore-not-existing -o ./target/debug/coverage/
 data=$(cat ./target/debug/coverage/coverage.json | sed 's/,"/\n/g' | grep -v IAM_Server | sed 's/":"/=/g;s/"$//g;s/^{"//g;s/"}//g')
 declare $data >/dev/null 2>&1
